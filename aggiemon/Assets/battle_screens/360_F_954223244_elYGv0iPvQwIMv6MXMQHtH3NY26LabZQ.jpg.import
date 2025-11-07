@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c67sg8ffguous"
-path="res://.godot/imported/sample_tile_sheet_(definitely_not_copyrighted).png-1ba7c9df81ba82fdd6fd807a4b0f374c.ctex"
+uid="uid://dc3vuxg7g4qh3"
+path="res://.godot/imported/360_F_954223244_elYGv0iPvQwIMv6MXMQHtH3NY26LabZQ.jpg-717931f86cae6e389429aff754f3cfbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/sample_tile_sheet_(definitely_not_copyrighted).png"
-dest_files=["res://.godot/imported/sample_tile_sheet_(definitely_not_copyrighted).png-1ba7c9df81ba82fdd6fd807a4b0f374c.ctex"]
+source_file="res://Assets/battle_screens/360_F_954223244_elYGv0iPvQwIMv6MXMQHtH3NY26LabZQ.jpg"
+dest_files=["res://.godot/imported/360_F_954223244_elYGv0iPvQwIMv6MXMQHtH3NY26LabZQ.jpg-717931f86cae6e389429aff754f3cfbd.ctex"]
 
 [params]
 
