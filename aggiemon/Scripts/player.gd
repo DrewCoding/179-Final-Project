@@ -11,20 +11,20 @@ var idling : bool = false
 func _process(_delta: float) -> void:
 	#var input_direction = Input.get_action_strength("ui_right")
 	#velocity.x = input_direction * 300
-	if(Input.is_action_pressed("ui_up")):
+	if(Input.is_action_pressed("up")):
 		animation_player.play("Walk_Up")
 		position.y -= 4
-	elif(Input.is_action_pressed("ui_down")):
+	elif(Input.is_action_pressed("down")):
 		animation_player.play("Walk_down")
 		position.y += 4
-	elif(Input.is_action_pressed("ui_right")):
+	elif(Input.is_action_pressed("right")):
 		if(sprite.flip_h == true):
 			sprite.flip_h = false
 		facing_left = false
 		idling = false
 		animation_player.play("Walk_X")
 		position.x += 5
-	elif(Input.is_action_pressed("ui_left")):
+	elif(Input.is_action_pressed("left")):
 		if(sprite.flip_h == false):
 			sprite.flip_h = true
 		facing_left = true
@@ -39,8 +39,8 @@ func _process(_delta: float) -> void:
 		if not idling:
 			animation_player.play("Idle")
 			idling = true
-	if Input.is_action_just_released("ui_up"):
+	if Input.is_action_just_released("up"):
 		animation_player.pause()
-	if Input.is_action_just_released("ui_down"):
+	if Input.is_action_just_released("down"):
 		animation_player.pause()
 	move_and_slide()
