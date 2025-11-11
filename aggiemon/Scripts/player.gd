@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 	
 	velocity.x = player_speed * input_horizontal
 	velocity.y = -player_speed * input_vertical
-	velocity = velocity.limit_length(300)
+	velocity = velocity.limit_length(player_speed)
 
 	if(Input.is_action_pressed("up")):
 		animation_player.play("Walk_Up")
