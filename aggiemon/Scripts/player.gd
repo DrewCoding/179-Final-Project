@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var animation_player : AnimationPlayer
+@export var player_speed = 300
 
 var facing_left : bool = true
 var idling : bool = false
@@ -9,28 +10,29 @@ var idling : bool = false
 @onready var sprite : Sprite2D = $Sprite2D
 
 func _process(_delta: float) -> void:
-	#var input_direction = Input.get_action_strength("ui_right")
-	#velocity.x = input_direction * 300
+	var input_horizontal = Input.get_action_strength("right") - Input.get_action_strength("left")
+	var input_vertical = Input.get_action_strength("up") - Input.get_action_strength("down")
+	
+	velocity.x = player_speed * input_horizontal
+	velocity.y = -player_speed * input_vertical
+	velocity = velocity.limit_length(300)
+
 	if(Input.is_action_pressed("up")):
 		animation_player.play("Walk_Up")
-		position.y -= 4
 	elif(Input.is_action_pressed("down")):
 		animation_player.play("Walk_down")
-		position.y += 4
 	elif(Input.is_action_pressed("right")):
 		if(sprite.flip_h == true):
 			sprite.flip_h = false
 		facing_left = false
 		idling = false
 		animation_player.play("Walk_X")
-		position.x += 5
 	elif(Input.is_action_pressed("left")):
 		if(sprite.flip_h == false):
 			sprite.flip_h = true
 		facing_left = true
 		idling = false
 		animation_player.play("Walk_X")
-		position.x -= 5
 	else:
 		if facing_left:
 			sprite.flip_h = false
