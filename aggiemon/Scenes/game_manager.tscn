@@ -205,3 +205,5 @@ scale = Vector2(0.7, 0.7)
 [node name="Player" parent="OverWorld" instance=ExtResource("3_fgdfb")]
 position = Vector2(559, 140)
 scale = Vector2(0.7, 0.7)
+
+[node name="Camera2D" type="Camera2D" parent="OverWorld/Player"]
