@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody2D
+extends Character
 
 @export var animation_player : AnimationPlayer
 @export var player_speed = 300
@@ -13,10 +13,9 @@ func _process(_delta: float) -> void:
 	var input_horizontal = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var input_vertical = Input.get_action_strength("up") - Input.get_action_strength("down")
 				
-	
-	velocity.x = player_speed * input_horizontal
-	velocity.y = -player_speed * input_vertical
-	velocity = velocity.limit_length(player_speed)
+	self.velocity.x = player_speed * input_horizontal
+	self.velocity.y = -player_speed * input_vertical
+	self.velocity = velocity.limit_length(player_speed)
 
 	if(Input.is_action_pressed("up")):
 		animation_player.play("Walk_Up")
@@ -46,4 +45,5 @@ func _process(_delta: float) -> void:
 		animation_player.pause()
 	if Input.is_action_just_released("down"):
 		animation_player.pause()
+		
 	move_and_slide()
