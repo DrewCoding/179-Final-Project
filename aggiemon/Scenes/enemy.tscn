@@ -139,7 +139,6 @@ shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="HealthBar" type="ProgressBar" parent="." node_paths=PackedStringArray("enemy", "label")]
 visible = false
-anchors_preset = -1
 offset_left = -38.0
 offset_top = -71.0
 offset_right = 42.0

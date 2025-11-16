@@ -3,10 +3,13 @@ extends Character
 
 @export var health_bar : HealthBar
 @export var animation_player : AnimationPlayer
+@export var music : AudioStream
 
-var enemy_name : String = "Enemy 1"
+var enemy_name : String = "Enemy"
 var color : Color = Color("FF0000")
+
 @onready var sprite : Sprite2D = $Sprite2D
+
 
 func _ready() -> void:
 	sprite.modulate = color

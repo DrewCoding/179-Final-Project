@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ku33wbk4ro4u"]
+
+[ext_resource type="Script" uid="uid://cfnxgnsk6cqlo" path="res://Scripts/enemy_button.gd" id="1_m5twi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20rfi"]
+bg_color = Color(0.003840864, 0.003840864, 0.003840864, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3102"]
+bg_color = Color(0.6, 0.6, 0.6, 0.9098039)
+
+[node name="EnemyButton" type="Button"]
+offset_left = 20.0
+offset_top = 23.0
+offset_right = 107.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_20rfi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p3102")
+text = "DEFUALT
+"
+script = ExtResource("1_m5twi")

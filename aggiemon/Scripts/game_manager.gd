@@ -21,9 +21,8 @@ func _start_battle(body):
 func _do_battle(body):
 	var enemy = body.get_parent()
 	
-	var load_battle_screen : PackedScene= load("res://Scenes/battle_screen.tscn")
+	var load_battle_screen : PackedScene= load("res://Scenes/battle_set_up.tscn")
 	battle_screen = load_battle_screen.instantiate() as Node2D
-	battle_screen.name = "Battle"
 	
 	#over_world.hide()
 	over_world.hide()
@@ -32,10 +31,10 @@ func _do_battle(body):
 	print("Body Entered")
 	
 	camera.enabled = false
-	var battle_manager : BattleManager = $Battle/BattleManager
-	battle_manager._init_characters(player, enemy)
+	var battle_set_up : BattleSetUp = $BattleSetUp
+	battle_set_up._init_characters(player, enemy)
 	
-	var run_button = $Battle/CommandContainer/Run
+	var run_button = $BattleSetUp/CommandContainer/Run
 	run_button.pressed.connect(_end_battle)
 	enemy.call_deferred("queue_free")
 

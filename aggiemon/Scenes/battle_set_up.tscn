@@ -1,0 +1,167 @@
+[gd_scene load_steps=13 format=3 uid="uid://chj1gkeq6mwit"]
+
+[ext_resource type="Script" uid="uid://dwkyyfuopel3u" path="res://Scripts/battle_set_up.gd" id="1_6io4i"]
+[ext_resource type="Script" uid="uid://1j5owlrrbul0" path="res://Scripts/battle_manager.gd" id="2_1n6mm"]
+[ext_resource type="Texture2D" uid="uid://jq3i2xdilphx" path="res://Assets/battle_screens/AI_example_for_testing.png" id="2_ke72n"]
+[ext_resource type="AudioStream" uid="uid://61ypeln3og6a" path="res://Audio/test_music.mp3" id="4_1n6mm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vnsc"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuxaa"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjlxq"]
+bg_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uiajs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiajs"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.23200001)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guxe6"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 1)
+
+[sub_resource type="Gradient" id="Gradient_jslu5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.039215688, 0.039215688, 0, 0.4745098)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_28bop"]
+gradient = SubResource("Gradient_jslu5")
+fill = 1
+
+[node name="BattleSetUp" type="Node2D"]
+script = ExtResource("1_6io4i")
+
+[node name="BattleManager" type="Node2D" parent="." node_paths=PackedStringArray("attack_button", "back1_button", "enemy_list_container")]
+script = ExtResource("2_1n6mm")
+attack_button = NodePath("../CommandContainer/Attack")
+back1_button = NodePath("../SelectEnemy/Back1")
+enemy_list_container = NodePath("../SelectEnemy")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -9.0
+offset_top = -54.99997
+offset_right = 1527.0
+offset_bottom = 969.0
+scale = Vector2(0.76133317, 0.7480998)
+texture = ExtResource("2_ke72n")
+
+[node name="CommandContainer" type="VBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 737.5684
+offset_top = 408.5275
+offset_right = 1022.917
+offset_bottom = 614.95825
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+
+[node name="Attack" type="Button" parent="CommandContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vnsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
+text = "Attack
+"
+
+[node name="Stats" type="Button" parent="CommandContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vnsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
+text = "Stats"
+
+[node name="Items" type="Button" parent="CommandContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vnsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
+text = "Items
+"
+
+[node name="Run" type="Button" parent="CommandContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vnsc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
+text = "Run
+"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 498.0
+offset_top = -1.0
+offset_right = 656.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_uiajs")
+text = "\"Enemy Name\"
+|-----Health-----|
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 7.0
+offset_top = 403.0
+offset_right = 673.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_guxe6")
+text = "\"Player\"| Lv.????
+|----------Exp.-------------------|	                         |	-----------------------------|
+--------------------------------------	                         |										
+|-----Health-------------------|			                           |  Character Portrait	|
+                                                                           |										
+|------Mana or whatever-|	                         |------------------------------|
+"
+
+[node name="SelectEnemy" type="TextureRect" parent="."]
+visible = false
+offset_left = 23.0
+offset_top = 407.0
+offset_right = 734.0
+offset_bottom = 619.0
+texture = SubResource("GradientTexture2D_28bop")
+
+[node name="EnemyList" type="HBoxContainer" parent="SelectEnemy"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 23.0
+offset_right = 575.0
+offset_bottom = 67.0
+theme_override_constants/separation = 150
+
+[node name="Back1" type="Button" parent="SelectEnemy"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 168.0
+offset_right = 683.513
+offset_bottom = 200.357
+text = "Back
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1n6mm")
+autoplay = true
