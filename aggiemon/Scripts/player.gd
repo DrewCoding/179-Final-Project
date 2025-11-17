@@ -12,7 +12,7 @@ var idling : bool = false
 func _process(_delta: float) -> void:
 	var input_horizontal = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var input_vertical = Input.get_action_strength("up") - Input.get_action_strength("down")
-				
+	
 	self.velocity.x = player_speed * input_horizontal
 	self.velocity.y = -player_speed * input_vertical
 	self.velocity = velocity.limit_length(player_speed)

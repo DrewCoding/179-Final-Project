@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var over_world_audio : AudioStreamPlayer
+
 var battle_screen : Node2D
 
 @onready var over_world : Node2D = $OverWorld
@@ -8,7 +10,10 @@ var battle_screen : Node2D
 @onready var camera : Camera2D = $OverWorld/Player/Camera2D
 
 func _ready() -> void:
-	player_hurt_box.area_entered.connect(_start_battle) 
+	player_hurt_box.area_entered.connect(_start_battle)
+	
+	var load_skill : Skill = load("res://Scripts/skills/punch.gd").new()
+	player.add_skill(load_skill)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,9 +21,9 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _start_battle(body):
-	call_deferred("_do_battle", body)
+	call_deferred("_start_battle_handler", body)
 
-func _do_battle(body):
+func _start_battle_handler(body):
 	var enemy = body.get_parent()
 	
 	var load_battle_screen : PackedScene= load("res://Scenes/battle_set_up.tscn")
@@ -37,9 +42,12 @@ func _do_battle(body):
 	var run_button = $BattleSetUp/CommandContainer/Run
 	run_button.pressed.connect(_end_battle)
 	enemy.call_deferred("queue_free")
-
+	
+	over_world_audio.stream_paused = true	
+	
 func _end_battle():
 	camera.enabled = true
 	battle_screen.queue_free()
 	over_world.show()
+	over_world_audio.stream_paused = false	
 	

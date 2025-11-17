@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ku33wbk4ro4u"]
+[gd_scene load_steps=6 format=3 uid="uid://ku33wbk4ro4u"]
 
 [ext_resource type="Script" uid="uid://cfnxgnsk6cqlo" path="res://Scripts/enemy_button.gd" id="1_m5twi"]
 
@@ -9,8 +9,18 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5twi"]
+bg_color = Color(0.6, 0.6, 0.6, 0.9098039)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3102"]
 bg_color = Color(0.6, 0.6, 0.6, 0.9098039)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5twi"]
 
 [node name="EnemyButton" type="Button"]
 offset_left = 20.0
@@ -19,7 +29,9 @@ offset_right = 107.0
 offset_bottom = 67.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_20rfi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m5twi")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p3102")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m5twi")
 text = "DEFUALT
 "
 script = ExtResource("1_m5twi")

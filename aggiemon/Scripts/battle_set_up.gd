@@ -11,7 +11,8 @@ var enemy_creator : EnemyCreator = load("res://Scripts/enemy_creator.gd").new()
 var turn_order : Array[Character] = []
 
 @onready var battle_manager : BattleManager = $BattleManager
-@onready var enemy_list : HBoxContainer = $SelectEnemy/EnemyList
+@onready var enemy_list : HBoxContainer = $EnemyListContainer/EnemyList
+@onready var skill_list : GridContainer = $SkillListContainer/SkillList
 
 func _init_characters(player_character : Player, collided_enemey : Enemy):
 	
@@ -39,10 +40,8 @@ func _place_enemies():
 		enemies.z_index = 1
 		pos.x += 300
 	_update_enemy_list()
-	print("-----Turn Order-------")
-	for enemies in turn_order:
-		print(enemies.name)
-		
+	_update_skill_list()
+	
 	battle_manager.init_battle(player, turn_order)
 
 func _update_enemy_list():
@@ -63,3 +62,10 @@ func _update_enemy_list():
 			enemy_number += 1
 			
 		battle_manager.connect_button_signal(enemy_button)
+
+
+func _update_skill_list():
+	for move in player.move_list:
+		move.set_up_button()
+		skill_list.add_child(move.button)
+		battle_manager.connect_skill_signal(move.button)

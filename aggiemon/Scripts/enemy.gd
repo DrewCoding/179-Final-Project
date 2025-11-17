@@ -20,4 +20,4 @@ func change_color(alt_color : Color):
 	
 func unhide_healthbar():
 	health_bar.visible = true
-	health_bar.set_up_health_bar()
+	health_bar.update_health_bar()

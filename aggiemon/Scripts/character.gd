@@ -10,6 +10,8 @@ var special_attack = 0
 var defence = 0
 var special_defence = 0
 var speed = 0
+var move_list : Array[Skill] = []
+
 
 func create_stats():
 	max_hp = randi_range(1, 150)
@@ -19,3 +21,6 @@ func create_stats():
 	defence = randi_range(1, 100)
 	special_defence = randi_range(1, 100)
 	speed = randi_range(1, 100)
+
+func add_skill(skill : Skill):
+	move_list.push_back(skill)
