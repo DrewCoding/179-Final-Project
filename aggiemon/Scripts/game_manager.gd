@@ -24,6 +24,9 @@ func _start_battle(body):
 	call_deferred("_start_battle_handler", body)
 
 func _start_battle_handler(body):
+	if has_node("BattleSetUp"):
+		return
+		
 	var enemy = body.get_parent()
 	
 	var load_battle_screen : PackedScene= load("res://Scenes/battle_set_up.tscn")

@@ -15,7 +15,9 @@ func set_battle_mode(enabled: bool):
 
 func _process(_delta: float) -> void:
 	if in_battle:
+		self.velocity = Vector2(0,0)
 		return
+	
 	var input_horizontal = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var input_vertical = Input.get_action_strength("up") - Input.get_action_strength("down")
 	

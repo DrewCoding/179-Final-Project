@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Aggiemon"
-run/main_scene="uid://bqeadvk4kx30d"
+run/main_scene="uid://ckwokfbnil3mk"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
