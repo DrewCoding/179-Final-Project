@@ -21,3 +21,9 @@ func change_color(alt_color : Color):
 func unhide_healthbar():
 	health_bar.visible = true
 	health_bar.update_health_bar()
+
+func choose_attack():
+	var targets = get_tree().get_nodes_in_group("player")
+	if targets.size() > 0:
+		return targets[0]
+	return null

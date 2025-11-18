@@ -6,10 +6,16 @@ extends Character
 
 var facing_left : bool = true
 var idling : bool = false
+var in_battle : bool = false
 
 @onready var sprite : Sprite2D = $Sprite2D
 
+func set_battle_mode(enabled: bool):
+	in_battle = enabled
+
 func _process(_delta: float) -> void:
+	if in_battle:
+		return
 	var input_horizontal = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var input_vertical = Input.get_action_strength("up") - Input.get_action_strength("down")
 	

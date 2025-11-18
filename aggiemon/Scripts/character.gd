@@ -12,6 +12,8 @@ var special_defence = 0
 var speed = 0
 var move_list : Array[Skill] = []
 
+signal health_changed(new_hp: int)
+signal died()
 
 func create_stats():
 	max_hp = randi_range(1, 150)
@@ -24,3 +26,13 @@ func create_stats():
 
 func add_skill(skill : Skill):
 	move_list.push_back(skill)
+
+func take_damage(damage: int):
+	curr_hp = max(0, curr_hp - damage)
+	health_changed.emit(curr_hp)
+	
+	if curr_hp <= 0:
+		died.emit()
+
+func is_alive() -> bool:
+	return curr_hp > 0

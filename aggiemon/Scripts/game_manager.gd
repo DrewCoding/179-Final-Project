@@ -36,8 +36,13 @@ func _start_battle_handler(body):
 	print("Body Entered")
 	
 	camera.enabled = false
+	player.set_battle_mode(true)
 	var battle_set_up : BattleSetUp = $BattleSetUp
 	battle_set_up._init_characters(player, enemy)
+	
+	var battle_manager : BattleManager = battle_set_up.get_node("BattleManager")
+	if battle_manager:
+		battle_manager.battle_ended.connect(_end_battle)
 	
 	var run_button = $BattleSetUp/CommandContainer/Run
 	run_button.pressed.connect(_end_battle)
@@ -47,7 +52,7 @@ func _start_battle_handler(body):
 	
 func _end_battle():
 	camera.enabled = true
+	player.set_battle_mode(false)
 	battle_screen.queue_free()
 	over_world.show()
-	over_world_audio.stream_paused = false	
-	
+	over_world_audio.stream_paused = false

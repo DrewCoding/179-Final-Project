@@ -34,6 +34,7 @@ func _place_enemies():
 	for enemies in turn_order:
 		add_child(enemies)
 		enemies.unhide_healthbar()
+		enemies.health_bar.set_up_health_bar()
 		enemies.z_index = 1
 		enemies.scale = Vector2(2,2)
 		enemies.global_position = pos
@@ -42,6 +43,7 @@ func _place_enemies():
 	_update_enemy_list()
 	_update_skill_list()
 	
+	player.create_stats()
 	battle_manager.init_battle(player, turn_order)
 
 func _update_enemy_list():
