@@ -7,7 +7,7 @@ var battle_screen : Node2D
 @onready var over_world : Node2D = $OverWorld
 @onready var player_hurt_box : Area2D = $OverWorld/Player/HurtBox
 @onready var player : Player = $OverWorld/Player
-@onready var camera : Camera2D = $OverWorld/Player/Camera2D
+@onready var camera : Camera2D = $OverWorld/Camera2D
 
 func _ready() -> void:
 	player_hurt_box.area_entered.connect(_start_battle)
