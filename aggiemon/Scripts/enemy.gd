@@ -40,7 +40,7 @@ func shake():
 	var original_pos : Vector2 = self.global_position
 	var tween = create_tween()
 	
-	tween.tween_property(self, "position", original_pos + Vector2(0,0), 0.05)
+	tween.tween_property(self, "position", original_pos + Vector2(20,0), 0.05)
 	tween.tween_property(self, "position", original_pos, 0.05)
 
 func attack_movement():
