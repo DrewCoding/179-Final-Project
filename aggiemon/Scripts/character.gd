@@ -1,6 +1,10 @@
 class_name Character
 extends CharacterBody2D
 
+
+signal health_changed(new_hp: int)
+signal died()
+
 var movement_speed = 300
 #stats
 var curr_hp = 0
@@ -12,20 +16,34 @@ var special_defence = 0
 var speed = 0
 var move_list : Array[Skill] = []
 
-signal health_changed(new_hp: int)
-signal died()
+
+func select_a_skill():
+	var size_of_move_list = move_list.size()
+	if(size_of_move_list == 0):
+		return null
+		
+	var choice = randi_range(0, size_of_move_list - 1)
+	
+	return move_list[choice]
+
+func get_stat_info():
+	var stats : String
+	stats = ("Max HP: %d\n Attack: %d\n Defence: %d\n Speed: %d\n" %[max_hp, attack, defence, speed])
+	return stats
 
 func create_stats():
 	max_hp = randi_range(1, 150)
 	curr_hp = max_hp
-	attack = randi_range(1, 100)
+	attack = randi_range(1, 10)
 	special_attack = randi_range(1, 100)
-	defence = randi_range(1, 100)
+	defence = randi_range(1, 2)
 	special_defence = randi_range(1, 100)
 	speed = randi_range(1, 100)
 
+
 func add_skill(skill : Skill):
 	move_list.push_back(skill)
+
 
 func take_damage(damage: int):
 	curr_hp = max(0, curr_hp - damage)

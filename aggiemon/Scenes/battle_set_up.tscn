@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chj1gkeq6mwit"]
+[gd_scene load_steps=15 format=3 uid="uid://chj1gkeq6mwit"]
 
 [ext_resource type="Script" uid="uid://dwkyyfuopel3u" path="res://Scripts/battle_set_up.gd" id="1_6io4i"]
 [ext_resource type="Script" uid="uid://1j5owlrrbul0" path="res://Scripts/battle_manager.gd" id="2_1n6mm"]
@@ -34,17 +34,30 @@ colors = PackedColorArray(0.039215688, 0.039215688, 0, 0.4745098)
 gradient = SubResource("Gradient_jslu5")
 fill = 1
 
+[sub_resource type="Gradient" id="Gradient_1n6mm"]
+offsets = PackedFloat32Array(0, 0.99333334)
+colors = PackedColorArray(0.11858138, 0.11858138, 0.11858138, 1, 0, 0, 0, 0.38039216)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jslu5"]
+gradient = SubResource("Gradient_1n6mm")
+
 [node name="BattleSetUp" type="Node2D"]
 script = ExtResource("1_6io4i")
 
-[node name="BattleManager" type="Node2D" parent="." node_paths=PackedStringArray("command_container", "attack_button", "back1_button", "back2_button", "enemy_list_container", "skill_list_container")]
+[node name="BattleManager" type="Node2D" parent="." node_paths=PackedStringArray("battle_set_up", "command_container", "attack_button", "back1_button", "back2_button", "stat_button", "enemy_list_container", "skill_list_container", "dialogue_box", "player_stat_box", "text", "stat_text")]
 script = ExtResource("2_1n6mm")
+battle_set_up = NodePath("..")
 command_container = NodePath("../CommandContainer")
 attack_button = NodePath("../CommandContainer/Attack")
 back1_button = NodePath("../SkillListContainer/Back1")
 back2_button = NodePath("../EnemyListContainer/Back2")
+stat_button = NodePath("../CommandContainer/Stats")
 enemy_list_container = NodePath("../EnemyListContainer")
 skill_list_container = NodePath("../SkillListContainer")
+dialogue_box = NodePath("../DialogueBox")
+player_stat_box = NodePath("../PlayerStats")
+text = NodePath("../DialogueBox/Text")
+stat_text = NodePath("../PlayerStats/StatText")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_left = -9.0
@@ -86,17 +99,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
 text = "Stats"
-
-[node name="Items" type="Button" parent="CommandContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_4vnsc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_iuxaa")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tjlxq")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_uiajs")
-text = "Items
-"
 
 [node name="Run" type="Button" parent="CommandContainer"]
 layout_mode = 2
@@ -192,7 +194,49 @@ offset_bottom = 209.357
 text = "Back
 "
 
+[node name="DialogueBox" type="TextureRect" parent="."]
+visible = false
+offset_left = 23.0
+offset_top = 407.0
+offset_right = 734.0
+offset_bottom = 530.0
+texture = SubResource("GradientTexture2D_28bop")
+
+[node name="Text" type="Label" parent="DialogueBox"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 712.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 28
+text = "Enemy used (skill) and did (num) damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_1n6mm")
 autoplay = true
 parameters/looping = true
+
+[node name="PlayerStats" type="TextureRect" parent="."]
+visible = false
+z_index = 2
+offset_left = 732.0
+offset_top = 69.0
+offset_right = 1047.5599
+offset_bottom = 391.08005
+texture = SubResource("GradientTexture2D_jslu5")
+
+[node name="StatText" type="Label" parent="PlayerStats"]
+layout_mode = 0
+offset_right = 312.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 35
+text = "Attack: 100
+Attack: 100
+Attack: 100
+Attack: 100
+Attack: 100
+
+"
+horizontal_alignment = 1

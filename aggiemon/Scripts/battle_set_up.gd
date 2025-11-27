@@ -14,12 +14,21 @@ var turn_order : Array[Character] = []
 @onready var enemy_list : HBoxContainer = $EnemyListContainer/EnemyList
 @onready var skill_list : GridContainer = $SkillListContainer/SkillList
 
+
+func update_enemy_container(array : Array[Character]):
+	turn_order = array
+	for child in enemy_list.get_children():
+		child.queue_free()
+	call_deferred("_update_enemy_list")
+
+
 func _init_characters(player_character : Player, collided_enemey : Enemy):
 	
 	player = player_character
 	enemy = collided_enemey
 	num = (randi_range(1, 2))
 	_create_extra_enemies(num)
+
 
 func _create_extra_enemies(number : int):
 	
@@ -29,6 +38,7 @@ func _create_extra_enemies(number : int):
 		var created_enemy : Enemy = enemy_creator.enemy_builder()
 		turn_order.push_back(created_enemy)
 	_place_enemies()
+
 
 func _place_enemies():
 	for enemies in turn_order:
@@ -45,6 +55,7 @@ func _place_enemies():
 	
 	player.create_stats()
 	battle_manager.init_battle(player, turn_order)
+
 
 func _update_enemy_list():
 	for enemies in turn_order:
@@ -71,3 +82,4 @@ func _update_skill_list():
 		move.set_up_button()
 		skill_list.add_child(move.button)
 		battle_manager.connect_skill_signal(move.button)
+		

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=11 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://chtot7ipt80vl" path="res://Assets/tiles/Aggiemon_First_Map.png" id="2_xqlrx"]
 [ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
+[ext_resource type="Texture2D" uid="uid://kp33t4l1lgcd" path="res://Assets/tiles/aggiemonmap_incomplete.webp" id="3_n21db"]
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
 [ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="AudioStream" uid="uid://dubded21vp07" path="res://Audio/test_music2(change_later).mp3" id="5_m3130"]
@@ -1581,6 +1582,7 @@ over_world_audio = NodePath("OverWorld/OverworldAudio")
 position = Vector2(1, 0)
 
 [node name="TileMap" type="TileMap" parent="OverWorld"]
+visible = false
 position = Vector2(784.5205, 425.4153)
 tile_set = SubResource("TileSet_qyksh")
 format = 2
@@ -1588,9 +1590,9 @@ layer_0/tile_data = PackedInt32Array(-524290, 2162688, 0, -1703943, 2228224, 0, 
 
 [node name="Sprite2D" type="Sprite2D" parent="OverWorld"]
 z_index = -1
-position = Vector2(342.25, 321.5)
-scale = Vector2(1.0250379, 1.0720131)
-texture = ExtResource("2_xqlrx")
+position = Vector2(386, 295.00003)
+scale = Vector2(5.025, 5.256)
+texture = ExtResource("3_n21db")
 
 [node name="Enemy" parent="OverWorld" instance=ExtResource("3_m4a4n")]
 position = Vector2(952.24786, 265.61157)
