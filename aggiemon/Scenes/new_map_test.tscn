@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=12 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://chtot7ipt80vl" path="res://Assets/tiles/Aggiemon_First_Map.png" id="2_xqlrx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="AudioStream" uid="uid://dubded21vp07" path="res://Audio/test_music2(change_later).mp3" id="5_m3130"]
 [ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://overworld_menu.tscn" id="7_n21db"]
+[ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://Scenes/stats_menu.tscn" id="9_m3130"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2mu0y"]
 texture = ExtResource("2_xqlrx")
@@ -1614,5 +1615,9 @@ parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="OverWorld"]
 
-[node name="Overworld Menu" parent="OverWorld/CanvasLayer" instance=ExtResource("7_n21db")]
+[node name="Overworld Menu" parent="OverWorld/CanvasLayer" node_paths=PackedStringArray("stats_menu") instance=ExtResource("7_n21db")]
 visible = false
+stats_menu = NodePath("../StatsMenu")
+
+[node name="StatsMenu" parent="OverWorld/CanvasLayer" node_paths=PackedStringArray("character") instance=ExtResource("9_m3130")]
+character = NodePath("../../Player")
