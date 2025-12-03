@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=16 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://chtot7ipt80vl" path="res://Assets/tiles/Aggiemon_First_Map.png" id="2_xqlrx"]
@@ -1575,6 +1575,15 @@ texture = ExtResource("2_xqlrx")
 [sub_resource type="TileSet" id="TileSet_qyksh"]
 sources/0 = SubResource("TileSetAtlasSource_2mu0y")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mu0y"]
+size = Vector2(355, 559)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyksh"]
+size = Vector2(342, 204.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fijs6"]
+size = Vector2(2153, 56.5)
+
 [node name="GameManager" type="Node2D" node_paths=PackedStringArray("over_world_audio")]
 y_sort_enabled = true
 script = ExtResource("1_2jeib")
@@ -1604,6 +1613,10 @@ position = Vector2(166.25494, 153.60397)
 scale = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 script = ExtResource("4_xqlrx")
+upper_bound = 330
+lower_bound = 700
+left_bound = 800
+right_bound = 800
 
 [node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
 position = Vector2(232.49121, 127.5969)
@@ -1627,3 +1640,31 @@ character = NodePath("../../Player")
 [node name="SkillsMenu" parent="OverWorld/CanvasLayer" node_paths=PackedStringArray("character", "overworld_menu") instance=ExtResource("10_2mu0y")]
 character = NodePath("../../Player")
 overworld_menu = NodePath("../Overworld Menu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Unity Center Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(254.5, -204.5)
+shape = SubResource("RectangleShape2D_2mu0y")
+
+[node name="Shop Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1160, -554.75)
+shape = SubResource("RectangleShape2D_qyksh")
+
+[node name="North Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(373.5, -676.25)
+shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="South Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(374, 1268)
+shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="West Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-619, 221)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="East Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1383, 221)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_fijs6")
