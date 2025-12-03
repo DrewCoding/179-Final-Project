@@ -17,6 +17,14 @@ var speed = 0
 var move_list : Array[Skill] = []
 
 
+func _ready() -> void:
+	if max_hp == 0:
+		create_stats()
+	if move_list.is_empty():
+		var punch := Punch.new()
+		add_skill(punch)
+	print("Character ready:", self.name, "skills:", move_list.size())
+
 func select_a_skill():
 	var size_of_move_list = move_list.size()
 	if(size_of_move_list == 0):

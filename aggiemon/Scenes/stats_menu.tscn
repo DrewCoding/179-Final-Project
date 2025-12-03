@@ -41,6 +41,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-694, 339)
 scale = Vector2(3, 3.081)
 texture = ExtResource("2_bwcy1")
 flip_h = true

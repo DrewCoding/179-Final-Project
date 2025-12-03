@@ -54,7 +54,6 @@ func _place_enemies():
 	_update_enemy_list()
 	_update_skill_list()
 	
-	player.create_stats()
 	battle_manager.init_battle(player, turn_order)
 
 
