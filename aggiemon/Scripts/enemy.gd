@@ -6,6 +6,7 @@ extends Character
 
 var enemy_name : String = "Enemy"
 var color : Color = Color("FF0000")
+var canMove : bool = true
 
 @onready var sprite : Sprite2D = $Sprite2D
 
@@ -16,10 +17,19 @@ func _ready() -> void:
 	_set_skills()
 
 
+func _process(_delta):
+	if canMove:
+		canMove = false
+		overworld_enemy_movement()
+		await get_tree().create_timer(7.0).timeout
+		canMove = true
+
+	move_and_slide()
+
 func change_color(alt_color : Color):
 	color = alt_color
-	
-	
+
+
 func unhide_healthbar():
 	health_bar.visible = true
 	health_bar.update_health_bar()
@@ -49,3 +59,11 @@ func attack_movement():
 	
 	tween.tween_property(self, "position", original_pos + Vector2(0,40), 0.15)
 	tween.tween_property(self, "position", original_pos, 0.15)
+
+func overworld_enemy_movement():
+	var x_dir = randi_range(-1, 1)
+	var y_dir = randi_range(-1, 1)
+	velocity.x = 100 * x_dir
+	velocity.y = 100 * y_dir
+	await get_tree().create_timer(3.0).timeout
+	velocity = Vector2.ZERO

@@ -26,6 +26,7 @@ var current_turn_index : int = 0
 var awaiting_target : bool = false
 
 @onready var attack_effect : PackedScene = preload("res://Scenes/attack_effect.tscn")
+@onready var playerHealth: HealthBar = $"../HealthBar"
 
 func connect_button_signal(button : EnemyButton):
 	button.who_got_pressed.connect(_enemy_selected)
@@ -37,6 +38,7 @@ func connect_skill_signal(button : SkillButton):
 	
 func init_battle (p : Player, t : Array[Character]):
 	player = p
+	playerHealth.enemy = p
 	turn_order = t
 	enemy_list = turn_order.duplicate()
 	turn_order.push_front(player)
@@ -53,6 +55,11 @@ func init_battle (p : Player, t : Array[Character]):
 	print("----------------------------------------------\n")
 	
 	_start_combat()
+
+
+func _process(_delta):
+	playerHealth.label.text = str(int(player.curr_hp)) + " / " + str(int(player.max_hp))
+
 
 func _start_combat():
 	turn_order.sort_custom(func(a, b): 

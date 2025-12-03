@@ -8,7 +8,6 @@ extends Camera2D
 @onready var player : Player = $"../Player"
 
 func _process(_delta) -> void:
-	#print(global_position)
 	if player.global_position.x <= right_bound and player.global_position.x >= -left_bound:
 		global_position.x = player.global_position.x	
 	

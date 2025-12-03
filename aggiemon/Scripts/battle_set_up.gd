@@ -26,6 +26,7 @@ func _init_characters(player_character : Player, collided_enemey : Enemy):
 	
 	player = player_character
 	enemy = collided_enemey
+	battle_manager.playerHealth.set_up_health_bar()
 	num = (randi_range(1, 2))
 	_create_extra_enemies(num)
 
