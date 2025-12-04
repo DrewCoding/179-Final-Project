@@ -1579,7 +1579,7 @@ sources/0 = SubResource("TileSetAtlasSource_2mu0y")
 size = Vector2(355, 559)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyksh"]
-size = Vector2(342, 204.5)
+size = Vector2(342, 225)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fijs6"]
 size = Vector2(2153, 56.5)
@@ -1608,6 +1608,12 @@ texture = ExtResource("3_n21db")
 [node name="Enemy" parent="OverWorld" instance=ExtResource("3_m4a4n")]
 position = Vector2(952.24786, 265.61157)
 
+[node name="Enemy2" parent="OverWorld" instance=ExtResource("3_m4a4n")]
+position = Vector2(1143, 508)
+
+[node name="Enemy3" parent="OverWorld" instance=ExtResource("3_m4a4n")]
+position = Vector2(890, 508)
+
 [node name="Camera2D" type="Camera2D" parent="OverWorld"]
 position = Vector2(166.25494, 153.60397)
 scale = Vector2(0.7, 0.7)
@@ -1615,7 +1621,7 @@ position_smoothing_enabled = true
 script = ExtResource("4_xqlrx")
 upper_bound = 330
 lower_bound = 700
-left_bound = 800
+left_bound = 25
 right_bound = 800
 
 [node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
@@ -1641,30 +1647,30 @@ character = NodePath("../../Player")
 character = NodePath("../../Player")
 overworld_menu = NodePath("../Overworld Menu")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Boundaries" type="StaticBody2D" parent="."]
 
-[node name="Unity Center Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Unity Center Boundary" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(254.5, -204.5)
 shape = SubResource("RectangleShape2D_2mu0y")
 
-[node name="Shop Boundary" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1160, -554.75)
+[node name="Shop Boundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1160, -544.5)
 shape = SubResource("RectangleShape2D_qyksh")
 
-[node name="North Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="North Boundary" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(373.5, -676.25)
 shape = SubResource("RectangleShape2D_fijs6")
 
-[node name="South Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="South Boundary" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(374, 1268)
 shape = SubResource("RectangleShape2D_fijs6")
 
-[node name="West Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="West Boundary" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(-619, 221)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_fijs6")
 
-[node name="East Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="East Boundary" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(1383, 221)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_fijs6")

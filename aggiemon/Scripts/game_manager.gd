@@ -8,7 +8,6 @@ var battle_screen : Node2D
 @onready var player_hurt_box : Area2D = $OverWorld/Player/HurtBox
 @onready var player : Player = $OverWorld/Player
 @onready var camera : Camera2D = $OverWorld/Camera2D
-@onready var enemyOW : Enemy = $OverWorld/Enemy
 
 func _ready() -> void:
 	player_hurt_box.area_entered.connect(_start_battle)
@@ -39,7 +38,9 @@ func _start_battle_handler(body):
 	add_child(battle_screen)
 	print("Body Entered")
 	
-	enemyOW.canMove = false
+	for child in get_children():
+		if child is Enemy:
+			child.canMove = false
 	camera.enabled = false
 	player.set_battle_mode(true)
 	var battle_set_up : BattleSetUp = $BattleSetUp
