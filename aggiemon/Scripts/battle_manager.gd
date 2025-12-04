@@ -72,11 +72,13 @@ func _start_combat():
 	current_turn_index = -1
 	_next_turn()
 
+
 func _skill_selected(skill : Skill):
 	active_skill = skill
 	_hide_skill_list()
 	_show_enemy_list()
 	command_container.visible = false
+
 
 func _enemy_selected(enemy_button : EnemyButton):
 	player_stat_box.visible = false
@@ -154,6 +156,7 @@ func _next_turn():
 	elif current_character is Enemy:
 		_start_enemy_turn(current_character)
 
+
 func _check_battle_end() -> bool:
 	var player_alive = false
 	var enemies_alive = false
@@ -176,6 +179,7 @@ func _check_battle_end() -> bool:
 	
 	return false
 
+
 func _show_enemy_list():
 	enemy_list_container.visible = true
 
@@ -195,10 +199,12 @@ func _hide_skill_list():
 	command_container.visible = true
 	
 
+
 func _start_player_turn():
 	print("Starting Player's turn.....\n")
 	command_container.visible = true
 	awaiting_target = true
+
 
 func _start_enemy_turn(current_enemy : Enemy):
 	

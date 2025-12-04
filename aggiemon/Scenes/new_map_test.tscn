@@ -1620,7 +1620,7 @@ scale = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 script = ExtResource("4_xqlrx")
 upper_bound = 330
-lower_bound = 700
+lower_bound = 900
 left_bound = 25
 right_bound = 800
 
