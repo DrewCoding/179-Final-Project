@@ -21,8 +21,8 @@ func _ready() -> void:
 	if max_hp == 0:
 		create_stats()
 	if move_list.is_empty():
-		var punch := Punch.new()
-		add_skill(punch)
+		var load_skill : Skill = load("res://Scripts/skills/punch.gd").new()
+		add_skill(load_skill)
 	print("Character ready:", self.name, "skills:", move_list.size())
 
 func select_a_skill():

@@ -50,3 +50,4 @@ text = "Options
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/SkillsButton" to="." method="_on_skills_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MapButton" to="." method="_on_map_button_pressed"]

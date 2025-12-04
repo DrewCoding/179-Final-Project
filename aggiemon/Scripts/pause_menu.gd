@@ -4,6 +4,7 @@ var is_open: bool = false
 @export var default_button: Button
 @export var stats_menu: Control
 @export var skills_menu: Control
+@export var map_menu: Control 
 
 func _ready() -> void:
 	visible = false
@@ -41,5 +42,13 @@ func _on_skills_button_pressed() -> void:
 	print("Skills Button Pressed")
 	if skills_menu:
 		skills_menu.open()
+		visible = false
+		is_open = false
+
+
+func _on_map_button_pressed() -> void:
+	print("Map Button Pressed")
+	if map_menu:
+		map_menu.open()
 		visible = false
 		is_open = false

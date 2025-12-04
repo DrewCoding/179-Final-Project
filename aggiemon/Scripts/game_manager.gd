@@ -12,8 +12,7 @@ var battle_screen : Node2D
 func _ready() -> void:
 	player_hurt_box.area_entered.connect(_start_battle)
 	
-	var load_skill : Skill = load("res://Scripts/skills/punch.gd").new()
-	player.add_skill(load_skill)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
