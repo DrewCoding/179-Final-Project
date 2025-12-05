@@ -236,6 +236,7 @@ func _on_battle_lost():
 	print("Defeat!")
 	await get_tree().create_timer(1.5).timeout
 	battle_ended.emit()
+	player.curr_hp = player.max_hp
 	
 func _show_stat_sheet():
 	if player_stat_box.visible == false:
