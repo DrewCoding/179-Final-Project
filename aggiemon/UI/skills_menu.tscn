@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2mwx03oofd4"]
 
-[ext_resource type="Script" uid="uid://c426egw3kqdox" path="res://Scripts/skills_menu.gd" id="1_e662x"]
+[ext_resource type="Script" uid="uid://c426egw3kqdox" path="res://UI/skills_menu.gd" id="1_e662x"]
 
 [node name="skills_menu" type="Control" node_paths=PackedStringArray("skill_list", "info_label")]
 layout_mode = 3

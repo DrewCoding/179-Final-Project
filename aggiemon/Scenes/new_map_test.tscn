@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
 [ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="AudioStream" uid="uid://dubded21vp07" path="res://Audio/test_music2(change_later).mp3" id="5_m3130"]
-[ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://Scenes/overworld_menu.tscn" id="7_n21db"]
-[ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://Scenes/stats_menu.tscn" id="9_m3130"]
-[ext_resource type="PackedScene" uid="uid://d2mwx03oofd4" path="res://Scenes/skills_menu.tscn" id="10_2mu0y"]
-[ext_resource type="PackedScene" uid="uid://bpcgfvb4ftycd" path="res://Scenes/map_menu.tscn" id="11_qyksh"]
+[ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://UI/overworld_menu.tscn" id="7_n21db"]
+[ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://UI/stats_menu.tscn" id="9_m3130"]
+[ext_resource type="PackedScene" uid="uid://d2mwx03oofd4" path="res://UI/skills_menu.tscn" id="10_2mu0y"]
+[ext_resource type="PackedScene" uid="uid://bpcgfvb4ftycd" path="res://UI/map_menu.tscn" id="11_qyksh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2mu0y"]
 texture = ExtResource("2_xqlrx")
