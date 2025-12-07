@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=21 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://chtot7ipt80vl" path="res://Assets/tiles/Aggiemon_First_Map.png" id="2_xqlrx"]
@@ -9,9 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://dubded21vp07" path="res://Audio/test_music2(change_later).mp3" id="5_m3130"]
 [ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
 [ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://UI/overworld_menu.tscn" id="7_n21db"]
+[ext_resource type="Script" uid="uid://cqb36qo6plqok" path="res://Scripts/shop_collision.gd" id="9_3v400"]
 [ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://UI/stats_menu.tscn" id="9_m3130"]
 [ext_resource type="PackedScene" uid="uid://d2mwx03oofd4" path="res://UI/skills_menu.tscn" id="10_2mu0y"]
 [ext_resource type="PackedScene" uid="uid://bpcgfvb4ftycd" path="res://UI/map_menu.tscn" id="11_qyksh"]
+[ext_resource type="PackedScene" uid="uid://s1k78iveay4v" path="res://UI/shop_menu.tscn" id="14_gvhuy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2mu0y"]
 texture = ExtResource("2_xqlrx")
@@ -1577,6 +1579,9 @@ texture = ExtResource("2_xqlrx")
 [sub_resource type="TileSet" id="TileSet_qyksh"]
 sources/0 = SubResource("TileSetAtlasSource_2mu0y")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v400"]
+size = Vector2(119, 38)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mu0y"]
 size = Vector2(355, 559)
 
@@ -1641,6 +1646,15 @@ stream = ExtResource("5_m3130")
 autoplay = true
 parameters/looping = true
 
+[node name="Shop" type="Area2D" parent="OverWorld" node_paths=PackedStringArray("shop")]
+position = Vector2(1131, -375)
+script = ExtResource("9_3v400")
+shop = NodePath("../Overworld Menus/ShopMenu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverWorld/Shop"]
+position = Vector2(21, -31)
+shape = SubResource("RectangleShape2D_3v400")
+
 [node name="Overworld Menus" type="CanvasLayer" parent="OverWorld"]
 
 [node name="Overworld Menu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("stats_menu", "skills_menu", "map_menu") instance=ExtResource("7_n21db")]
@@ -1662,6 +1676,9 @@ overworld_menu = NodePath("../Overworld Menu")
 visible = false
 overworld_menu = NodePath("../Overworld Menu")
 map_texture = ExtResource("3_n21db")
+
+[node name="ShopMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("character") instance=ExtResource("14_gvhuy")]
+character = NodePath("../../Player")
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 

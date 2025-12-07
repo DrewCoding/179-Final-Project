@@ -8,6 +8,7 @@ var enemy_name : String = "Enemy"
 var color : Color = Color("FF0000")
 var spawner_id : EnemySpawner
 var canMove : bool = true
+var isMoving : bool = true
 var xp_value : int = 15
 
 @onready var sprite : Sprite2D = $Sprite2D
@@ -22,11 +23,11 @@ func _ready() -> void:
 
 
 func _process(_delta):
-	if canMove:
-		canMove = false
+	if canMove and isMoving:
+		isMoving = false
 		overworld_enemy_movement()
 		await get_tree().create_timer(7.0).timeout
-		canMove = true
+		isMoving = true
 
 	move_and_slide()
 
