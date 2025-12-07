@@ -1,19 +1,23 @@
 extends Node2D
 
 @export var over_world_audio : AudioStreamPlayer
+@export var dialogue_box : TextureRect
+@export var text : Label
 
 var battle_screen : Node2D
 
 @onready var over_world : Node2D = $OverWorld
 @onready var player_hurt_box : Area2D = $OverWorld/Player/HurtBox
+@onready var player_speak_box : Area2D = $OverWorld/Player/SpeakBox
+#@onready var player_speak_box_2 : Area2D = $OverWorld/Player/SpeakBox2
 @onready var player : Player = $OverWorld/Player
 @onready var camera : Camera2D = $OverWorld/Camera2D
+@onready var textbox : CanvasLayer = $OverWorld/TextboxLayer
 
 func _ready() -> void:
 	player_hurt_box.area_entered.connect(_start_battle)
-	
-	
-
+	player_speak_box.area_entered.connect(_start_dialogue_1)
+	#player_speak_box_2.area_entered.connect(_start_dialogue_2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -21,6 +25,13 @@ func _process(_delta: float) -> void:
 	
 func _start_battle(body):
 	call_deferred("_start_battle_handler", body)
+
+#func _start_dialogue_2(body):
+#	textbox.add_text("Welcome to my shop!")
+
+func _start_dialogue_1(body):
+	textbox.add_text("Hello! Welcome to UC Daniel! Be careful of students from our rival school.... UC Boogey. They'll start a fight with you!")
+	
 
 func _start_battle_handler(body):
 	if has_node("BattleSetUp"):

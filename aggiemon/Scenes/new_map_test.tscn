@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=21 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://chtot7ipt80vl" path="res://Assets/tiles/Aggiemon_First_Map.png" id="2_xqlrx"]
@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
 [ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="AudioStream" uid="uid://dubded21vp07" path="res://Audio/test_music2(change_later).mp3" id="5_m3130"]
+[ext_resource type="Script" uid="uid://cshpvhrf0r5xh" path="res://Scripts/narrator_spawner.gd" id="6_3v400"]
 [ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
+[ext_resource type="PackedScene" uid="uid://ogetq28hvawy" path="res://Scenes/narrator.tscn" id="7_gvhuy"]
 [ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://UI/overworld_menu.tscn" id="7_n21db"]
 [ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://UI/stats_menu.tscn" id="9_m3130"]
 [ext_resource type="PackedScene" uid="uid://d2mwx03oofd4" path="res://UI/skills_menu.tscn" id="10_2mu0y"]
 [ext_resource type="PackedScene" uid="uid://bpcgfvb4ftycd" path="res://UI/map_menu.tscn" id="11_qyksh"]
+[ext_resource type="PackedScene" uid="uid://c5dvqpoovdkey" path="res://Scenes/textbox_layer.tscn" id="16_ocxsf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2mu0y"]
 texture = ExtResource("2_xqlrx")
@@ -1594,6 +1597,8 @@ over_world_audio = NodePath("OverWorld/OverworldAudio")
 [node name="OverWorld" type="Node2D" parent="."]
 position = Vector2(1, 0)
 
+[node name="TextboxLayer" parent="OverWorld" instance=ExtResource("16_ocxsf")]
+
 [node name="TileMap" type="TileMap" parent="OverWorld"]
 visible = false
 position = Vector2(784.5205, 425.4153)
@@ -1617,8 +1622,21 @@ lower_bound = 900
 left_bound = 25
 right_bound = 800
 
+[node name="Narrator" parent="OverWorld" instance=ExtResource("7_gvhuy")]
+position = Vector2(-738.945, 0)
+
 [node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
 position = Vector2(232.49121, 127.5969)
+
+[node name="NarratorSpawner" type="Node2D" parent="OverWorld"]
+position = Vector2(352.565, 132.165)
+script = ExtResource("6_3v400")
+narrator_scene = ExtResource("7_gvhuy")
+
+[node name="NarratorSpawner2" type="Node2D" parent="OverWorld"]
+position = Vector2(1157, -392.99997)
+script = ExtResource("6_3v400")
+narrator_scene = ExtResource("7_gvhuy")
 
 [node name="EnemySpawner" type="Node2D" parent="OverWorld"]
 position = Vector2(1186.7101, 484.91995)
