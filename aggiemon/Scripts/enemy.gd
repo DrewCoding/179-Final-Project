@@ -6,7 +6,9 @@ extends Character
 
 var enemy_name : String = "Enemy"
 var color : Color = Color("FF0000")
+var spawner_id : EnemySpawner
 var canMove : bool = true
+var xp_value : int = 15
 
 @onready var sprite : Sprite2D = $Sprite2D
 
@@ -14,6 +16,8 @@ var canMove : bool = true
 func _ready() -> void:
 	sprite.modulate = color
 	animation_player.play("Idle")
+	if self.get_parent() is EnemySpawner:
+		spawner_id = self.get_parent()
 	_set_skills()
 
 
@@ -67,3 +71,4 @@ func overworld_enemy_movement():
 	velocity.y = 100 * y_dir
 	await get_tree().create_timer(3.0).timeout
 	velocity = Vector2.ZERO
+	

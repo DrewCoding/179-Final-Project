@@ -6,7 +6,7 @@ var damage : int
 var special_effect : bool
 var status : bool 
 
-@abstract func effect(player : Player)
+@abstract func effect(character : Character)
 
 func set_up_button():
 	var btn : PackedScene = load("res://Scenes/SkillButtons/NormalType.tscn")

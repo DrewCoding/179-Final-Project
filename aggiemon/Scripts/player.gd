@@ -1,9 +1,17 @@
 class_name Player
 extends Character
 
+enum growth_type {
+	default = 0,
+	aggressive = 1,
+	defensive = 2
+}
+
 @export var animation_player : AnimationPlayer
 @export var player_speed = 300
 
+var skill_points = 0
+var growth_rate_type = growth_type.default
 var facing_left : bool = true
 var idling : bool = false
 var in_battle : bool = false
@@ -53,10 +61,14 @@ func _process(_delta: float) -> void:
 		animation_player.pause()
 	if Input.is_action_just_released("down"):
 		animation_player.pause()
-		
+	if Input.is_action_just_pressed("Level Up"):
+		level_up()
 	move_and_slide()
 
 func create_stats():
+	level = 1
+	current_xp = 0
+	needed_xp = 45
 	max_hp = 100
 	curr_hp = max_hp
 	attack = randi_range(1, 10)
@@ -64,3 +76,7 @@ func create_stats():
 	defence = randi_range(1, 2)
 	special_defence = randi_range(1, 100)
 	speed = randi_range(1, 100)
+	player_info.update_player_info(self)
+
+func level_up():
+	player_info.level_up(self)

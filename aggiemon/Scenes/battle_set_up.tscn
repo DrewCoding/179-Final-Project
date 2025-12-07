@@ -72,6 +72,7 @@ scale = Vector2(0.76133317, 0.7480998)
 texture = ExtResource("2_ke72n")
 
 [node name="CommandContainer" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 737.5684

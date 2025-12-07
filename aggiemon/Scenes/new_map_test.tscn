@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=18 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://chtot7ipt80vl" path="res://Assets/tiles/Aggiemon_First_Map.png" id="2_xqlrx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
 [ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="AudioStream" uid="uid://dubded21vp07" path="res://Audio/test_music2(change_later).mp3" id="5_m3130"]
+[ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
 [ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://UI/overworld_menu.tscn" id="7_n21db"]
 [ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://UI/stats_menu.tscn" id="9_m3130"]
 [ext_resource type="PackedScene" uid="uid://d2mwx03oofd4" path="res://UI/skills_menu.tscn" id="10_2mu0y"]
@@ -1606,15 +1607,6 @@ position = Vector2(386, 295.00003)
 scale = Vector2(2, 2.092)
 texture = ExtResource("3_n21db")
 
-[node name="Enemy" parent="OverWorld" instance=ExtResource("3_m4a4n")]
-position = Vector2(952.24786, 265.61157)
-
-[node name="Enemy2" parent="OverWorld" instance=ExtResource("3_m4a4n")]
-position = Vector2(1143, 508)
-
-[node name="Enemy3" parent="OverWorld" instance=ExtResource("3_m4a4n")]
-position = Vector2(890, 508)
-
 [node name="Camera2D" type="Camera2D" parent="OverWorld"]
 position = Vector2(166.25494, 153.60397)
 scale = Vector2(0.7, 0.7)
@@ -1627,6 +1619,21 @@ right_bound = 800
 
 [node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
 position = Vector2(232.49121, 127.5969)
+
+[node name="EnemySpawner" type="Node2D" parent="OverWorld"]
+position = Vector2(1186.7101, 484.91995)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("3_m4a4n")
+
+[node name="EnemySpawner2" type="Node2D" parent="OverWorld"]
+position = Vector2(929.44977, 493.92767)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("3_m4a4n")
+
+[node name="EnemySpawner3" type="Node2D" parent="OverWorld"]
+position = Vector2(1080.6248, 744.9018)
+script = ExtResource("7_fijs6")
+enemy_scene = ExtResource("3_m4a4n")
 
 [node name="OverworldAudio" type="AudioStreamPlayer" parent="OverWorld"]
 process_mode = 3
@@ -1643,13 +1650,16 @@ skills_menu = NodePath("../SkillsMenu")
 map_menu = NodePath("../MapMenu")
 
 [node name="StatsMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("character") instance=ExtResource("9_m3130")]
+visible = false
 character = NodePath("../../Player")
 
 [node name="SkillsMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("character", "overworld_menu") instance=ExtResource("10_2mu0y")]
+visible = false
 character = NodePath("../../Player")
 overworld_menu = NodePath("../Overworld Menu")
 
 [node name="MapMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("overworld_menu") instance=ExtResource("11_qyksh")]
+visible = false
 overworld_menu = NodePath("../Overworld Menu")
 map_texture = ExtResource("3_n21db")
 

@@ -9,11 +9,15 @@ var enemy : Enemy
 var num : int
 var enemy_creator : EnemyCreator = load("res://Scripts/enemy_creator.gd").new()
 var turn_order : Array[Character] = []
+var spawner_id : EnemySpawner
 
 @onready var battle_manager : BattleManager = $BattleManager
 @onready var enemy_list : HBoxContainer = $EnemyListContainer/EnemyList
 @onready var skill_list : GridContainer = $SkillListContainer/SkillList
 
+
+func start_enemy_respawn():
+	spawner_id.spawn_enemy()
 
 func update_enemy_container(array : Array[Character]):
 	turn_order = array
@@ -26,6 +30,7 @@ func _init_characters(player_character : Player, collided_enemey : Enemy):
 	
 	player = player_character
 	enemy = collided_enemey
+	spawner_id = collided_enemey.spawner_id
 	battle_manager.playerHealth.set_up_health_bar()
 	num = (randi_range(1, 2))
 	_create_extra_enemies(num)
@@ -50,6 +55,7 @@ func _place_enemies():
 		enemies.scale = Vector2(2,2)
 		enemies.global_position = pos
 		enemies.z_index = 1
+		enemies.canMove = false
 		pos.x += 300
 	_update_enemy_list()
 	_update_skill_list()
@@ -82,4 +88,5 @@ func _update_skill_list():
 		move.set_up_button()
 		skill_list.add_child(move.button)
 		battle_manager.connect_skill_signal(move.button)
+
 		

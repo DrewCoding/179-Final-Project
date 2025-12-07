@@ -18,12 +18,16 @@ signal battle_ended()
 var player : Player
 var turn_order : Array[Character] = []
 var enemy_list : Array[Character] = []
-var turn_number : int = 0
+var xp_gain : int = 0
 var target : Enemy
 var active_skill : Skill
 
 var current_turn_index : int = 0
 var awaiting_target : bool = false
+var turn_count : int = 0
+var character_count : int = 0
+var attacks_this_turn : int = 0
+var double_attack : bool = false
 
 @onready var attack_effect : PackedScene = preload("res://Scenes/attack_effect.tscn")
 @onready var playerHealth: HealthBar = $"../HealthBar"
@@ -42,6 +46,8 @@ func init_battle (p : Player, t : Array[Character]):
 	turn_order = t
 	enemy_list = turn_order.duplicate()
 	turn_order.push_front(player)
+	character_count = turn_order.size()
+	_sort_by_speed()
 	attack_button.pressed.connect(_show_skill_list)
 	back1_button.pressed.connect(_hide_skill_list)
 	back2_button.pressed.connect(_hide_enemy_list)
@@ -62,13 +68,7 @@ func _process(_delta):
 
 
 func _start_combat():
-	turn_order.sort_custom(func(a, b): 
-		if a is Player:
-			return true
-		if b is Player:
-			return false
-		return a.speed > b.speed
-	)
+	await get_tree().create_timer(1).timeout
 	current_turn_index = -1
 	_next_turn()
 
@@ -111,6 +111,11 @@ func _enemy_selected(enemy_button : EnemyButton):
 	await get_tree().create_timer(3.0).timeout
 	dialogue_box.visible = false
 	
+	if (attacks_this_turn < 1 && player.speed > target.speed):
+		attacks_this_turn += 1
+		double_attack = true
+	else:
+		double_attack = false
 	# When a target dies it is removed from the turn order and as a result we also need to
 	# dynamically change the buttons in EnemyListContainer/EnemyList
 	if target.curr_hp <= 0:
@@ -121,12 +126,16 @@ func _enemy_selected(enemy_button : EnemyButton):
 			count += 1
 		count = 0
 		for enmy in enemy_list:
-			print(enmy)
 			if enmy == target:
 				enemy_list.remove_at(count)
 			count += 1
 		battle_set_up.update_enemy_container(enemy_list)
 		target.queue_free()
+		if(enemy_list.size() <= 0):
+			double_attack = false
+		character_count -= 1
+		turn_count -= 1
+		xp_gain += target.xp_value
 
 	print("\nEnding player turn...")
 	enemy_list_container.visible = false
@@ -135,18 +144,33 @@ func _enemy_selected(enemy_button : EnemyButton):
 	awaiting_target = false
 	
 	await get_tree().create_timer(1.0).timeout
-	_next_turn()
+	
+	if (double_attack):
+		string = ("Player outspeeds and attacks again")
+		dialogue_box.visible = true
+		enemy_list_container.visible = false
+		command_container.visible = false
+		text.text = string
+		await get_tree().create_timer(3.0).timeout
+		dialogue_box.visible = false
+		_start_player_turn()
+	else:
+		_next_turn()
 
 
 func _next_turn():
-	turn_order = turn_order.filter(func(c): return is_instance_valid(c) and c.is_alive())
-	
+	attacks_this_turn = 0
 	if _check_battle_end():
 		return
-	
+		
+	turn_count += 1
+	if turn_count == character_count:
+		_sort_by_speed()
+		
 	current_turn_index = (current_turn_index + 1) % turn_order.size()
 	
 	var current_character = turn_order[current_turn_index]
+	print(current_turn_index)
 	print("Current turn: " + current_character.name)
 	
 	awaiting_target = false
@@ -165,7 +189,8 @@ func _check_battle_end() -> bool:
 		if not is_instance_valid(character):
 			continue
 		if character is Player:
-			player_alive = true
+			if character.curr_hp > 0:
+				player_alive = true
 		elif character is Enemy:
 			enemies_alive = true
 	
@@ -197,7 +222,6 @@ func _show_skill_list():
 func _hide_skill_list():
 	skill_list_container.visible = false
 	command_container.visible = true
-	
 
 
 func _start_player_turn():
@@ -223,12 +247,39 @@ func _start_enemy_turn(current_enemy : Enemy):
 	dialogue_box.visible = true
 	await get_tree().create_timer(1.5).timeout
 	dialogue_box.visible = false
-	_next_turn()
+	
+	if (attacks_this_turn < 1 && player.speed < current_enemy.speed):
+		attacks_this_turn += 1
+		double_attack = true
+	else:
+		double_attack = false
+		
+	if (double_attack):
+		string = ("%s outspeeds and attacks again" %[current_enemy.name])
+		dialogue_box.visible = true
+		enemy_list_container.visible = false
+		command_container.visible = false
+		text.text = string
+		await get_tree().create_timer(3.0).timeout
+		dialogue_box.visible = false
+		_start_enemy_turn(current_enemy)
+	else:
+		_next_turn()
 
 
 func _on_battle_won():
 	print("You won!!")
+	print("Gained %d xp" %[xp_gain])
+	if player.current_xp + xp_gain >= player.needed_xp:
+		print("Level up!!!")
+		var remainder : int = (player.current_xp + xp_gain) - player.needed_xp
+		player.level_up()
+		player.current_xp = 0
+		player.current_xp += remainder
+	else:
+		player.current_xp += xp_gain
 	await get_tree().create_timer(1.5).timeout
+	battle_set_up.start_enemy_respawn()
 	battle_ended.emit()
 
 
@@ -245,3 +296,28 @@ func _show_stat_sheet():
 		player_stat_box.visible = false
 		
 	stat_text.text = player.get_stat_info()
+
+
+func _sort_by_speed():
+	var size = turn_order.size()
+	var no_swaps : bool = true
+	
+	for i in range(size):
+		no_swaps = true
+		for j in range(0, size-i-1):
+			if turn_order[j].speed < turn_order[j+1].speed:
+				print("%s speed is %d < %s speed is %d" %[turn_order[j].name, turn_order[j].speed, turn_order[j+1].name, turn_order[j+1].speed])
+				var temp : Character = turn_order[j]
+				turn_order[j] = turn_order[j+1]
+				turn_order[j+1] = temp
+				no_swaps = false
+		if (no_swaps):
+			break
+			
+	var output : String = ""
+	print("\n-----------------Turn Order-------------------")
+	for characters in turn_order:
+		output += characters.name + " -> "
+	print(output)
+	print("----------------------------------------------\n")
+	

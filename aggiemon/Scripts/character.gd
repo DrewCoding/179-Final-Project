@@ -7,6 +7,9 @@ signal died()
 
 var movement_speed = 300
 #stats
+var level = 0
+var current_xp = 0
+var needed_xp = 0
 var curr_hp = 0
 var max_hp = 0
 var attack = 0
@@ -36,17 +39,19 @@ func select_a_skill():
 
 func get_stat_info():
 	var stats : String
-	stats = ("Max HP: %d\n Attack: %d\n Defence: %d\n Speed: %d\n" %[max_hp, attack, defence, speed])
+	stats = (" Lavel: %d\n XP: %d/%d\n Max HP: %d\n Attack: %d\n Defence: %d\n Speed: %d\n" 
+							%[level, current_xp, needed_xp, max_hp, attack, defence, speed])
+
 	return stats
 
 func create_stats():
-	max_hp = randi_range(1, 150)
+	max_hp = randi_range(1, 10)
 	curr_hp = max_hp
-	attack = randi_range(1, 10)
+	attack = randi_range(1, 5)
 	special_attack = randi_range(1, 100)
 	defence = randi_range(1, 2)
 	special_defence = randi_range(1, 100)
-	speed = randi_range(1, 100)
+	speed = randi_range(1, 10)
 
 
 func add_skill(skill : Skill):
