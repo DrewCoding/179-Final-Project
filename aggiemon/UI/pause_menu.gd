@@ -69,3 +69,4 @@ func _on_options_button_pressed() -> void:
 		options_menu.open()
 		visible = false
 		is_open = false
+		cursor_sfx.play()
