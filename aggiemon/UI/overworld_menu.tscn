@@ -11,7 +11,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -258.0
-offset_bottom = 336.0
+offset_bottom = 286.0
 grow_horizontal = 0
 theme = ExtResource("2_w06ic")
 script = ExtResource("1_n5cd6")
@@ -43,13 +43,6 @@ size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 text = "Skills
 
-"
-
-[node name="ItemsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(130, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Items
 "
 
 [node name="MapButton" type="Button" parent="MarginContainer/VBoxContainer"]
