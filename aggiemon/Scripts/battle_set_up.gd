@@ -40,10 +40,10 @@ func _create_extra_enemies(number : int, default_enemy : String):
 	
 	var initial_enemy = enemy_creator.enemy_builder_default(default_enemy)
 	turn_order.push_back(initial_enemy)
-	number = 2
-	for i in range(number):
-		var created_enemy  = enemy_creator.enemy_builder()
-		turn_order.push_back(created_enemy)
+	if default_enemy != "Greaser":
+		for i in range(number):
+			var created_enemy  = enemy_creator.enemy_builder()
+			turn_order.push_back(created_enemy)
 	_place_enemies()
 
 
@@ -58,6 +58,8 @@ func _place_enemies():
 		enemies.z_index = 1
 		enemies.canMove = false
 		enemies.not_in_battle = false
+		if turn_order.size() == 1:
+			enemies.global_position = Vector2i(559, 256)
 		pos.x += 400
 	_update_enemy_list()
 	_update_skill_list()

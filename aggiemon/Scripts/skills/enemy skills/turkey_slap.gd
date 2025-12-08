@@ -10,7 +10,7 @@ func _init() -> void:
 func effect(character : Character):
 	var string: String = ""
 	var init_def = character.defence
-	character.defence /= 1.10
+	character.defence /= 1.25
 	string = "Lowered %s defence from %d -> %d" %[character.name, init_def, character.defence]
 	return string
 

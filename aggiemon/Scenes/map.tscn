@@ -1,10 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://2m0at1p8kgp5"]
+[gd_scene load_steps=21 format=3 uid="uid://730rqg77frhh"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
 [ext_resource type="Texture2D" uid="uid://cj2tgrjcyhq10" path="res://Assets/tiles/aggiemonmap_incomplete.png" id="3_n21db"]
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
-[ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
+[ext_resource type="Script" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
 [ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://UI/overworld_menu.tscn" id="7_n21db"]
 [ext_resource type="PackedScene" uid="uid://bgxju5kl6yvlc" path="res://Scenes/turkey.tscn" id="8_3v400"]
@@ -96,6 +96,7 @@ enemy_scene = ExtResource("8_3v400")
 
 [node name="Overworld Menu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("stats_menu", "skills_menu", "map_menu", "options_menu") instance=ExtResource("7_n21db")]
 visible = false
+theme = null
 stats_menu = NodePath("../StatsMenu")
 skills_menu = NodePath("../SkillsMenu")
 map_menu = NodePath("../MapMenu")

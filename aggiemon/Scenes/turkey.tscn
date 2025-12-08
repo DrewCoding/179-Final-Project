@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cy6ta1x6wqtvj" path="res://Scripts/turkey.gd" id="1_q1nv2"]
 [ext_resource type="Texture2D" uid="uid://duckdcvwgt2qp" path="res://Assets/sprites/sample_turkey.png" id="2_q1nv2"]
-[ext_resource type="Script" uid="uid://bfsrad2kx3fe2" path="res://Scripts/health_bar.gd" id="3_gkokv"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="3_gkokv"]
 
 [sub_resource type="Animation" id="Animation_q1nv2"]
 resource_name = "Idle"

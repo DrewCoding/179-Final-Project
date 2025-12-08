@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://1j5owlrrbul0" path="res://Scripts/battle_manager.gd" id="2_1n6mm"]
 [ext_resource type="Texture2D" uid="uid://jq3i2xdilphx" path="res://Assets/battle_screens/AI_example_for_testing.png" id="2_ke72n"]
 [ext_resource type="AudioStream" uid="uid://d4mhw72mnblfs" path="res://Audio/8 Bit Boss - Boss Battle Music By HeatleyBros.mp3" id="4_28bop"]
-[ext_resource type="Script" uid="uid://bfsrad2kx3fe2" path="res://Scripts/health_bar.gd" id="5_jslu5"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="5_jslu5"]
 [ext_resource type="AudioStream" uid="uid://ugkpm4f6vei3" path="res://Audio/whack02-87839.mp3" id="6_28bop"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vnsc"]
@@ -190,7 +190,7 @@ offset_left = 20.0
 offset_top = 23.0
 offset_right = 575.0
 offset_bottom = 67.0
-theme_override_constants/separation = 150
+theme_override_constants/separation = 100
 
 [node name="Back2" type="Button" parent="EnemyListContainer"]
 layout_mode = 0

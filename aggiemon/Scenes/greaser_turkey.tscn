@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://blgqbg12jhnjl"]
+[gd_scene load_steps=13 format=3 uid="uid://dmp74kcfc4jo0"]
 
-[ext_resource type="Texture2D" uid="uid://dk8cmi13tupnp" path="res://Assets/sprites/frame0001.png" id="2_287tu"]
-[ext_resource type="Script" uid="uid://7u54ib34gx36" path="res://Scripts/enemy.gd" id="2_afpow"]
-[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="3_afpow"]
+[ext_resource type="Script" uid="uid://c1xoqyry06cjc" path="res://Scripts/greaser_turkey.gd" id="1_0ao2d"]
+[ext_resource type="Texture2D" uid="uid://ciuwrki0c6hx0" path="res://Assets/sprites/frame0000.png" id="2_x351o"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="3_lun5j"]
 
 [sub_resource type="Animation" id="Animation_v0iea"]
 resource_name = "Idle"
@@ -106,14 +106,15 @@ size = Vector2(56, 41)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afpow"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation_player")]
-script = ExtResource("2_afpow")
+[node name="GreaserTurkey" type="CharacterBody2D" node_paths=PackedStringArray("health_bar", "animation_player")]
+z_index = 1
+script = ExtResource("1_0ao2d")
 health_bar = NodePath("HealthBar")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3.081)
-texture = ExtResource("2_287tu")
+texture = ExtResource("2_x351o")
 region_enabled = true
 region_rect = Rect2(96.944, 30.23, 25.161, 27.053)
 
@@ -144,7 +145,7 @@ offset_bottom = -52.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_afpow")
 value = 100.0
 show_percentage = false
-script = ExtResource("3_afpow")
+script = ExtResource("3_lun5j")
 enemy = NodePath("..")
 label = NodePath("Label")
 

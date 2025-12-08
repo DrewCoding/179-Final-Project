@@ -4,8 +4,8 @@ extends Character
 @export var health_bar : HealthBar
 @export var animation_player : AnimationPlayer
 
-var enemy_name : String = "Enemy"
-var color : Color = Color("FF0000")
+var enemy_name : String = "Cooler Turkey"
+var color : Color = Color(1,1,1,1)
 var spawner_id : EnemySpawner
 var canMove : bool = false
 var not_in_battle : bool = false
