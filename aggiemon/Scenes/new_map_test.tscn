@@ -78,32 +78,32 @@ position = Vector2(232.49121, 127.5969)
 [node name="SpawnerContainer" type="Node2D" parent="OverWorld"]
 
 [node name="EnemySpawner" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(1187.7101, 484.91995)
+position = Vector2(-120, 857)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("3_m4a4n")
 
 [node name="EnemySpawner2" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(930.44977, 493.92767)
+position = Vector2(-73, 1058)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("3_m4a4n")
 
 [node name="EnemySpawner3" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(1081.6248, 744.9018)
+position = Vector2(-397, 699)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("3_m4a4n")
 
 [node name="EnemySpawner4" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(-419.489, -423.09747)
+position = Vector2(1013, 600)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("8_3v400")
 
 [node name="EnemySpawner5" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(-89.37622, -420.9539)
+position = Vector2(-307, 97)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("8_3v400")
 
 [node name="EnemySpawner6" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(-288.72998, -198.02063)
+position = Vector2(1040, -6)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("8_3v400")
 
@@ -250,7 +250,7 @@ script = ExtResource("15_ltqyi")
 narrator_scene = ExtResource("24_651yi")
 
 [node name="Professor" type="Node2D" parent="."]
-position = Vector2(-326, 1117)
+position = Vector2(367, 235)
 script = ExtResource("15_ltqyi")
 narrator_scene = ExtResource("25_651yi")
 
