@@ -15,7 +15,6 @@ var growth_rate_type = growth_type.default
 var facing_left : bool = true
 var idling : bool = false
 var in_battle : bool = false
-var can_move : bool = true
 
 @onready var sprite : Sprite2D = $Sprite2D
 
@@ -29,10 +28,10 @@ func _process(_delta: float) -> void:
 	
 	var input_horizontal = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var input_vertical = Input.get_action_strength("up") - Input.get_action_strength("down")
-	if can_move:
-		self.velocity.x = player_speed * input_horizontal
-		self.velocity.y = -player_speed * input_vertical
-		self.velocity = velocity.limit_length(player_speed)
+	
+	self.velocity.x = player_speed * input_horizontal
+	self.velocity.y = -player_speed * input_vertical
+	self.velocity = velocity.limit_length(player_speed)
 
 	if(Input.is_action_pressed("up")):
 		animation_player.play("Walk_Up")
@@ -66,7 +65,6 @@ func _process(_delta: float) -> void:
 		level_up()
 	move_and_slide()
 
-
 func create_stats():
 	level = 1
 	current_xp = 0
@@ -80,7 +78,5 @@ func create_stats():
 	speed = 5
 	player_info.update_player_info(self)
 
-
 func level_up():
 	player_info.level_up(self)
-	
