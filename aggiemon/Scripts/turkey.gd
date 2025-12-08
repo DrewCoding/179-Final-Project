@@ -1,11 +1,39 @@
 class_name Turkey
 extends Enemy
 
+var last_direction : Vector2 = Vector2.ZERO
+
 func _ready() -> void:
 	color = Color(1, 1, 1, 1)
 	enemy_name = "Turkey"
 	xp_value = 25
 	super._ready()
+
+func _process(delta):
+	super._process(delta)
+	_update_animation()
+
+func _update_animation():
+	if velocity.length() > 10:
+		if abs(velocity.y) > abs(velocity.x):
+			if velocity.y < 0:
+				animation_player.play("WalkUp")
+				last_direction = Vector2.UP
+			else:
+				animation_player.play("walk_down")
+				last_direction = Vector2.DOWN
+		else:
+			if velocity.x < 0:
+				sprite.flip_h = false
+				animation_player.play("WalkRight")
+				last_direction = Vector2.LEFT
+			else:
+				sprite.flip_h = true
+				animation_player.play("WalkRight")
+				last_direction = Vector2.RIGHT
+	else:
+		# Not moving - play idle
+		animation_player.play("Idle")
 
 
 func _set_skills():

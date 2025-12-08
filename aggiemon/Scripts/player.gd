@@ -45,13 +45,13 @@ func _process(_delta: float) -> void:
 		facing_left = false
 		idling = false
 		animation_player.play("Walk_X") 
-		print(sprite.flip_h) 
+		#print(sprite.flip_h) 
 	elif(Input.is_action_pressed("left")):
 		sprite.flip_h = false
 		facing_left = true
 		idling = false
 		animation_player.play("Walk_X")
-		print(sprite.flip_h) 
+		#print(sprite.flip_h) 
 	else:
 		if facing_left:
 			sprite.flip_h = false
