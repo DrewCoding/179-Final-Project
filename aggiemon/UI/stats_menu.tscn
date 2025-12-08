@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cpjnvj3kvftir" path="res://UI/stats_menu.gd" id="1_ygp7r"]
 [ext_resource type="Theme" uid="uid://djkietrpesysc" path="res://UI/overworld_menu_theme.tres" id="2_neu0m"]
-[ext_resource type="Texture2D" uid="uid://dlnbe2jajdwgl" path="res://Assets/sprites/character_atlas.tres" id="3_neu0m"]
+[ext_resource type="Texture2D" uid="uid://bksmvw3tv6xnh" path="res://Assets/sprites/NewAtlasSprite.tres" id="3_neu0m"]
 
 [node name="StatsMenu" type="Control" node_paths=PackedStringArray("character_sprite", "stats_label", "portrait")]
 layout_mode = 3
@@ -52,8 +52,8 @@ offset_bottom = 80.0
 layout_mode = 0
 offset_left = 260.0
 offset_top = 32.0
-offset_right = 355.0
-offset_bottom = 175.0
+offset_right = 291.0
+offset_bottom = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-694, 339)

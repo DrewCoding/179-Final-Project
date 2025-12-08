@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5u5qk0vk278p" path="res://UI/map_menu.gd" id="1_7c5aj"]
 
 [node name="MapMenu" type="Control" node_paths=PackedStringArray("map_rect")]
+custom_minimum_size = Vector2(988, 916)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
