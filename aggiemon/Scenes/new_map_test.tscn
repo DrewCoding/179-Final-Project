@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=33 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
@@ -18,11 +18,13 @@
 [ext_resource type="PackedScene" uid="uid://s1k78iveay4v" path="res://UI/shop_menu.tscn" id="13_iahq5"]
 [ext_resource type="PackedScene" uid="uid://cgs1qq8jf6pqt" path="res://Scenes/textbox.tscn" id="14_2v8ya"]
 [ext_resource type="Script" uid="uid://cqb36qo6plqok" path="res://Scripts/shop_collision.gd" id="14_06uy0"]
-[ext_resource type="Script" path="res://Scripts/textbox_layer.gd" id="15_06uy0"]
-[ext_resource type="Script" path="res://Scripts/narrator_spawner.gd" id="15_ltqyi"]
+[ext_resource type="Script" uid="uid://vpwqaqmsvip5" path="res://Scripts/textbox_layer.gd" id="15_06uy0"]
+[ext_resource type="Script" uid="uid://cshpvhrf0r5xh" path="res://Scripts/narrator_spawner.gd" id="15_ltqyi"]
 [ext_resource type="PackedScene" uid="uid://du5few3itt3ab" path="res://Scenes/textbox_layer.tscn" id="15_o7lac"]
 [ext_resource type="PackedScene" uid="uid://b60ppxe2arvsj" path="res://Scenes/TextboxLayer.tscn" id="16_06uy0"]
-[ext_resource type="PackedScene" path="res://Scenes/greaser_turkey.tscn" id="23_8gbwf"]
+[ext_resource type="PackedScene" uid="uid://d34x2wbxlugvc" path="res://Scenes/gameover_menu.tscn" id="20_h4rio"]
+[ext_resource type="PackedScene" uid="uid://byabee5b75k5u" path="res://Scenes/startmenu.tscn" id="21_651yi"]
+[ext_resource type="PackedScene" uid="uid://dmp74kcfc4jo0" path="res://Scenes/greaser_turkey.tscn" id="23_8gbwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v400"]
 size = Vector2(32.857117, 37.87004)
@@ -192,6 +194,18 @@ offset_bottom = -648.0
 
 [node name="Textbox3" parent="OverWorld/TextboxLayer" instance=ExtResource("15_o7lac")]
 visible = false
+
+[node name="GameoverMenu" parent="OverWorld" instance=ExtResource("20_h4rio")]
+offset_left = 14.0
+offset_top = -1599.0
+offset_right = 1188.0
+offset_bottom = -846.0
+
+[node name="Startmenu" parent="OverWorld" instance=ExtResource("21_651yi")]
+offset_left = -367.0
+offset_top = -206.0
+offset_right = 857.0
+offset_bottom = 585.0
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
