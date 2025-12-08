@@ -36,8 +36,11 @@ func _start_dialogue_1(body):
 func _start_battle_handler(body):
 	if has_node("BattleSetUp"):
 		return
-		
+	
 	var enemy = body.get_parent()
+	
+	if not enemy is Enemy:
+		return
 	
 	var load_battle_screen : PackedScene= load("res://Scenes/battle_set_up.tscn")
 	battle_screen = load_battle_screen.instantiate() as Node2D
@@ -65,7 +68,7 @@ func _start_battle_handler(body):
 	run_button.pressed.connect(_start_enemy_respawn)
 	enemy.call_deferred("queue_free")
 	
-	over_world_audio.stream_paused = true	
+	over_world_audio.stream_paused = true
 	
 func _end_battle():
 	camera.enabled = true

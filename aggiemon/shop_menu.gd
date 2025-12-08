@@ -4,6 +4,7 @@ extends Control
 
 @export var shop_list: ItemList 
 @export var info_label: Label
+@export var skill_point_label: Label
 
 var skills: Array[Skill] = []
 
@@ -51,13 +52,16 @@ func _populate_shop_list() -> void:
 	
 	for skill in skills:
 		shop_list.add_item(skill.skill_name)
-	
+		
+	skill_point_label.text = str(character.skill_points)
 
 
 func _on_shop_list_item_selected(index: int) -> void:
 	if index < 0 or index >= skills.size():
 		return
 	
-	character.add_skill(skills[index])
-	skills.remove_at(index)
-	_populate_shop_list()
+	if(character.skill_points > 0):
+		character.skill_points -= 1
+		character.add_skill(skills[index])
+		skills.remove_at(index)
+		_populate_shop_list()

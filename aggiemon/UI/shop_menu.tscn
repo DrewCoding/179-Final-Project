@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b0wrffkrqetet" path="res://shop_menu.gd" id="1_tyiqa"]
 
-[node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop_list", "info_label")]
+[node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop_list", "info_label", "skill_point_label")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_tyiqa")
 shop_list = NodePath("PanelContainer/HBoxContainer/VBoxContainer/ShopList")
 info_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/InfoLabel")
+skill_point_label = NodePath("PanelContainer/HBoxContainer/VBoxContainer/Skill Point Amount")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -29,6 +30,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TitleLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Skills Shop
+"
+
+[node name="Skill Point Amount" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Skills Shop
 "
