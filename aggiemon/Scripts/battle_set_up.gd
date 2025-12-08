@@ -1,6 +1,8 @@
 class_name BattleSetUp
 extends Node2D
 
+@export var default_music : AudioStreamPlayer
+@export var boss_theme : AudioStreamPlayer
 #middle 559x 256y
 var pos := Vector2i(159, 256)
 
@@ -27,8 +29,13 @@ func update_enemy_container(array : Array[Character]):
 	call_deferred("_update_enemy_list")
 
 
+func play_boss_theme():
+	default_music.stop()
+	boss_theme.play()
+
 func _init_characters(player_character : Player, collided_enemey):
-	
+	if collided_enemey is GreaserTurkey:
+		play_boss_theme()
 	player = player_character
 	spawner_id = collided_enemey.spawner_id
 	battle_manager.playerHealth.set_up_health_bar()
@@ -92,5 +99,3 @@ func _update_skill_list():
 		move.set_up_button()
 		skill_list.add_child(move.button)
 		battle_manager.connect_skill_signal(move.button)
-
-		

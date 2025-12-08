@@ -24,9 +24,11 @@ func select_a_skill():
 	if(size_of_move_list == 0):
 		return null
 	
-	if ((player_info.defence * 0.5) < player_info.player_instance.defence):
-		return move_list[2]
+	if ((player_info.defence / 1.5) < player_info.player_instance.defence):
+		print("\n\n\n\n\n Player Speed %d < %d" %[player_info.defence / 1.5,player_info.player_instance.defence])
+		return move_list[0]
 	else:
+		randomize()
 		var choice = randi_range(0, size_of_move_list - 1)
 		return move_list[choice]
 

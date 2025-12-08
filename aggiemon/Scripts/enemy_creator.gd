@@ -22,10 +22,12 @@ func enemy_builder_default(collided_enemy : String):
 		enemy = enemy_class as Turkey
 		if enemy.enemy_name != "Turkey":
 			enemy.enemy_name = "Turkey"
-	elif enemy_class is Enemy:
-		enemy = enemy_class as Enemy
 	elif enemy_class is GreaserTurkey:
 		enemy = enemy_class as GreaserTurkey
+		if enemy.enemy_name != "Greaser Turkey":
+			enemy.enemy_name = "Greaser Turkey"
+	elif enemy_class is Enemy:
+		enemy = enemy_class as Enemy
 		
 	enemy.canMove = false
 	enemy.not_in_battle = false

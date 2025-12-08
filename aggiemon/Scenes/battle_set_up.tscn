@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chj1gkeq6mwit"]
+[gd_scene load_steps=19 format=3 uid="uid://chj1gkeq6mwit"]
 
 [ext_resource type="Script" uid="uid://dwkyyfuopel3u" path="res://Scripts/battle_set_up.gd" id="1_6io4i"]
 [ext_resource type="Script" uid="uid://1j5owlrrbul0" path="res://Scripts/battle_manager.gd" id="2_1n6mm"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://d4mhw72mnblfs" path="res://Audio/8 Bit Boss - Boss Battle Music By HeatleyBros.mp3" id="4_28bop"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="5_jslu5"]
 [ext_resource type="AudioStream" uid="uid://ugkpm4f6vei3" path="res://Audio/whack02-87839.mp3" id="6_28bop"]
+[ext_resource type="AudioStream" uid="uid://7f7w2wj4ew17" path="res://Audio/Epic Battle Music (No Copyright) Dragon Castle by @Makai-symphony.mp3" id="7_5l2uv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vnsc"]
 bg_color = Color(0, 0, 0, 1)
@@ -46,8 +47,10 @@ gradient = SubResource("Gradient_1n6mm")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jslu5"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="BattleSetUp" type="Node2D"]
+[node name="BattleSetUp" type="Node2D" node_paths=PackedStringArray("default_music", "boss_theme")]
 script = ExtResource("1_6io4i")
+default_music = NodePath("AudioStreamPlayer")
+boss_theme = NodePath("BossTheme")
 
 [node name="BattleManager" type="Node2D" parent="." node_paths=PackedStringArray("battle_set_up", "command_container", "attack_button", "back1_button", "back2_button", "stat_button", "enemy_list_container", "skill_list_container", "dialogue_box", "player_stat_box", "text", "stat_text", "attack_sound")]
 script = ExtResource("2_1n6mm")
@@ -273,3 +276,7 @@ horizontal_alignment = 1
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_28bop")
+
+[node name="BossTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5l2uv")
+volume_db = -5.0
