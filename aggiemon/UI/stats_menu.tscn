@@ -51,13 +51,14 @@ offset_bottom = 80.0
 [node name="Sprite" type="TextureRect" parent="PanelContainer/HBoxContainer"]
 layout_mode = 0
 offset_left = 260.0
-offset_top = 32.0
-offset_right = 291.0
-offset_bottom = 60.0
+offset_top = 9.0
+offset_right = 358.0
+offset_bottom = 126.0
+expand_mode = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-694, 339)
-scale = Vector2(3, 3.081)
+scale = Vector2(1, 1.027)
 texture = ExtResource("3_neu0m")
 flip_h = true
 region_enabled = true
