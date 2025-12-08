@@ -1,24 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://b37uw6c2v0gy6"]
+[gd_scene load_steps=20 format=3 uid="uid://b37uw6c2v0gy6"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
+[ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
+[ext_resource type="Texture2D" uid="uid://cj2tgrjcyhq10" path="res://Assets/tiles/aggiemonmap_incomplete.png" id="3_n21db"]
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
+[ext_resource type="Script" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
 [ext_resource type="PackedScene" uid="uid://27svtqjb0qhq" path="res://UI/overworld_menu.tscn" id="7_n21db"]
 [ext_resource type="PackedScene" uid="uid://bgxju5kl6yvlc" path="res://Scenes/turkey.tscn" id="8_3v400"]
+[ext_resource type="PackedScene" uid="uid://ctb4vis60pgh7" path="res://UI/stats_menu.tscn" id="9_m3130"]
+[ext_resource type="PackedScene" uid="uid://d2mwx03oofd4" path="res://UI/skills_menu.tscn" id="10_2mu0y"]
+[ext_resource type="PackedScene" uid="uid://bpcgfvb4ftycd" path="res://UI/map_menu.tscn" id="11_qyksh"]
 [ext_resource type="Texture2D" uid="uid://duilp6drdnwwc" path="res://Assets/tiles/aggiemonmap_incomplete - Copy.png" id="12_3v400"]
 [ext_resource type="AudioStream" uid="uid://clcn0qdjuktys" path="res://Audio/Jorge Hernandez - Chopsticks NO COPYRIGHT 8-bit Music.mp3" id="13_3v400"]
-
-[sub_resource type="Resource" id="Resource_w7jjh"]
-metadata/__load_path__ = "res://Scenes/enemy.tscn"
-
-[sub_resource type="Resource" id="Resource_6q3n4"]
-metadata/__load_path__ = "res://Scenes/enemy.tscn"
-
-[sub_resource type="Resource" id="Resource_4c2oa"]
-metadata/__load_path__ = "res://Scenes/enemy.tscn"
-
-[sub_resource type="Resource" id="Resource_olcgw"]
-metadata/__load_path__ = "res://Assets/tiles/aggiemonmap_incomplete.png"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v400"]
 size = Vector2(32.857117, 37.87004)
@@ -50,11 +44,17 @@ position = Vector2(1, 0)
 z_index = -1
 position = Vector2(385.99997, 295.00003)
 scale = Vector2(2.0000002, 2.0920002)
+texture = ExtResource("3_n21db")
 
 [node name="Camera2D" type="Camera2D" parent="OverWorld"]
 position = Vector2(166.25494, 153.60397)
 scale = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
+script = ExtResource("4_xqlrx")
+upper_bound = 330
+lower_bound = 900
+left_bound = 25
+right_bound = 800
 
 [node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
 position = Vector2(232.49121, 127.5969)
@@ -64,17 +64,17 @@ position = Vector2(232.49121, 127.5969)
 [node name="EnemySpawner" type="Node2D" parent="OverWorld/SpawnerContainer"]
 position = Vector2(1187.7101, 484.91995)
 script = ExtResource("7_fijs6")
-enemy_scene = SubResource("Resource_w7jjh")
+enemy_scene = ExtResource("3_m4a4n")
 
 [node name="EnemySpawner2" type="Node2D" parent="OverWorld/SpawnerContainer"]
 position = Vector2(930.44977, 493.92767)
 script = ExtResource("7_fijs6")
-enemy_scene = SubResource("Resource_6q3n4")
+enemy_scene = ExtResource("3_m4a4n")
 
 [node name="EnemySpawner3" type="Node2D" parent="OverWorld/SpawnerContainer"]
 position = Vector2(1081.6248, 744.9018)
 script = ExtResource("7_fijs6")
-enemy_scene = SubResource("Resource_4c2oa")
+enemy_scene = ExtResource("3_m4a4n")
 
 [node name="EnemySpawner4" type="Node2D" parent="OverWorld/SpawnerContainer"]
 position = Vector2(-419.489, -423.09747)
@@ -100,45 +100,19 @@ stats_menu = NodePath("../StatsMenu")
 skills_menu = NodePath("../SkillsMenu")
 map_menu = NodePath("../MapMenu")
 
-[node name="StatsMenu" parent="OverWorld/Overworld Menus"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="StatsMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("character") instance=ExtResource("9_m3130")]
 visible = false
-script = null
+character = NodePath("../../Player")
 
-[node name="SkillsMenu" parent="OverWorld/Overworld Menus"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="SkillsMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("character", "overworld_menu") instance=ExtResource("10_2mu0y")]
 visible = false
-script = null
+character = NodePath("../../Player")
+overworld_menu = NodePath("../Overworld Menu")
 
-[node name="MapMenu" parent="OverWorld/Overworld Menus"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="MapMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("overworld_menu") instance=ExtResource("11_qyksh")]
 visible = false
-map_texture = SubResource("Resource_olcgw")
-script = null
+overworld_menu = NodePath("../Overworld Menu")
+map_texture = ExtResource("3_n21db")
 
 [node name="TreeLeaves2" type="Sprite2D" parent="OverWorld"]
 position = Vector2(204.99998, 301)
