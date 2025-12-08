@@ -50,6 +50,8 @@ func update_player_info(player : Player):
 	
 func restore_player_stats():
 	player_instance.max_hp = max_hp
+	if player_instance.curr_hp > max_hp:
+		player_instance.curr_hp = max_hp
 	player_instance.attack = attack
 	player_instance.defence = defence
 	player_instance.speed = speed
