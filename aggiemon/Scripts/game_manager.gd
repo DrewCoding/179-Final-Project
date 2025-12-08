@@ -13,8 +13,6 @@ func _ready() -> void:
 	player_hurt_box.area_entered.connect(_start_battle)
 	
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -51,6 +49,7 @@ func _start_battle_handler(body):
 	
 	var run_button = $BattleSetUp/CommandContainer/Run
 	run_button.pressed.connect(_end_battle)
+	run_button.pressed.connect(_start_enemy_respawn)
 	enemy.call_deferred("queue_free")
 	
 	over_world_audio.stream_paused = true	
@@ -61,3 +60,8 @@ func _end_battle():
 	battle_screen.queue_free()
 	over_world.show()
 	over_world_audio.stream_paused = false
+
+func _start_enemy_respawn():
+	var battle_set_up : BattleSetUp = $BattleSetUp
+	battle_set_up.start_enemy_respawn()
+	player_info.restore_player_stats()

@@ -71,11 +71,11 @@ func create_stats():
 	needed_xp = 45
 	max_hp = 100
 	curr_hp = max_hp
-	attack = randi_range(1, 10)
+	attack = 5
 	special_attack = randi_range(1, 100)
-	defence = randi_range(1, 2)
+	defence = 5
 	special_defence = randi_range(1, 100)
-	speed = randi_range(1, 100)
+	speed = 5
 	player_info.update_player_info(self)
 
 func level_up():
