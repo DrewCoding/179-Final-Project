@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqeadvk4kx30d"]
+[gd_scene load_steps=9 format=3 uid="uid://bqeadvk4kx30d"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_mmt5l"]
 [ext_resource type="Texture2D" uid="uid://ck51a6h1d76wu" path="res://Assets/tiles/sample_tile_sheet_(definitely_not_copyrighted).png" id="1_sq00h"]
 [ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="2_mmt5l"]
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="3_fgdfb"]
 [ext_resource type="AudioStream" uid="uid://dubded21vp07" path="res://Audio/test_music2(change_later).mp3" id="5_fgdfb"]
+[ext_resource type="PackedScene" uid="uid://ogetq28hvawy" path="res://Scenes/narrator.tscn" id="6_yqty0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_707cn"]
 texture = ExtResource("1_sq00h")
@@ -214,3 +215,5 @@ scale = Vector2(0.7, 0.7)
 stream = ExtResource("5_fgdfb")
 autoplay = true
 parameters/looping = true
+
+[node name="Narrator" parent="." instance=ExtResource("6_yqty0")]

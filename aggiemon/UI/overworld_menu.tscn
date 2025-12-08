@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://27svtqjb0qhq"]
+[gd_scene load_steps=5 format=3 uid="uid://27svtqjb0qhq"]
 
 [ext_resource type="Script" uid="uid://c0tdju2epykls" path="res://UI/pause_menu.gd" id="1_n5cd6"]
 [ext_resource type="Theme" uid="uid://djkietrpesysc" path="res://UI/overworld_menu_theme.tres" id="2_w06ic"]
+[ext_resource type="AudioStream" uid="uid://bqcl8xl1dhqng" path="res://Audio/Pokemon exclamation mark sound effect.mp3" id="3_tb71c"]
+[ext_resource type="AudioStream" uid="uid://csf3p5gkln2a6" path="res://Audio/Pokemon (A Button) - Sound Effect (HD).mp3" id="4_vnrry"]
 
 [node name="Overworld Menu" type="PanelContainer" node_paths=PackedStringArray("default_button")]
 custom_minimum_size = Vector2(230, 160)
@@ -66,6 +68,17 @@ size_flags_vertical = 4
 text = "Options
 "
 
+[node name="OpenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tb71c")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="CursorSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vnrry")
+volume_db = -2.275
+bus = &"SFX"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SkillsButton" to="." method="_on_skills_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

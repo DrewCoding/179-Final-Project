@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwjed80ubyqjv"]
+
+[ext_resource type="PackedScene" uid="uid://cgs1qq8jf6pqt" path="res://Scenes/textbox.tscn" id="1_snfbl"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Textbox" parent="." instance=ExtResource("1_snfbl")]
+offset_left = 1.0
+offset_right = 41.0

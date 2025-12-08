@@ -224,6 +224,7 @@ vertical_alignment = 1
 stream = ExtResource("4_28bop")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="PlayerStats" type="TextureRect" parent="."]
