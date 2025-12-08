@@ -106,7 +106,7 @@ script = ExtResource("15_ltqyi")
 narrator_scene = ExtResource("24_651yi")
 
 [node name="Professor" type="Node2D" parent="OverWorld"]
-position = Vector2(366, 235)
+position = Vector2(356, 124)
 script = ExtResource("15_ltqyi")
 narrator_scene = ExtResource("25_651yi")
 

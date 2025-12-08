@@ -17,7 +17,7 @@ var idling : bool = false
 var in_battle : bool = false
 var can_move : bool = true
 
-@onready var sprite : Sprite2D = $Sprite2D
+@onready var sprite : Sprite2D = $Student
 
 
 
@@ -36,7 +36,6 @@ func _process(_delta: float) -> void:
 		self.velocity.x = player_speed * input_horizontal
 		self.velocity.y = -player_speed * input_vertical
 		self.velocity = velocity.limit_length(player_speed)
-
 	if(Input.is_action_pressed("up")):
 		animation_player.play("Walk_Up")
 	elif(Input.is_action_pressed("down")):
