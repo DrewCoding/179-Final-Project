@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=43 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://cwya21wom513f" path="res://Assets/tiles/aggiemonmap_incomplete_latest.png" id="2_xwppu"]
@@ -48,6 +48,30 @@ size = Vector2(342, 225)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fijs6"]
 size = Vector2(2153, 56.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwppu"]
+size = Vector2(75, 1180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58aca"]
+size = Vector2(421.5, 167.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyex5"]
+size = Vector2(177.75, 119.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08vyw"]
+size = Vector2(177.75, 119.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvvv0"]
+size = Vector2(275.875, 206.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e82m"]
+size = Vector2(157.11761, 63.526917)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pycfk"]
+size = Vector2(157.11761, 63.526917)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_775rx"]
+size = Vector2(108.55881, 112.76346)
 
 [node name="GameManager" type="Node2D" node_paths=PackedStringArray("over_world_audio")]
 y_sort_enabled = true
@@ -246,6 +270,43 @@ shape = SubResource("RectangleShape2D_fijs6")
 position = Vector2(1383, 221)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_fijs6")
+
+[node name="SouthWestStructure1" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-550.5, 689)
+shape = SubResource("RectangleShape2D_xwppu")
+
+[node name="SouthWestStructure2" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-304.25, 1159.25)
+shape = SubResource("RectangleShape2D_58aca")
+
+[node name="Bench" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(547.125, 906.125)
+shape = SubResource("RectangleShape2D_hyex5")
+
+[node name="Bench2" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(543, 697)
+shape = SubResource("RectangleShape2D_08vyw")
+
+[node name="EastHouse" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1112.0625, 634.5625)
+shape = SubResource("RectangleShape2D_dvvv0")
+
+[node name="EastHouseRoof1" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1167.4423, 527.67773)
+rotation = 0.4712389
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_4e82m")
+
+[node name="EastHouseRoof2" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1055.0001, 525.0001)
+rotation = 2.6703537
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_pycfk")
+
+[node name="TreeTrunkEast" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1317.2794, 1120.3817)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_775rx")
 
 [node name="OverworldAudio" type="AudioStreamPlayer" parent="."]
 process_mode = 3
