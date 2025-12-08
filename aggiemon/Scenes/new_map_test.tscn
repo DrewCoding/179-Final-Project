@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=35 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
+[ext_resource type="Texture2D" uid="uid://cwya21wom513f" path="res://Assets/tiles/aggiemonmap_incomplete_latest.png" id="2_xwppu"]
 [ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
-[ext_resource type="Texture2D" uid="uid://cj2tgrjcyhq10" path="res://Assets/tiles/aggiemonmap_incomplete.png" id="3_n21db"]
+[ext_resource type="Texture2D" uid="uid://b77drae40hvui" path="res://Assets/tiles/aggiemonmap_incomplete.png" id="3_n21db"]
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
 [ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
@@ -59,8 +60,8 @@ position = Vector2(1, 0)
 [node name="WorldPNG" type="Sprite2D" parent="OverWorld"]
 z_index = -1
 position = Vector2(385.99997, 295.00003)
-scale = Vector2(2.0000002, 2.0920002)
-texture = ExtResource("3_n21db")
+scale = Vector2(5.1, 5.1)
+texture = ExtResource("2_xwppu")
 
 [node name="Camera2D" type="Camera2D" parent="OverWorld"]
 position = Vector2(166.25494, 153.60397)

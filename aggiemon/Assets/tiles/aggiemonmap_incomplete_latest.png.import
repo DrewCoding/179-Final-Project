@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b77drae40hvui"
-path="res://.godot/imported/aggiemonmap_incomplete.png-5366b76f7f12ff29aaea429cac88f1c6.ctex"
+uid="uid://cwya21wom513f"
+path="res://.godot/imported/aggiemonmap_incomplete_latest.png-4b8f8d40da5d24fccbda2c956eb4c9f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tiles/aggiemonmap_incomplete.png"
-dest_files=["res://.godot/imported/aggiemonmap_incomplete.png-5366b76f7f12ff29aaea429cac88f1c6.ctex"]
+source_file="res://Assets/tiles/aggiemonmap_incomplete_latest.png"
+dest_files=["res://.godot/imported/aggiemonmap_incomplete_latest.png-4b8f8d40da5d24fccbda2c956eb4c9f9.ctex"]
 
 [params]
 
