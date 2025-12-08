@@ -26,6 +26,9 @@ func _start_battle_handler(body):
 		
 	var enemy = body.get_parent()
 	
+	if not enemy is Enemy:
+		return
+	
 	var load_battle_screen : PackedScene= load("res://Scenes/battle_set_up.tscn")
 	battle_screen = load_battle_screen.instantiate() as Node2D
 	
@@ -41,6 +44,7 @@ func _start_battle_handler(body):
 	camera.enabled = false
 	player.set_battle_mode(true)
 	var battle_set_up : BattleSetUp = $BattleSetUp
+	
 	battle_set_up._init_characters(player, enemy)
 	
 	var battle_manager : BattleManager = battle_set_up.get_node("BattleManager")

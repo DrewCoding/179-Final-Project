@@ -24,11 +24,11 @@ func open_menu() -> void:
 	get_tree().paused = true
 	default_button.grab_focus()
 
+
 func close_menu() -> void:
 	visible = false
 	is_open = false
 	get_tree().paused = false
-
 
 
 func _on_stats_button_pressed() -> void:
