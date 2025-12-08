@@ -6,8 +6,12 @@ func _init() -> void:
 	skill_name = "iTea"
 	status = false
 	special_effect = false
+	special_boost = true
 	damage = 15
 
-func effect(none):
-	var _void = none
-	pass
+func effect(character : Character):
+	var string: String = ""
+	var init_defense = character.defence
+	character.curr_hp += 10
+	string = "That hit the spot! (+10 health to you)"
+	return string

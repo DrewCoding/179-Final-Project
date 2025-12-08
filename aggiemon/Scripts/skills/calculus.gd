@@ -5,9 +5,13 @@ extends Skill
 func _init() -> void: 
 	skill_name = "Calculus"
 	status = false
-	special_effect = false
+	special_effect = true
+	special_boost = false
 	damage = 20
 
-func effect(none):
-	var _void = none
-	pass
+func effect(character : Character):
+	var string: String = ""
+	var init_defense = character.defence
+	character.defence /= 1.35
+	string = "%s has no clue was a greek alphabet is. (defence %d -> %d)" %[character.name, init_defense, character.defence]
+	return string

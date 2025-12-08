@@ -4,6 +4,7 @@ var skill_name : String = "SKILL NAME"
 var button : SkillButton
 var damage : int 
 var special_effect : bool
+var special_boost : bool
 var status : bool 
 
 @abstract func effect(character : Character)

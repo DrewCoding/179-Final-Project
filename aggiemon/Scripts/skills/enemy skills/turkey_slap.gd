@@ -5,6 +5,7 @@ func _init() -> void:
 	skill_name = "Turkey Slap"
 	damage = 5
 	special_effect = true
+	special_boost = false
 	status = false
 
 func effect(character : Character):

@@ -11,6 +11,7 @@ func _init() -> void:
 	skill_name = "Greaser Punch"
 	damage = 25
 	special_effect = true
+	special_boost = false
 
 func effect(character : Character):
 	randomize()

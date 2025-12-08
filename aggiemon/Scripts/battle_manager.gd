@@ -108,12 +108,19 @@ func _enemy_selected(enemy_button : EnemyButton):
 				
 		string = ("did " + str(damage) + " damage to " + target.enemy_name 
 					+ " with " + active_skill.skill_name)
-
+	
 	dialogue_box.visible = true
 	enemy_list_container.visible = false
 	command_container.visible = false
 	text.text = string
 	await get_tree().create_timer(1.5).timeout
+	if active_skill.special_effect:
+		string = active_skill.effect(target)
+		text.text = string
+	elif active_skill.special_boost:
+		string = active_skill.effect(player)
+		text.text = string
+	await get_tree().create_timer(3).timeout
 	dialogue_box.visible = false
 	
 	if (attacks_this_turn < 1 && player.speed > target.speed):
