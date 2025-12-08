@@ -65,3 +65,12 @@ func _on_shop_list_item_selected(index: int) -> void:
 		character.add_skill(skills[index])
 		skills.remove_at(index)
 		_populate_shop_list()
+	
+	var skill: Skill = skills[index]
+	var text := "%s\n\nDamage: %d\nStatus Move: %s\nSpecial Effect: %s" % [
+		skill.skill_name,
+		skill.damage,
+		"Yes" if skill.status else "No",
+		"Yes" if skill.special_effect else "No"
+	]
+	info_label.text = text
