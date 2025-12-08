@@ -59,7 +59,7 @@ func _enemy_type_2():
 	var enemy = enemy_template.instantiate() as Enemy
 	enemy.canMove = false
 	enemy.not_in_battle = false
-	enemy.change_color(Color("b000b0ff"))
+	#enemy.change_color(Color("b000b0ff"))
 	enemy.name = enemy.enemy_name
 	enemy.create_stats()
 	return enemy

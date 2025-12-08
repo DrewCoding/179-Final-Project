@@ -20,7 +20,7 @@ var can_move : bool = true
 @onready var sprite : Sprite2D = $Student
 
 
-
+	
 func set_battle_mode(enabled: bool):
 	in_battle = enabled
 
@@ -83,6 +83,12 @@ func create_stats():
 	defence = 5
 	special_defence = randi_range(1, 100)
 	speed = 5
+	var num = randi_range(0,2)
+	match num:
+		0: growth_rate_type = growth_type.default
+		1: growth_rate_type = growth_type.aggressive
+		2: growth_rate_type = growth_type.defensive
+	print(growth_rate_type)
 	player_info.update_player_info(self)
 
 func level_up():

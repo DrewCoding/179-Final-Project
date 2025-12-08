@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hsbvype1nbt" path="res://Assets/sprites/greasers_spritesheet.png" id="2_287tu"]
 [ext_resource type="Script" uid="uid://7u54ib34gx36" path="res://Scripts/enemy.gd" id="2_afpow"]
-[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="3_afpow"]
+[ext_resource type="Script" uid="uid://bfsrad2kx3fe2" path="res://Scripts/health_bar.gd" id="3_afpow"]
 
 [sub_resource type="Animation" id="Animation_v0iea"]
 resource_name = "Idle"

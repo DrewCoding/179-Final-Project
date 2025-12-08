@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://1j5owlrrbul0" path="res://Scripts/battle_manager.gd" id="2_1n6mm"]
 [ext_resource type="Texture2D" uid="uid://jq3i2xdilphx" path="res://Assets/battle_screens/AI_example_for_testing.png" id="2_ke72n"]
 [ext_resource type="AudioStream" uid="uid://d4mhw72mnblfs" path="res://Audio/8 Bit Boss - Boss Battle Music By HeatleyBros.mp3" id="4_28bop"]
-[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="5_jslu5"]
+[ext_resource type="Script" uid="uid://bfsrad2kx3fe2" path="res://Scripts/health_bar.gd" id="5_jslu5"]
 [ext_resource type="AudioStream" uid="uid://ugkpm4f6vei3" path="res://Audio/whack02-87839.mp3" id="6_28bop"]
 [ext_resource type="AudioStream" uid="uid://7f7w2wj4ew17" path="res://Audio/Epic Battle Music (No Copyright) Dragon Castle by @Makai-symphony.mp3" id="7_5l2uv"]
 
@@ -20,7 +20,6 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uiajs"]
 

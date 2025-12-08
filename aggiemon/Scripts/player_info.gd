@@ -71,6 +71,7 @@ func _increase_stat(stat : String, player : Player):
 	match stat:
 		"hp" : 
 			player.max_hp += 15
+			player.curr_hp = player.max_hp
 		"attack" : player.attack += 5
 		"defence" : player.defence += 5
 		"speed" : player.speed += 10
