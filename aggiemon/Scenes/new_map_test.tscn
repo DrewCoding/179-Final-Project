@@ -113,7 +113,7 @@ narrator_scene = ExtResource("25_651yi")
 [node name="SpawnerContainer" type="Node2D" parent="OverWorld"]
 
 [node name="EnemySpawner" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(-120, 857)
+position = Vector2(-160, 727)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("3_m4a4n")
 
@@ -133,7 +133,7 @@ script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("8_3v400")
 
 [node name="EnemySpawner5" type="Node2D" parent="OverWorld/SpawnerContainer"]
-position = Vector2(-307, 97)
+position = Vector2(-203, 136)
 script = ExtResource("7_fijs6")
 enemy_scene = ExtResource("8_3v400")
 
