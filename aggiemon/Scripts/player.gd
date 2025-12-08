@@ -65,6 +65,8 @@ func _process(_delta: float) -> void:
 		animation_player.pause()
 	if Input.is_action_just_pressed("Level Up"):
 		level_up()
+	if Input.is_key_pressed(KEY_0):
+		curr_hp = 0
 	move_and_slide()
 
 func create_stats():
