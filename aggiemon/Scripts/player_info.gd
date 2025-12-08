@@ -1,6 +1,7 @@
 class_name PlayerInfo
 extends Node
 
+var player_instance : Player
 var level
 var skill_points
 var curr_hp = 0
@@ -35,6 +36,7 @@ var growth_list : Array[Dictionary] = [growth_rate_default, growth_rate_aggressi
 
 
 func update_player_info(player : Player):
+	player_instance = player
 	level = player.level
 	skill_points = player.skill_points
 	curr_hp = player.curr_hp
@@ -45,11 +47,18 @@ func update_player_info(player : Player):
 	special_defence = player.special_defence
 	speed = player.speed
 	move_list = player.move_list
+	
+func restore_player_stats():
+	player_instance.max_hp = max_hp
+	player_instance.attack = attack
+	player_instance.defence = defence
+	player_instance.speed = speed
 
 func level_up(player : Player):
 	player.level += 1
 	player.needed_xp *= 1.10
 	player.skill_points += 1
+	player.curr_hp = player.max_hp
 	var stats : Array[String] = ["hp", "attack", "defence", "speed"]
 	
 	for stat in stats:
@@ -60,7 +69,8 @@ func level_up(player : Player):
 
 func _increase_stat(stat : String, player : Player):
 	match stat:
-		"hp" : player.max_hp += 15
+		"hp" : 
+			player.max_hp += 15
 		"attack" : player.attack += 5
 		"defence" : player.defence += 5
 		"speed" : player.speed += 10

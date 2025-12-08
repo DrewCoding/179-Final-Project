@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dtewol7ujqp57" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://boh216q70pv8d" path="res://Assets/sprites/sprites_sample.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://dw0tk44cm8g5i" path="res://Assets/sprites/idle_spritesheet.png" id="3_6t5aa"]
 
 [sub_resource type="Animation" id="Animation_v0iea"]
 resource_name = "Idle"
-length = 0.75
+length = 3.0
 loop_mode = 2
 step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Sprite2D:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
@@ -19,6 +20,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Rect2(64.944, 30.23, 25.161, 27.053), Rect2(32.944, 30.23, 25.161, 27.053), Rect2(0.944, 30.23, 25.161, 27.053)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Student:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(-5.75, -4.838623, 276.1819, 307.2523), Rect2(295.25, -4.839, 276.182, 307.252), Rect2(594.25, -4.839, 276.182, 307.252), Rect2(897.25, -4.839, 276.182, 307.252), Rect2(1198.25, -4.839, 276.182, 307.252), Rect2(1499.25, -4.839, 276.182, 307.252), Rect2(19.795, 299.075, 267.111, 306.8), Rect2(320.795, 299.075, 245.111, 303.8), Rect2(621.795, 299.075, 245.111, 303.8), Rect2(917.795, 299.075, 245.111, 303.8), Rect2(1218.795, 299.075, 245.111, 303.8), Rect2(1506.795, 299.075, 245.111, 303.8)]
 }
 
 [sub_resource type="Animation" id="Animation_cvnsp"]
@@ -34,6 +47,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(96.944, 30.23, 25.161, 27.053)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Student:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-5.75, -4.838623, 276.1819, 307.2523)]
 }
 
 [sub_resource type="Animation" id="Animation_vgqql"]
@@ -110,11 +135,18 @@ script = ExtResource("1_cvnsp")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(3, 3.081)
 texture = ExtResource("1_v0iea")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(96.944, 30.23, 25.161, 27.053)
+
+[node name="Student" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_6t5aa")
+region_enabled = true
+region_rect = Rect2(-5.75, -4.838623, 276.1819, 307.2523)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

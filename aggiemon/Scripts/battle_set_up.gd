@@ -2,10 +2,9 @@ class_name BattleSetUp
 extends Node2D
 
 #middle 559x 256y
-var pos := Vector2i(259, 256)
+var pos := Vector2i(159, 256)
 
 var player : Player
-var enemy : Enemy
 var num : int
 var enemy_creator : EnemyCreator = load("res://Scripts/enemy_creator.gd").new()
 var turn_order : Array[Character] = []
@@ -17,7 +16,9 @@ var spawner_id : EnemySpawner
 
 
 func start_enemy_respawn():
-	spawner_id.spawn_enemy()
+	if spawner_id:
+		spawner_id.spawn_enemy()
+
 
 func update_enemy_container(array : Array[Character]):
 	turn_order = array
@@ -26,22 +27,22 @@ func update_enemy_container(array : Array[Character]):
 	call_deferred("_update_enemy_list")
 
 
-func _init_characters(player_character : Player, collided_enemey : Enemy):
+func _init_characters(player_character : Player, collided_enemey):
 	
 	player = player_character
-	enemy = collided_enemey
 	spawner_id = collided_enemey.spawner_id
 	battle_manager.playerHealth.set_up_health_bar()
 	num = (randi_range(1, 2))
-	_create_extra_enemies(num)
+	_create_extra_enemies(num, collided_enemey.enemy_name)
 
 
-func _create_extra_enemies(number : int):
+func _create_extra_enemies(number : int, default_enemy : String):
 	
-	var initial_enemy : Enemy = enemy_creator.enemy_builder_default()
+	var initial_enemy = enemy_creator.enemy_builder_default(default_enemy)
 	turn_order.push_back(initial_enemy)
+	number = 2
 	for i in range(number):
-		var created_enemy : Enemy = enemy_creator.enemy_builder()
+		var created_enemy  = enemy_creator.enemy_builder()
 		turn_order.push_back(created_enemy)
 	_place_enemies()
 
@@ -56,7 +57,8 @@ func _place_enemies():
 		enemies.global_position = pos
 		enemies.z_index = 1
 		enemies.canMove = false
-		pos.x += 300
+		enemies.not_in_battle = false
+		pos.x += 400
 	_update_enemy_list()
 	_update_skill_list()
 	
@@ -64,6 +66,7 @@ func _place_enemies():
 
 
 func _update_enemy_list():
+	var enemy_number : int = 2
 	for enemies in turn_order:
 		var button : PackedScene = load("res://Scenes/EnemyButton.tscn")
 		var enemy_button = button.instantiate() as EnemyButton
@@ -71,8 +74,7 @@ func _update_enemy_list():
 		enemy_button.name = enemy_button.enemy_name
 		enemy_button.text = enemy_button.enemy_name
 		enemy_list.add_child(enemy_button)
-		var enemy_number : int = 2
-		if enemy_button.name != enemies.name:
+		if enemy_button.name != enemies.enemy_name:
 			var new_name : String = enemy_button.enemy_name + " " + str(enemy_number)
 			enemy_button.enemy_name = new_name
 			enemy_button.name = new_name
