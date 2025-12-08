@@ -27,7 +27,6 @@ func close() -> void:
 		if overworld_menu.default_button:
 			overworld_menu.default_button.grab_focus()
 
-
 func _populate_skill_list() -> void:
 	print("skill_list export is:", skill_list)
 	skill_list.clear()

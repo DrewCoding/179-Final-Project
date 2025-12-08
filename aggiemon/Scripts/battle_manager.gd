@@ -14,6 +14,7 @@ signal battle_ended()
 @export var player_stat_box : TextureRect
 @export var text : Label
 @export var stat_text : Label
+@export var attack_sound : AudioStreamPlayer
 
 var player : Player
 var turn_order : Array[Character] = []
@@ -68,6 +69,9 @@ func _process(_delta):
 
 
 func _start_combat():
+	await get_tree().create_timer(2).timeout
+	for enmy in enemy_list:
+		enmy.global_position.y = 256
 	await get_tree().create_timer(1).timeout
 	current_turn_index = -1
 	_next_turn()
@@ -93,6 +97,7 @@ func _enemy_selected(enemy_button : EnemyButton):
 	effect.position.y -= 10
 	effect.z_index = 2
 	add_child(effect)
+	attack_sound.play()
 	target.shake()
 	await get_tree().create_timer(1.0).timeout
 	
@@ -108,7 +113,7 @@ func _enemy_selected(enemy_button : EnemyButton):
 	enemy_list_container.visible = false
 	command_container.visible = false
 	text.text = string
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	dialogue_box.visible = false
 	
 	if (attacks_this_turn < 1 && player.speed > target.speed):
@@ -151,7 +156,7 @@ func _enemy_selected(enemy_button : EnemyButton):
 		enemy_list_container.visible = false
 		command_container.visible = false
 		text.text = string
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(1.5).timeout
 		dialogue_box.visible = false
 		_start_player_turn()
 	else:
@@ -236,6 +241,7 @@ func _start_enemy_turn(current_enemy : Enemy):
 	command_container.visible = false
 	
 	current_enemy.attack_movement()
+	attack_sound.play()
 	await get_tree().create_timer(1.0).timeout
 		
 	var enemy_skill : Skill = current_enemy.select_a_skill()
@@ -245,9 +251,15 @@ func _start_enemy_turn(current_enemy : Enemy):
 	var string : String = ("%s uses %s for %d damage!" %[current_enemy.name, enemy_skill.skill_name, damage])
 	text.text = string
 	dialogue_box.visible = true
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.3).timeout
+	
+	if (enemy_skill.special_effect):
+		string = enemy_skill.effect(player)
+		text.text = string
+		await get_tree().create_timer(1.7).timeout
 	dialogue_box.visible = false
 	
+	# Characters get at most one extra turn
 	if (attacks_this_turn < 1 && player.speed < current_enemy.speed):
 		attacks_this_turn += 1
 		double_attack = true
@@ -260,7 +272,7 @@ func _start_enemy_turn(current_enemy : Enemy):
 		enemy_list_container.visible = false
 		command_container.visible = false
 		text.text = string
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		dialogue_box.visible = false
 		_start_enemy_turn(current_enemy)
 	else:
@@ -270,6 +282,7 @@ func _start_enemy_turn(current_enemy : Enemy):
 func _on_battle_won():
 	print("You won!!")
 	print("Gained %d xp" %[xp_gain])
+	player_info.restore_player_stats()
 	if player.current_xp + xp_gain >= player.needed_xp:
 		print("Level up!!!")
 		var remainder : int = (player.current_xp + xp_gain) - player.needed_xp

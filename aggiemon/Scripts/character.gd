@@ -39,19 +39,19 @@ func select_a_skill():
 
 func get_stat_info():
 	var stats : String
-	stats = (" Lavel: %d\n XP: %d/%d\n Max HP: %d\n Attack: %d\n Defence: %d\n Speed: %d\n" 
-							%[level, current_xp, needed_xp, max_hp, attack, defence, speed])
+	stats = (" Lavel: %d\n XP: %d/%d\n HP: %d/%d\n Attack: %d\n Defence: %d\n Speed: %d\n" 
+							%[level, current_xp, needed_xp,curr_hp, max_hp, attack, defence, speed])
 
 	return stats
 
 func create_stats():
-	max_hp = randi_range(1, 10)
+	max_hp = randi_range(5, 15)
 	curr_hp = max_hp
-	attack = randi_range(1, 5)
+	attack = randi_range(4, 6)
 	special_attack = randi_range(1, 100)
-	defence = randi_range(1, 2)
+	defence = randi_range(4, 5)
 	special_defence = randi_range(1, 100)
-	speed = randi_range(1, 10)
+	speed = randi_range(3, 7)
 
 
 func add_skill(skill : Skill):
