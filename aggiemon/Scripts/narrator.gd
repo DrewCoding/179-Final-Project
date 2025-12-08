@@ -4,7 +4,7 @@ extends Character
 @export var animation_player : AnimationPlayer
 
 var narrator_name : String = "Narrator"
-var color : Color = Color("2e83ffff")
+var color : Color = Color(1, 1, 1, 1)
 var spawner_id : NarratorSpawner 
 var canMove : bool = true
 var xp_value : int = 15

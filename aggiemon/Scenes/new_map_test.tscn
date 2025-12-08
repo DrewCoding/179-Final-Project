@@ -75,6 +75,16 @@ right_bound = 800
 [node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
 position = Vector2(232.49121, 127.5969)
 
+[node name="Shopkeeper" type="Node2D" parent="OverWorld"]
+position = Vector2(1188, -375)
+script = ExtResource("15_ltqyi")
+narrator_scene = ExtResource("24_651yi")
+
+[node name="Professor" type="Node2D" parent="OverWorld"]
+position = Vector2(366, 235)
+script = ExtResource("15_ltqyi")
+narrator_scene = ExtResource("25_651yi")
+
 [node name="SpawnerContainer" type="Node2D" parent="OverWorld"]
 
 [node name="EnemySpawner" type="Node2D" parent="OverWorld/SpawnerContainer"]
@@ -243,16 +253,6 @@ volume_db = -5.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
-
-[node name="Shopkeeper" type="Node2D" parent="."]
-position = Vector2(1189, -375)
-script = ExtResource("15_ltqyi")
-narrator_scene = ExtResource("24_651yi")
-
-[node name="Professor" type="Node2D" parent="."]
-position = Vector2(367, 235)
-script = ExtResource("15_ltqyi")
-narrator_scene = ExtResource("25_651yi")
 
 [node name="GreaserTurkey" parent="." instance=ExtResource("23_8gbwf")]
 position = Vector2(-467.86914, 977.13873)
