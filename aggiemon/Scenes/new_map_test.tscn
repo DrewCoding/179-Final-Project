@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=27 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
@@ -15,7 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://duilp6drdnwwc" path="res://Assets/tiles/aggiemonmap_incomplete - Copy.png" id="12_3v400"]
 [ext_resource type="PackedScene" uid="uid://qd4jrfxmpwku" path="res://UI/options_menu.tscn" id="12_gvhuy"]
 [ext_resource type="AudioStream" uid="uid://clcn0qdjuktys" path="res://Audio/Jorge Hernandez - Chopsticks NO COPYRIGHT 8-bit Music.mp3" id="13_3v400"]
+[ext_resource type="PackedScene" uid="uid://cgs1qq8jf6pqt" path="res://Scenes/textbox.tscn" id="14_2v8ya"]
+[ext_resource type="Script" path="res://Scripts/textbox_layer.gd" id="15_06uy0"]
 [ext_resource type="Script" path="res://Scripts/narrator_spawner.gd" id="15_ltqyi"]
+[ext_resource type="PackedScene" uid="uid://du5few3itt3ab" path="res://Scenes/textbox_layer.tscn" id="15_o7lac"]
+[ext_resource type="PackedScene" uid="uid://cwjed80ubyqjv" path="res://Scenes/TextboxLayer.tscn" id="16_06uy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v400"]
 size = Vector2(32.857117, 37.87004)
@@ -157,6 +161,17 @@ shape = SubResource("RectangleShape2D_3v0cu")
 position = Vector2(548, 161)
 scale = Vector2(2.1, 2.1)
 texture = ExtResource("12_3v400")
+
+[node name="TextboxLayer" parent="OverWorld" instance=ExtResource("16_06uy0")]
+script = ExtResource("15_06uy0")
+
+[node name="Textbox2" parent="OverWorld/TextboxLayer" instance=ExtResource("14_2v8ya")]
+offset_left = -15.0
+offset_top = -768.0
+offset_right = -15.0
+offset_bottom = -648.0
+
+[node name="Textbox3" parent="OverWorld/TextboxLayer" instance=ExtResource("15_o7lac")]
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
