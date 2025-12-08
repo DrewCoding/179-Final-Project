@@ -9,15 +9,21 @@ var battle_screen : Node2D
 @onready var over_world : Node2D = $OverWorld
 @onready var player_hurt_box : Area2D = $OverWorld/Player/HurtBox
 @onready var player_speak_box : Area2D = $OverWorld/Player/SpeakBox
-#@onready var player_speak_box_2 : Area2D = $OverWorld/Player/SpeakBox2
+
 @onready var player : Player = $OverWorld/Player
 @onready var camera : Camera2D = $OverWorld/Camera2D
 @onready var textbox : CanvasLayer = $OverWorld/TextboxLayer
 
+
 func _ready() -> void:
 	player_hurt_box.area_entered.connect(_start_battle)
-	player_speak_box.area_entered.connect(_start_dialogue_1)
-	#player_speak_box_2.area_entered.connect(_start_dialogue_2)
+	player_speak_box.area_entered.connect(_handle_npc_dialogue)
+	
+func _handle_npc_dialogue(area):
+	if area.get_parent().get_parent().name == "Shopkeeper":
+		_start_dialogue_shopkeeper()
+	elif area.get_parent().get_parent().name == "Professor":
+		_start_dialogue_professor()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -29,9 +35,15 @@ func _start_battle(body):
 #func _start_dialogue_2(body):
 #	textbox.add_text("Welcome to my shop!")
 
-func _start_dialogue_1(body):
-	textbox.add_text("Hello! Welcome to UC Daniel! Be careful of students from our rival school.... UC Boogey. They'll start a fight with you!")
+#func _start_dialogue_1(body):
+#	textbox.add_text("Hello! Welcome to UC Daniel! Be careful of students from our rival school.... UC Boogey. They'll start a fight with you!")
 	
+func _start_dialogue_shopkeeper():
+	textbox.add_text("Welcome to my shop! You can purchase new skills here using skill points. Press 'G' when near me to browse my wares. You'll earn skill points by leveling up!")
+
+func _start_dialogue_professor():
+	textbox.add_text("Hello student! Welcome to UC Daniel! Those wild turkeys have been causing trouble around campus. Battle them to gain experience and level up. Good luck out there!")
+
 
 func _start_battle_handler(body):
 	if has_node("BattleSetUp"):
