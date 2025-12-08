@@ -218,9 +218,10 @@ text = "Enemy used (skill) and did (num) damage"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_1n6mm")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="PlayerStats" type="TextureRect" parent="."]
