@@ -19,6 +19,8 @@ var can_move : bool = true
 
 @onready var sprite : Sprite2D = $Sprite2D
 
+
+
 func set_battle_mode(enabled: bool):
 	in_battle = enabled
 
@@ -40,17 +42,17 @@ func _process(_delta: float) -> void:
 	elif(Input.is_action_pressed("down")):
 		animation_player.play("Walk_down")
 	elif(Input.is_action_pressed("right")):
-		if(sprite.flip_h == true):
-			sprite.flip_h = false
+		sprite.flip_h = true
 		facing_left = false
 		idling = false
-		animation_player.play("Walk_X")
+		animation_player.play("Walk_X") 
+		print(sprite.flip_h) 
 	elif(Input.is_action_pressed("left")):
-		if(sprite.flip_h == false):
-			sprite.flip_h = true
+		sprite.flip_h = false
 		facing_left = true
 		idling = false
 		animation_player.play("Walk_X")
+		print(sprite.flip_h) 
 	else:
 		if facing_left:
 			sprite.flip_h = false
@@ -60,9 +62,11 @@ func _process(_delta: float) -> void:
 			animation_player.play("Idle")
 			idling = true
 	if Input.is_action_just_released("up"):
-		animation_player.pause()
+		animation_player.play("Idle")
+		idling = true
 	if Input.is_action_just_released("down"):
-		animation_player.pause()
+		animation_player.play("Idle")
+		idling = true
 	if Input.is_action_just_pressed("Level Up"):
 		level_up()
 	if Input.is_key_pressed(KEY_0):
