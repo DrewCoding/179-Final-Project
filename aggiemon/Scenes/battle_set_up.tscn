@@ -20,6 +20,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uiajs"]
 
@@ -48,6 +49,7 @@ gradient = SubResource("Gradient_1n6mm")
 bg_color = Color(1, 0, 0, 1)
 
 [node name="BattleSetUp" type="Node2D" node_paths=PackedStringArray("default_music", "boss_theme")]
+z_index = 100
 script = ExtResource("1_6io4i")
 default_music = NodePath("AudioStreamPlayer")
 boss_theme = NodePath("BossTheme")
@@ -218,7 +220,9 @@ offset_left = -1.0
 offset_top = 1.0
 offset_right = 712.0
 offset_bottom = 124.0
-theme_override_font_sizes/font_size = 28
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 32
 text = "Enemy used (skill) and did (num) damage"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -243,6 +247,8 @@ texture = SubResource("GradientTexture2D_jslu5")
 layout_mode = 0
 offset_right = 312.0
 offset_bottom = 361.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 35
 text = "Attack: 100
 Attack: 100
