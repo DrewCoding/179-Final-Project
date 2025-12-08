@@ -3,7 +3,7 @@ extends Skill
 
 
 func _init() -> void: 
-	skill_name = "Punch"
+	skill_name = "Combo"
 	status = false
 	special_effect = false
 	damage = 10
