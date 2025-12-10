@@ -97,9 +97,6 @@ lower_bound = 900
 left_bound = 25
 right_bound = 800
 
-[node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
-position = Vector2(232.49121, 127.5969)
-
 [node name="Shopkeeper" type="Node2D" parent="OverWorld"]
 position = Vector2(1188, -375)
 script = ExtResource("15_ltqyi")
@@ -109,6 +106,9 @@ narrator_scene = ExtResource("24_651yi")
 position = Vector2(356, 124)
 script = ExtResource("15_ltqyi")
 narrator_scene = ExtResource("25_651yi")
+
+[node name="Player" parent="OverWorld" instance=ExtResource("4_n21db")]
+position = Vector2(232.49121, 127.5969)
 
 [node name="SpawnerContainer" type="Node2D" parent="OverWorld"]
 
