@@ -70,6 +70,19 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe the implementation of your audio system.**
 
+Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">Pixabay</a>
+
+Music:
+
+TItle: 8 Bit Boss
+Artist:HeatleyBros
+Writer:Brett Heatley, ASCAP
+Publisher:Heatley Music Publishing, ASCAP
+Label:Kyzen Music
+
+ "Dragon Castle" by @Makai-symphony
+ 
+
 **Document the sound style.** 
 
 ## Gameplay Testing
