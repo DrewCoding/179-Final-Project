@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://chj1gkeq6mwit"]
+[gd_scene load_steps=27 format=3 uid="uid://chj1gkeq6mwit"]
 
 [ext_resource type="Script" uid="uid://dwkyyfuopel3u" path="res://Scripts/battle_set_up.gd" id="1_6io4i"]
 [ext_resource type="Script" uid="uid://1j5owlrrbul0" path="res://Scripts/battle_manager.gd" id="2_1n6mm"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://7f7w2wj4ew17" path="res://Audio/Epic Battle Music (No Copyright) Dragon Castle by @Makai-symphony.mp3" id="7_5l2uv"]
 [ext_resource type="Texture2D" uid="uid://baytgqdajq88n" path="res://UI/pixil-frame-0 (11).png" id="7_g87o7"]
 [ext_resource type="FontFile" uid="uid://ci7nxp58uafet" path="res://UI/PressStart2P.ttf" id="7_k502n"]
+[ext_resource type="AudioStream" uid="uid://csf3p5gkln2a6" path="res://Audio/Pokemon (A Button) - Sound Effect (HD).mp3" id="16_nx1dv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erm4q"]
 
@@ -204,11 +205,11 @@ offset_bottom = 619.0
 
 [node name="SkillList" type="GridContainer" parent="SkillListContainer"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 644.0
-offset_bottom = 209.0
-theme_override_constants/h_separation = 20
+offset_left = 35.0
+offset_top = 17.0
+offset_right = 675.0
+offset_bottom = 222.0
+theme_override_constants/h_separation = 135
 theme_override_constants/v_separation = 20
 columns = 3
 
@@ -376,3 +377,7 @@ stream = ExtResource("6_28bop")
 [node name="BossTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5l2uv")
 volume_db = -5.0
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_nx1dv")
+pitch_scale = 1.35

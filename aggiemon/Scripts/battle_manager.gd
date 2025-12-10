@@ -16,6 +16,7 @@ signal battle_ended()
 @export var stat_text : Label
 @export var attack_sound : AudioStreamPlayer
 
+
 var player : Player
 var turn_order : Array[Character] = []
 var enemy_list : Array[Character] = []
@@ -32,6 +33,8 @@ var double_attack : bool = false
 
 @onready var attack_effect : PackedScene = preload("res://Scenes/attack_effect.tscn")
 @onready var playerHealth: HealthBar = $"../HealthBar"
+@onready var click_sound : AudioStreamPlayer = $"../click"
+
 
 func connect_button_signal(button : EnemyButton):
 	button.who_got_pressed.connect(_enemy_selected)
@@ -39,6 +42,7 @@ func connect_button_signal(button : EnemyButton):
 
 func connect_skill_signal(button : SkillButton):
 	button.what_skill_pressed.connect(_skill_selected)
+	click_sound.play()
 	
 	
 func init_battle (p : Player, t : Array[Character]):
@@ -66,6 +70,8 @@ func init_battle (p : Player, t : Array[Character]):
 
 func _process(_delta):
 	playerHealth.label.text = str(int(player.curr_hp)) + " / " + str(int(player.max_hp))
+	if attack_button.button_pressed || back1_button.button_pressed || back2_button.button_pressed:
+		click_sound.play()
 
 
 func _start_combat():
@@ -82,9 +88,10 @@ func _skill_selected(skill : Skill):
 	_hide_skill_list()
 	_show_enemy_list()
 	command_container.visible = false
-
+	click_sound.play()
 
 func _enemy_selected(enemy_button : EnemyButton):
+	click_sound.play()
 	player_stat_box.visible = false
 	enemy_list_container.visible = false
 	var string : String
@@ -310,6 +317,7 @@ func _on_battle_lost():
 	player.curr_hp = player.max_hp
 	
 func _show_stat_sheet():
+	click_sound.play()
 	if player_stat_box.visible == false:
 		player_stat_box.visible = true
 	else:
