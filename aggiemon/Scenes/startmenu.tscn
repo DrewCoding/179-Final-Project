@@ -101,7 +101,7 @@ anchor_bottom = 0.5
 offset_left = -127.0
 offset_top = 9.0
 offset_right = 127.0
-offset_bottom = 144.0
+offset_bottom = 183.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
@@ -121,6 +121,21 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ll232")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_10h45")
 text = "Start Game"
 
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_n8kcp")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_62a3i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ncr7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ll232")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_10h45")
+text = "Credits"
+
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -136,5 +151,100 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ll232")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_10h45")
 text = "Exit"
 
+[node name="Credits" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 54.0
+offset_right = 355.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("1_n8kcp")
+theme_override_font_sizes/font_size = 41
+text = "Credits"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 62.0
+offset_top = -228.0
+offset_right = 62.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 52
+
+[node name="Roles" type="Label" parent="Credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_spacing = 12
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_n8kcp")
+text = "User Interface, Input, Narrative Design
+
+Animation, Map Designer, Gametester
+
+Producer, Game Feel
+
+Game Logic, Audio Designer
+
+Narrative Designer, Narrative Game Logic
+
+Movement & Physics, Gameplay Testing"
+horizontal_alignment = 2
+
+[node name="Names" type="Label" parent="Credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_spacing = 15
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_n8kcp")
+theme_override_font_sizes/font_size = 14
+text = "Owen Ball
+
+Elizebeth Voloshin
+
+Andrew Williams
+
+Pius Omolewa
+
+Nathan Castellon
+
+Abdulaziz Alhumaidy"
+
+[node name="Button" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 540.0
+offset_right = 702.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_n8kcp")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_62a3i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ncr7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ll232")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_10h45")
+text = "Back"
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Credits/Button" to="." method="_on_back_pressed"]
