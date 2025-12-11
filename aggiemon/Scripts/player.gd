@@ -9,6 +9,7 @@ enum growth_type {
 
 @export var animation_player : AnimationPlayer
 @export var player_speed = 300
+@export var level_label : Label
 
 var skill_points = 0
 var growth_rate_type = growth_type.default
@@ -16,6 +17,7 @@ var facing_left : bool = true
 var idling : bool = false
 var in_battle : bool = false
 var can_move : bool = true
+var can_level : bool = true
 
 @onready var sprite : Sprite2D = $Student
 
@@ -69,7 +71,8 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("down"):
 		animation_player.play("Idle")
 		idling = true
-	if Input.is_action_just_pressed("Level Up"):
+	var both_pressed = Input.is_action_pressed("Level Up") and Input.is_action_pressed("ui_up")
+	if both_pressed and can_level:
 		level_up()
 	if Input.is_key_pressed(KEY_0):
 		curr_hp = 0
@@ -95,4 +98,9 @@ func create_stats():
 	player_info.update_player_info(self)
 
 func level_up():
+	can_level = false
 	player_info.level_up(self)
+	level_label.visible = true	
+	await get_tree().create_timer(5).timeout
+	level_label.visible = false
+	can_level = true

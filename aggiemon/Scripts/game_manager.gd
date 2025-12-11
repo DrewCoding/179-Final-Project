@@ -74,11 +74,14 @@ func _start_battle_handler(body):
 	var battle_manager : BattleManager = battle_set_up.get_node("BattleManager")
 	if battle_manager:
 		battle_manager.battle_ended.connect(_end_battle)
-	
-	var run_button = $BattleSetUp/CommandContainer/Run
+
+	var run_button : Button = $BattleSetUp/CommandContainer/Run
 	run_button.pressed.connect(_end_battle)
 	run_button.pressed.connect(_start_enemy_respawn)
 	enemy.call_deferred("queue_free")
+	
+	if enemy is GreaserTurkey:
+		run_button.hide()
 	
 	over_world_audio.stream_paused = true
 	

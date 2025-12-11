@@ -124,10 +124,11 @@ func _enemy_selected(enemy_button : EnemyButton):
 	if active_skill.special_effect:
 		string = active_skill.effect(target)
 		text.text = string
+		await get_tree().create_timer(3).timeout
 	elif active_skill.special_boost:
 		string = active_skill.effect(player)
 		text.text = string
-	await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(3).timeout
 	dialogue_box.visible = false
 	
 	if (attacks_this_turn < 1 && player.speed > target.speed):
