@@ -183,13 +183,24 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 ## Game Logic
 
-I created the Gamemanager which essentially handles the transition between the over world and the battle screen. I also designed the encounter mechanism and the BattleSetup scene which allows for random enemy encounters. The BattleSetUp node guarantees the collided enemy is always created first. It will then choose to randomly generate 1 to 2 enemies for combat with up to 3 possible enemies. The logic for the buttons in the battle screen were also handled by me, including the system which maps the enemies in combat with the buttons in the combat command menu. 
+- I created the Gamemanager which essentially handles the transition between the over world and the battle screen. I also designed the encounter mechanism and the BattleSetup scene which allows for random enemy encounters. The BattleSetUp node guarantees the collided enemy is always created first. It will then choose to randomly generate 1 to 2 enemies for combat with up to 3 possible enemies. The logic for the buttons in the battle screen were also handled by me, including the system which maps the enemies in combat with the buttons in the combat command menu. 
 
-I was also responsible for creating the base enemy and player classes. Each enemy and player build off of the same character class but have different stats and skills. PlayerInfo is an auto load I added to help with player referencing and the level up mechanics.
+- added a tether to overworld enemy movements so they stay within an area
 
-I created the base skill template and created the default punch (combo) skill and the "Turkey Slap" and "Greaser Punch" skills.
+- Enemy shake and combat effect were added by me
 
-The level up system was also created by me. The player is assigned a random growth rate type at the start of each game that effects the probability that a specific stat levels up. This system was inspired by Fire Emblem but stat increases are generally higher. There is also a scaling mechanic where Enemies will increase in difficulty and xp gain based on the players current level.
+- I was also responsible for creating the base enemy and player classes. Each enemy and player build off of the same character class but have different stats and skills. PlayerInfo is an auto load I added to help with player referencing and the level up mechanics.
+
+- I created the base skill template and created the default punch (combo) skill and the "Turkey Slap" and "Greaser Punch" skills.
+
+- The level up system was also created by me. The player is assigned a random growth rate type at the start of each game that effects the probability that a specific stat levels up. This system was inspired by Fire Emblem but stat increases are generally higher. There is also a scaling mechanic where Enemies will increase in difficulty and xp gain based on the players current level.
+
+scripts:
+- [BattleManager](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/battle_manager.gd#L1-L2) (Aziz contributed to the damage calculation and beta version of the turn order)
+- [Attack Effect](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/attack_effect.gd#L1)
+- [Character](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/character.gd#L1)
+- Contributions were also made to the player, turkey, enemy, and greaserturkey scripts
+- Enemy Skills folder (turkey slap and greaser punch)
 
 ## Audio
 
