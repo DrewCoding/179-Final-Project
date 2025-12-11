@@ -1,4 +1,4 @@
-# 179-Final-Project
+# Aggiemon
 
 
 Aggiemon is a turn-based RPG set at UC Daniel. Fight turkeys, gain skills, and level up.
