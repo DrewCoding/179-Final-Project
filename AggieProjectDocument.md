@@ -154,8 +154,6 @@ For the Narrative Design, I largely came up with the main premise of the story. 
 
 ## Other Contributions
 Throughout the project I added numerous polish features such as sound effects when navigating UI and integration with the dialogue textbox system so NPC speech automatically plays text audio. I also set up the animation player editor for the main character sprite when new assets were created, using region rects to manually edit the animation through the sprite sheet.  
-# Abdulaziz Alhumaidy
-
 
 # Abdulaziz Alhumaidy
 
