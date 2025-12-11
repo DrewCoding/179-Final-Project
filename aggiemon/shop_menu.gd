@@ -45,7 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _populate_shop_list() -> void:
 	print("skill_list export is:", shop_list)
 	shop_list.clear()
-	
+	skill_point_label.text = str(character.skill_points)
 	if skills.is_empty():
 		info_label.text = "That's all I know..."
 		return
@@ -54,8 +54,6 @@ func _populate_shop_list() -> void:
 		shop_list.add_item(skill.skill_name)
 		print(skill.skill_name)
 		
-	skill_point_label.text = str(character.skill_points)
-
 
 func _on_shop_list_item_selected(index: int) -> void:
 	if index < 0 or index >= skills.size():
@@ -64,6 +62,7 @@ func _on_shop_list_item_selected(index: int) -> void:
 	if(character.skill_points > 0):
 		character.skill_points -= 1
 		character.add_skill(skills[index])
+		print(character.skill_points)
 		skills.remove_at(index)
 		_populate_shop_list()
 	if skills.size() > 0:

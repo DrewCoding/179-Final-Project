@@ -105,6 +105,8 @@ I mapped out what the overall map should look like. In the game, we call this th
 
 ## Other Contributions
 
+I created the logic for the shop
+
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
 # Owen Ball

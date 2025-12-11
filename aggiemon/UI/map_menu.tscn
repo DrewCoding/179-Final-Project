@@ -48,3 +48,13 @@ text = "Map"
 layout_mode = 2
 size_flags_vertical = 3
 stretch_mode = 5
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 258.0
+offset_right = 876.0
+offset_bottom = 307.0
+text = "Press Shift to
+exit menu"
+horizontal_alignment = 1

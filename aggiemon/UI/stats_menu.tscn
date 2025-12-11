@@ -48,6 +48,16 @@ offset_top = 21.0
 offset_right = 102.0
 offset_bottom = 80.0
 
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/StatsLabel"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = 141.0
+offset_right = 370.0
+offset_bottom = 186.0
+text = "Press Shift to
+exit menu"
+horizontal_alignment = 1
+
 [node name="Sprite" type="TextureRect" parent="PanelContainer/HBoxContainer"]
 layout_mode = 0
 offset_left = 260.0

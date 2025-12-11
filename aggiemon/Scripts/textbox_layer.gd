@@ -5,7 +5,6 @@ extends CanvasLayer
 @onready var label = $Textbox/Panel/MarginContainer/HBoxContainer/Label
 @onready var text_sfx: AudioStreamPlayer = $TextSFX
 @onready var tween = get_tree().create_tween()
-@onready var player : Player = $"../Player"
 
 @export var num_visible_character_per_loop = 2
 @export var speed_of_character_read = 0.03
