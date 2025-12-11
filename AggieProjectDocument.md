@@ -6,8 +6,10 @@ Welcome student to your first year at UC Daniel! Home of the egg heads, the Memo
 
 ## Project Resources
 
-[Aggiemon](https://dewr.itch.io/aggiemongame)  
+[Aggiemon](https://dewr.itch.io/aggiemongame)
+
 [Aggiemon: Initial Plan](https://docs.google.com/document/d/1Pxu2SCOGyYEG6GSh6JUOVhdXDLNHENb92KxZskyjqv4/edit?usp=sharing)
+
 [Aggiemon: Narrative Design Document](https://docs.google.com/document/d/1BEIbeEAhaNuGrf57vaDcD2oR74V2yJCS9DSDmFLlZ3w/edit?usp=sharing)
 
 ## Gameplay Explanation
