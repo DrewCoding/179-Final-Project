@@ -32,7 +32,7 @@ func add_text(text):
 				text_sfx.stop()
 			text_sfx.play()
 	
-	# Calculate display time based on text length (roughly 0.05 seconds per character, minimum 4 seconds)
-	var display_time = max(4.0, text.length() * 0.05)
+	# Calculate display time based on text length (roughly 0.02 seconds per character, minimum 2 seconds)
+	var display_time = max(4.0, text.length() * 0.02)
 	await get_tree().create_timer(display_time).timeout 
 	hide_textbox()
