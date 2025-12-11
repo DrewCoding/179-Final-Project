@@ -1,15 +1,15 @@
-# The title of your game
+# Aggiemon
 
 ## Summary
 
-**A paragraph-length pitch for your game.**
+Welcome student to your first year at UC Daniel! Home of the egg heads, the Memorial Union, and.... angry tukerys? The campus is being overruned by angry turkeys. The turkeys can no longer tolerate UC Daniel and its student’s occupation of their home. The turkey's are now attacking students and some turkeys have even begun to evolve. They seem to be evolving, growing stronger to defeat the students on campus. Utilize classic turn-based combat to defeat the turkeys! Level up to gain skill points that you can use to buy skills in the shop to make yourself even more powerful. Rise to the occassion young student and defeat the mighty Greaser Turkey!
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)
+[Aggiemon](https://dewr.itch.io/aggiemongame)  
+[Aggiemon: Initial Plan](https://docs.google.com/document/d/1Pxu2SCOGyYEG6GSh6JUOVhdXDLNHENb92KxZskyjqv4/edit?usp=sharing)
+[Aggiemon: Narrative Design Document](https://docs.google.com/document/d/1BEIbeEAhaNuGrf57vaDcD2oR74V2yJCS9DSDmFLlZ3w/edit?usp=sharing)
+
 
 ## Gameplay Explanation
 

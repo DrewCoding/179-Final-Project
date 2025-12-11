@@ -276,6 +276,7 @@ texture = ExtResource("4_k502n")
 expand_mode = 1
 
 [node name="DialogueBox" type="TextureRect" parent="."]
+visible = false
 offset_left = 23.0
 offset_top = 407.0
 offset_right = 1067.0
