@@ -222,13 +222,6 @@ Label:Kyzen Music
 
 Jorge Hernandez - "Chopsticks" <a href = "https://www.youtube.com/watch?v=G-FGiICah8Q&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=9">link</a>
 
-**Document the sound style.**
-
-**List your assets, including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
-
-## Other Contributions
 
 
 # Nathan Castellon
