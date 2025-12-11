@@ -36,30 +36,33 @@ func _process(_delta: float) -> void:
 		self.velocity.x = player_speed * input_horizontal
 		self.velocity.y = -player_speed * input_vertical
 		self.velocity = velocity.limit_length(player_speed)
-	if(Input.is_action_pressed("up")):
-		animation_player.play("Walk_Up")
-	elif(Input.is_action_pressed("down")):
-		animation_player.play("Walk_down")
-	elif(Input.is_action_pressed("right")):
-		sprite.flip_h = true
-		facing_left = false
-		idling = false
-		animation_player.play("Walk_X") 
-		#print(sprite.flip_h) 
-	elif(Input.is_action_pressed("left")):
-		sprite.flip_h = false
-		facing_left = true
-		idling = false
-		animation_player.play("Walk_X")
-		#print(sprite.flip_h) 
-	else:
-		if facing_left:
-			sprite.flip_h = false
-		else:
+		if(Input.is_action_pressed("up")):
+			animation_player.play("Walk_Up")
+		elif(Input.is_action_pressed("down")):
+			animation_player.play("Walk_down")
+		elif(Input.is_action_pressed("right")):
 			sprite.flip_h = true
-		if not idling:
-			animation_player.play("Idle")
-			idling = true
+			facing_left = false
+			idling = false
+			animation_player.play("Walk_X") 
+			#print(sprite.flip_h) 
+		elif(Input.is_action_pressed("left")):
+			sprite.flip_h = false
+			facing_left = true
+			idling = false
+			animation_player.play("Walk_X")
+			#print(sprite.flip_h) 
+		else:
+			if facing_left:
+				sprite.flip_h = false
+			else:
+				sprite.flip_h = true
+			if not idling:
+				animation_player.play("Idle")
+				idling = true
+	else:
+		animation_player.play("Idle")
+		idling = true
 	if Input.is_action_just_released("up"):
 		animation_player.play("Idle")
 		idling = true

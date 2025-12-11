@@ -10,7 +10,6 @@ Welcome student to your first year at UC Daniel! Home of the egg heads, the Memo
 [Aggiemon: Initial Plan](https://docs.google.com/document/d/1Pxu2SCOGyYEG6GSh6JUOVhdXDLNHENb92KxZskyjqv4/edit?usp=sharing)
 [Aggiemon: Narrative Design Document](https://docs.google.com/document/d/1BEIbeEAhaNuGrf57vaDcD2oR74V2yJCS9DSDmFLlZ3w/edit?usp=sharing)
 
-
 ## Gameplay Explanation
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
@@ -22,8 +21,9 @@ Welcome student to your first year at UC Daniel! Home of the egg heads, the Memo
 If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
-* https://www.youtube.com/watch?v=QEHOiORnXIk&t=374s
-* https://www.youtube.com/watch?v=zHYkcJyE52g
+
+- https://www.youtube.com/watch?v=QEHOiORnXIk&t=374s
+- https://www.youtube.com/watch?v=zHYkcJyE52g
 
 # Main Roles
 
@@ -74,42 +74,74 @@ _Procedural Terrain_ - The game's background consists of procedurally generated 
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Andrew Williams - Producer
+# Andrew Williams
+
+## Producer
+
+When producing for our project, I would always want to touch base with the team as best as I could. I found that when2meet was a great tool to get everyone's general schedule for this quarter and when we all have some sort of spare time with this [link](https://www.when2meet.com/?32872303-4PPDT). We also have a private discord group chat dedicated to the development of Aggiemon, so we would be able to not only set up meetings, but exchange ideas, offer assistance to one another, and show off progress. I helped to keep the team organized and active, to make progress as smooth as possible.
+
+We kept records of progress through GitHub. I created this repository to stay organized while continuing development. We had a few branches that was dedicated to the user-interface, sound effects, and art.
+
+I gave a [document](https://docs.google.com/document/d/1YoH7Z_PgBjbDmCtEMcW1NmXPI1R2oIQrW8S-OWCqDtM/edit?tab=t.0) to our sole artist with many different references as a roadmap for how the artstyle for the main character as well as enemies should look like, and what items may need to be fulfilled.
+
+## Game Feel
+
+## Other Contributions
 
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
-## Owen Ball - User Interface and Input
+# Owen Ball
+
+## User Interface and Input
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 **Describe the default input configuration.**
 
 **Add an entry for each platform or input style your project supports.**
 
-## Abdulaziz Alhumaidy - Movement/Physics
+## Narrative Design
+
+**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.**
+
+## Other Contributions
+
+# Abdulaziz Alhumaidy
+
+## Movement/Physics
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-## Liz Voloshin - Animation and Visuals
+## Gameplay Testing
+
+**Add a link to the full results of your gameplay tests.**
+
+**Summarize the key findings from your gameplay tests.**
+
+## Other Contributions
+
+# Liz Voloshin
+
+## Animation and Visuals
 
 **List your assets, including their sources and licenses.**
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Pius Omolewa - Game Logic
+## Gameplay Testing
+
+**Add a link to the full results of your gameplay tests.**
+
+**Summarize the key findings from your gameplay tests.**
+
+## Other Contributions
+
+# Pius Omolewa
+
+## Game Logic
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
-## Nathan C - Game Logic
-
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
-
-# Sub-Roles
-
-## Pius Omolewa - Audio
-
-**List your assets, including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
+## Audio
 
 Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">Pixabay</a>
 
@@ -125,28 +157,22 @@ Label:Kyzen Music
 
 **Document the sound style.**
 
-## Liz Voloshin - Gameplay Testing
+**List your assets, including their sources and licenses.**
 
-**Add a link to the full results of your gameplay tests.**
+**Describe the implementation of your audio system.**
 
-**Summarize the key findings from your gameplay tests.**
+## Other Contributions
 
-## Abdulaziz Alhumaidy - Gameplay Testing
+# Nathan C
 
-**Add a link to the full results of your gameplay tests.**
+## Game Logic
 
-**Summarize the key findings from your gameplay tests.**
+**Document the game states and game data you managed and the design patterns you used to complete your task.**
 
-## Owen Ball - Narrative Design
-
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.**
-
-## Nathan C - Press Kit and Trailer
+## Press Kit and Trailer
 
 **Include links to your presskit materials and trailer.**
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
-## Andrew Williams - Game Feel and Polish
-
-**Document what you added to and how you tweaked your game to improve its game feel.**
+## Other Contributions
