@@ -1,9 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=43 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://cgkkcc64itxou" path="res://Assets/tiles/aggiemonmap.png" id="2_xwppu"]
 [ext_resource type="PackedScene" uid="uid://blgqbg12jhnjl" path="res://Scenes/enemy.tscn" id="3_m4a4n"]
-[ext_resource type="Texture2D" uid="uid://b77drae40hvui" path="res://Assets/tiles/aggiemonmap_incomplete.png" id="3_n21db"]
 [ext_resource type="PackedScene" uid="uid://dtrcgvihhd73g" path="res://Scenes/player.tscn" id="4_n21db"]
 [ext_resource type="Script" uid="uid://ckj0jl80tnfsq" path="res://Scripts/player_camera.gd" id="4_xqlrx"]
 [ext_resource type="Script" uid="uid://cwmbyf8vm1j5r" path="res://Scripts/enemy_spawner.gd" id="7_fijs6"]
@@ -24,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b60ppxe2arvsj" path="res://Scenes/TextboxLayer.tscn" id="16_06uy0"]
 [ext_resource type="PackedScene" uid="uid://d34x2wbxlugvc" path="res://Scenes/gameover_menu.tscn" id="20_h4rio"]
 [ext_resource type="PackedScene" uid="uid://byabee5b75k5u" path="res://Scenes/startmenu.tscn" id="21_651yi"]
-[ext_resource type="PackedScene" uid="uid://dmp74kcfc4jo0" path="res://Scenes/greaser_turkey.tscn" id="23_8gbwf"]
+[ext_resource type="PackedScene" path="res://Scenes/greaser_turkey.tscn" id="23_8gbwf"]
 [ext_resource type="PackedScene" uid="uid://v1u63p3f7k53" path="res://Scenes/shopkeeper.tscn" id="24_651yi"]
 [ext_resource type="PackedScene" uid="uid://bjckv3gm2mw7a" path="res://Scenes/professor.tscn" id="25_651yi"]
 [ext_resource type="PackedScene" uid="uid://btaaupu5ipql8" path="res://Scenes/victory.tscn" id="26_58aca"]
@@ -164,7 +163,6 @@ overworld_menu = NodePath("../Overworld Menu")
 [node name="MapMenu" parent="OverWorld/Overworld Menus" node_paths=PackedStringArray("overworld_menu") instance=ExtResource("11_qyksh")]
 visible = false
 overworld_menu = NodePath("../Overworld Menu")
-map_texture = ExtResource("3_n21db")
 
 [node name="OptionsMenu" parent="OverWorld/Overworld Menus" instance=ExtResource("12_gvhuy")]
 visible = false
