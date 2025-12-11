@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ckwokfbnil3mk"]
+[gd_scene load_steps=45 format=3 uid="uid://ckwokfbnil3mk"]
 
 [ext_resource type="Script" uid="uid://c6lblw7h6fgnh" path="res://Scripts/game_manager.gd" id="1_2jeib"]
 [ext_resource type="Texture2D" uid="uid://cgkkcc64itxou" path="res://Assets/tiles/aggiemonmap.png" id="2_xwppu"]
@@ -23,10 +23,12 @@
 [ext_resource type="PackedScene" uid="uid://b60ppxe2arvsj" path="res://Scenes/TextboxLayer.tscn" id="16_06uy0"]
 [ext_resource type="PackedScene" uid="uid://d34x2wbxlugvc" path="res://Scenes/gameover_menu.tscn" id="20_h4rio"]
 [ext_resource type="PackedScene" uid="uid://byabee5b75k5u" path="res://Scenes/startmenu.tscn" id="21_651yi"]
-[ext_resource type="PackedScene" path="res://Scenes/greaser_turkey.tscn" id="23_8gbwf"]
+[ext_resource type="PackedScene" uid="uid://dmp74kcfc4jo0" path="res://Scenes/greaser_turkey.tscn" id="23_8gbwf"]
 [ext_resource type="PackedScene" uid="uid://v1u63p3f7k53" path="res://Scenes/shopkeeper.tscn" id="24_651yi"]
 [ext_resource type="PackedScene" uid="uid://bjckv3gm2mw7a" path="res://Scenes/professor.tscn" id="25_651yi"]
 [ext_resource type="PackedScene" uid="uid://btaaupu5ipql8" path="res://Scenes/victory.tscn" id="26_58aca"]
+[ext_resource type="Script" uid="uid://n7w2jb6htinb" path="res://Scenes/node.gd" id="26_hyex5"]
+[ext_resource type="FontFile" uid="uid://ci7nxp58uafet" path="res://UI/PressStart2P.ttf" id="27_08vyw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v400"]
 size = Vector2(32.857117, 37.87004)
@@ -243,6 +245,24 @@ offset_right = 857.0
 offset_bottom = 585.0
 
 [node name="Victory" parent="OverWorld" instance=ExtResource("26_58aca")]
+
+[node name="Node" type="Node" parent="OverWorld"]
+script = ExtResource("26_hyex5")
+
+[node name="Label" type="Label" parent="OverWorld/Node"]
+offset_left = -501.0
+offset_top = 925.0
+offset_right = -134.0
+offset_bottom = 1090.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 13
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("27_08vyw")
+text = "Congrats you defeated the greaser turkey! 
+Feel free to continue to level up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
