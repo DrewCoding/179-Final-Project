@@ -207,12 +207,12 @@ Throughout the project I added numerous polish features such as sound effects wh
 - **Post-demo improvements:** Enhanced battle UI with improved visual elements, added button click sound effects during combat, and created proper Start/Game Over screens with animations.
 
 **World Building and Immersion:**
-- The UC Davis theming was highly praised, with one tester commenting: "I loved the UC Davis theming-- I thought it was really clever and added a fun twist to the game."
+- The UC Davis theming was praised, one tester said: "I loved the UC Davis theming-- I thought it was really clever and added a fun twist to the game."
 - Players felt the game world needed more content, with suggestions to "add more interactive characters to make the game world feel richer and more engaging."
 - **Post-demo improvements:** Integrated complete final map with proper boundaries, added NPC dialogue system with Professor and Merchant characters, and positioned multiple turkey enemies throughout the world.
 
 **Game Feel and Polish:**
-- The turn-based combat was praised as "really cool" with "animations and visual indicators throughout, as well as a soundtrack, making the game a pretty immersive experience."
+- The turn-based combat was described as "really cool" with "animations and visual indicators throughout, as well as a soundtrack, making the game a pretty immersive experience."
 - Players noted some technical issues: "The trees have no collision and the scene changes lack transitions."
 - **Post-demo improvements:** Fixed tree collision issues, added multiple music tracks for different game states, implemented audio options menu with volume controls, and added dialogue/UI sound effects.
 
@@ -222,15 +222,11 @@ Throughout the project I added numerous polish features such as sound effects wh
 - **Post-demo improvements:** Added shop system for purchasing skills with skill points, implemented complete level-up system with growth rates, created additional skills (Calculus, Egg Slam, iTea), and added Greaser Turkey boss as final challenge.
 
 **Overall Reception:**
-- Players were enthusiastic about the concept, with one commenting: "Lovely concept and implementation... I think you'll end up with a great game if you sell the story (fighting professors) and make a way to win the game."
+- Players were liked the concept, with one commenting: "Lovely concept and implementation... I think you'll end up with a great game if you sell the story (fighting professors) and make a way to win the game."
 - Testers were "looking forward to seeing what gets added" to the game world and excited about the final product with story completion and boss encounters.
 
-**Bug Fixes:**
-- Resolved tree collision issues
-- Fixed player movement direction bugs
-- Corrected NPC interaction problems
 
-While some suggestions (real-time dodge/counter mechanics, companion system, additional random items) were not implemented due to time constraints and scope considerations, the core feedback about polish, world building, and gameplay clarity was addressed in the final version.
+While some suggestions (real-time dodge/counter mechanics, companion system, additional random items) were not implemented due to time constraints, the core feedback about polish, world building, and gameplay clarity was addressed in the final version.
 
 ## Other Contributions
 
@@ -254,7 +250,6 @@ Photo of health bar before and after recieving damage:
 
 * Fixed player movement direction issues in [commit 237080e](https://github.com/DrewCoding/179-Final-Project/commit/237080e).
 * Resolved NPC interaction bugs in [commit 98f5c5d](https://github.com/DrewCoding/179-Final-Project/commit/98f5c5d).
-* Improved overall game stability and user experience.
 
 # Liz Voloshin
 
