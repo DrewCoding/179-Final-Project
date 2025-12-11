@@ -167,15 +167,50 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 ## Animation and Visuals
 
-**List your assets, including their sources and licenses.**
+- The sprites and animations were done using Krita, which is an open source software for art. Some sprites needed to be resized and the animations needed to be assembled into a spritesheet, which was done using Gimp since they have a resizing tool that doesn't blur image when you enlarge them. 
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+- I created the main map in which the character moves around, which includes the "unity Center", a food cart where the character encounters the merchant, the laboratory where the final boss is defeated, and a small building which initally was going to be used as a lecture hall. 
+
+![map](aggiemon/Assets/tiles/aggiemonmap_incomplete_latest.png)
+
+- For the character, I desined the walking animation for frnt facing walking, side, adn back. There is also an idle animation for each of these poses. On top of creating the animations for the character, I assembled them into sprite sheets.
+
+![idle_sprite](aggiemon/Assets/sprites/idle_spritesheet.png) 
+
+![other_positions](aggiemon/Assets/sprites/side_back_walking_spritesheet.png)
+
+![forward](aggiemon/Assets/sprites/Forward_spritesheet.png)
+
+- For the enemies, I created a the two turkey bosses (both designed to look like 80s bikers), and a mini squirrel boss. I was also responsible for animating them. 
+![greasers](aggiemon/Assets/sprites/greasers_spritesheet.png) 
+
+![squirrel](aggiemon/Assets/sprites/Squirrelframe0001.png)
+
+- Finally, I created two of the NPCs that the player interacts with: the professor and the merchant. 
+
+![professor](aggiemon/Assets/sprites/professor.png)
+
+![merchant](aggiemon/Assets/sprites/merchant.png)
+
+- The only sprites that I didn't directly create are the sample turkey and the attack animation:
+
+![Turkey](aggiemon/Assets/sprites/sample_turkey.png)
+
+![Attack](aggiemon/Assets/sprites/attack_effect.png)
+
+- The feel that this game was going for was meant to intersect between Pokemon and Stardew valley, and I feel that it acheives that through the softer colors and pixel style that I used for the characters. With world-building in mind, I tried to make the map with a road that led the character to where they are meant to go. 
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+Link to the results of the gameplay test: [Link to Gameplay Test Document](https://docs.google.com/document/d/11KGVy2KtiswyZcIPhHo343gZ_qPnjs1r_493kMJ2Gv0/edit?usp=sharing)
 
-**Summarize the key findings from your gameplay tests.**
+The main findings are that the game functions fairly well, with all the basic funcionalities working as intended. However, a few bugs were discovered during my play of the game, and they included: 
+- The game freezing when the audio settings were toggled. 
+- The music in the main world randomly stopping (however, this could also be a result of the software as I struggled to recreate this bug).
+- The enemy sprites hovering slightly before decding into the battle scene. 
+- Player able to walk on top of trees that were placed in the corners of the map (less of a bug and more of a visual inconcistency)
+
+However, other than these issues, the game functions as intended and didn't have any other glaring issues. 
 
 ## Other Contributions
 
