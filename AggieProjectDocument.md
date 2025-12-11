@@ -137,17 +137,25 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 # Owen Ball
 
 ## User Interface and Input
+EXAMPLES:
+<img width="410" height="178" alt="image" src="https://github.com/user-attachments/assets/b130db00-5fc0-4c45-a780-611c4321ddc7" />
+<img width="274" height="339" alt="image" src="https://github.com/user-attachments/assets/56529b3b-6f06-4207-83a2-df1258b93a4a" />
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+During development, I was responsible for the entire UI layer of the game. I began by creating the overworld pause menu, which required implementing pause logic, focus-based navigation, input accessibility, and a modular menu system capable of opening submenus without allowing background input. I then designed a visual UI theme using pixel-art borders, custom styleboxes, and Godot's theme resources to give the menus a cohesive aesthetic. The pixel-art designs were acquired from free asset packs found on itch.io, and required creating atlas textures to extract the precise assets I wanted to use. 
 
-**Add an entry for each platform or input style your project supports.**
+
+For functionality, I built the Stats Menu and Skills Menu from scratch. These read data from the player character at runtime, update dynamically, and include selection-based detail panels. The map menu required careful handling of image scaling and letterboxing. I also created the Options Menu, which includes working volume sliders wired into the game's audio buses. I also ensured consistent process modes so menus work while paused, and my constributions provided the game's entire interface layer, structured cleanly as reusable scenes and integrated smoothly with gameplay. I organized all UI scenes, scripts, and assets into its own UI folder within the game files. 
+
+Input for the game is extremely simple and is simply mapped to wasd and arrow key movement, moving in the 4 cardinal directions and the ability to move in 8 directions when combining inputs. 
 
 ## Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.**
+For the Narrative Design, I largely came up with the main premise of the story. I tied the story into the setting, being a parody of UC Davis, playing as a student, using different aspects of the City of Davis including restaurants and lectures as skills, with a backstory involving a haywire experiment in a on-campus lab, affecting the nearby local wildlife such as turkeys and squirrels. This is where the inspiration for the assets of the professor and enemies comes from. I also was responsible for adapting the story to meet any gameplay cuts we had to make, ensuring that whatever direction we went that the story would still have coherent structure, such as repurposing assets as boss battles, and changing lecture halls to simply be the farmers market stall to acquire skills. 
 
 ## Other Contributions
+Throughout the project I added numerous polish features such as sound effects when navigating UI and integration with the dialogue textbox system so NPC speech automatically plays text audio. I also set up the animation player editor for the main character sprite when new assets were created, using region rects to manually edit the animation through the sprite sheet.  
+# Abdulaziz Alhumaidy
+
 
 # Abdulaziz Alhumaidy
 
@@ -316,31 +324,41 @@ Artist:HeatleyBros
 Writer:Brett Heatley, ASCAP
 Publisher:Heatley Music Publishing, ASCAP
 Label:Kyzen Music
+<a href="https://www.youtube.com/watch?v=hgzlmu0K3YI">link</a>
 
-"Dragon Castle" by @Makai-symphony
+"Dragon Castle" by @Makai-symphony <a href = "https://www.youtube.com/watch?v=9gBTKiVqprE">link</a>
 
-**Document the sound style.**
+Jorge Hernandez - "Chopsticks" <a href = "https://www.youtube.com/watch?v=G-FGiICah8Q&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=9">link</a>
 
-**List your assets, including their sources and licenses.**
-
-**Describe the implementation of your audio system.**
-
-## Other Contributions
 
 
 # Nathan Castellon
 
 ## Narrative Design
 
-My contributions as Narrative Designer were mainly towards finding ways to explain why the player was doing what they were doing in the game. As during development we had ideas to what we wanted the player to do but didn't take into considereation the in game implications of those ideas. To help with this I wrote a rough draft of a design document [insert] outlining potential ways to convey the story including cutscene references, potential story pitches, gameplay pathways, and dialogue. The purpose of this document was to get feedback from the group on what elements we wanted to go for since the document was made earlier on in the development process. Since then the document has been updated to the one now linked in under project resources. From there we decided to include dialogue but no cutscenes. This way the narrative could be told if the player wants to know about but allows the player to roam freely and not be abide by a linear gameplay pathway. 
+My contributions as Narrative Designer were mainly towards finding ways to explain why the player was doing what they were doing in the game. As during development we had ideas to what we wanted the player to do but didn't take into considereation the in game implications of those ideas. To help with this I wrote a rough draft of a [design document](https://drive.google.com/file/d/1Nk1zH_yumkaOe5IAF8cH9WA4CxWkWw8d/view?usp=sharing) outlining potential ways to convey the story including cutscene references, potential story pitches, gameplay pathways, and dialogue. The purpose of this document was to get feedback from the group on what elements we wanted to go for since the document was made earlier on in the development process. Since then the document has been updated to the one now linked in under project resources. From there we decided to include dialogue but no cutscenes. This way the narrative could be told if the player wants to know about but allows the player to roam freely and not be abide by a linear gameplay pathway. 
 
 For the in game narrative logic, I created and implemented the functionality of the dialogue box. This includes [TextboxLayer.tscn](aggiemon/Scenes/TextboxLayer.tscn), [textbox.tscn](aggiemon/Scenes/textbox.tscn) scenes, and the corresponding script [textbox_layer.gd](aggiemon/Scripts/textbox_layer.gd). I used the help of a youtube tutorial (linked above) to help myself get started but the video was extremely old and outdated. I initially trying implementing a dialogue animation of having it typed out like it does in Undertale using tween but I couldn't get Tween to work with Lable, most likely due to the node structure I had going on. So I instead opted to use a simple [for loop](https://github.com/DrewCoding/179-Final-Project/blob/11d487f000f1a41c14b50adfd32f68b53a8a7eef/aggiemon/Scripts/textbox_layer.gd#L26) that linearly displays text by `_num_visible_character_per_loop`. While this implementation isn't ideal but for our script it works perfectly fine. Additionally, I implemneted functionality so that the dialogue would appear when the player gets close to the NPC's. This required the creation of a [speak_box](https://github.com/DrewCoding/179-Final-Project/blob/11d487f000f1a41c14b50adfd32f68b53a8a7eef/aggiemon/Scripts/game_manager.gd#L20). Along with [code](https://github.com/DrewCoding/179-Final-Project/blob/11d487f000f1a41c14b50adfd32f68b53a8a7eef/aggiemon/Scripts/game_manager.gd#L35) to game_manager.gd to start the dialogues, however this code ended up being commented out due to bugs when being exported to itch.io. 
+
+![dialog](DocumentAssets/dialogue.png)
 
 I was hoping that my implementation of dialogue would add to games theming and narrative via it's presentation,
 
 ## User Interface
 
-My contributions as User Interface are as follows. I created the scene and scripts for [Start Menu](aggiemon/Scripts/startmenu.gd) and [Game Over](aggiemon/Scripts/gameover_menu.gd) Menu, and added battle_UI elements. For Start menu, I used a youtube video(linked above) to help get me started, and served as the foundation for how I implemented the everything else. The reason why I wanted to make the start screen a transparent background is because I am personally not very good at art design, and the art work made by our sole art_director did an amazing job at developing the maps and sprites for the game. So I thought a transparent background for the start menu would be an excellent choice. For whatever reason our tres files wouldn't work as a texture on the buttons so for implementing that I made child nodes underneath the buttons as reactextures and added them there then made the necessary changes to make them visible and interactable. For the logo, I used a generic font generator from [here](https://pokemon-fonts-generator.netlify.app). For the game over menu it's a similar scenario to the start over except with the instance of the player so that it can track whenever the player's health is at zero so that it can show and turn off the player's movement. [Here](https://github.com/DrewCoding/179-Final-Project/blob/55d2fef156517a58321ce8900f454fd6c0d87d9a/aggiemon/Scripts/gameover_menu.gd#L13). Lastly, for the battle UI I didn't want to re-use the limited textures we had and I didn't want to ask our sole art lead to do even more drawing than she was already doing so I drew the art myself on a website called pixilart.com. It's completely free and I think it turned out ok. 
+My contributions as User Interface are as follows. I created the scene and scripts for [Start Menu](aggiemon/Scripts/startmenu.gd) and [Game Over](aggiemon/Scripts/gameover_menu.gd) Menu, and added battle_UI elements. For Start menu, I used a youtube video(linked above) to help get me started, and served as the foundation for how I implemented the everything else. 
+![startmeu](DocumentAssets/startmenu.png)
+
+The reason why I wanted to make the start screen a transparent background is because I am personally not very good at art design, and the art work made by our sole art_director did an amazing job at developing the maps and sprites for the game. So I thought a transparent background for the start menu would be an excellent choice. For whatever reason our tres files wouldn't work as a texture on the buttons so for implementing that I made child nodes underneath the buttons as reactextures and added them there then made the necessary changes to make them visible and interactable. For the logo, I used a generic font generator from [here](https://pokemon-fonts-generator.netlify.app). 
+![gameover](DocumentAssets/gameover.png)
+For the game over menu it's a similar scenario to the start over except with the instance of the player so that it can track whenever the player's health is at zero so that it can show and turn off the player's movement. [Here](https://github.com/DrewCoding/179-Final-Project/blob/55d2fef156517a58321ce8900f454fd6c0d87d9a/aggiemon/Scripts/gameover_menu.gd#L13). 
+![credits](DocumentAssets/credits.png)
+I also added a credits page which might be a little outdated since some of us decided to change our roles to better suit the work we did on the project.
+
+Lastly, for the battle UI I didn't want to re-use the limited textures we had and I didn't want to ask our sole art lead to do even more drawing than she was already doing so I drew the art myself on a website called pixilart.com. It's completely free and I think it turned out ok. 
+
+![battlemenu](DocumentAssets/battleUI.png)
+
 
 ## Other Contributions
 
