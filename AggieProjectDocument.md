@@ -22,6 +22,8 @@ After you have pressed the start button, you are able to move around using WASD 
 
 If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
 
+The battle background was generated using Stable Diffusion
+
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
 - https://www.youtube.com/watch?v=QEHOiORnXIk&t=374s
@@ -85,6 +87,19 @@ When producing for our project, I would always want to touch base with the team 
 We kept records of progress through GitHub. I created this repository to stay organized while continuing development. We had a few branches that was dedicated to the user-interface, sound effects, and art.
 
 I gave a [document](https://docs.google.com/document/d/1YoH7Z_PgBjbDmCtEMcW1NmXPI1R2oIQrW8S-OWCqDtM/edit?tab=t.0) to our sole artist with many different references as a roadmap for how the artstyle for the main character as well as enemies should look like, and what items may need to be fulfilled.
+
+![Ref](DocumentAssets/stardew_sprite_fan_art.png)
+[Ref link](https://www.polygon.com/23691285/stardew-valley-sprite-redesign-fan-art/)
+
+![Ref](DocumentAssets/fjkdlsfjlds.png)
+[Ref link](https://www.deviantart.com/getsuei-h/art/Pokemon-Main-Character-Sprites-127050918)
+[Ref link](https://www.reddit.com/r/earthbound/comments/nnrw5p/i_remastered_earthbound_sprites/)
+
+I showed many sorts of references to how the characters should look like in the document, These references helped paint a good picture as to what the final game should look like. The turkeys and human characters all look pretty consistent with one another based on the style I suggested.
+
+![Ref](DocumentAssets/unitycenter.png)
+
+I mapped out what the overall map should look like. In the game, we call this the Unity Center located at UC Daniel. This is based on the Memorial Union quad area at UC Davis.
 
 ## Game Feel
 
