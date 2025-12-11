@@ -307,9 +307,15 @@ Photo of health bar before and after recieving damage:
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+Link to the results of the gameplay test: [Link to Gameplay Test Document](https://docs.google.com/document/d/11KGVy2KtiswyZcIPhHo343gZ_qPnjs1r_493kMJ2Gv0/edit?usp=sharing)
 
-**Summarize the key findings from your gameplay tests.**
+The main findings are that the game functions fairly well, with all the basic funcionalities working as intended. However, a few bugs were discovered during my play of the game, and they included: 
+- The game freezing when the audio settings were toggled. 
+- The music in the main world randomly stopping (however, this could also be a result of the software as I struggled to recreate this bug).
+- The enemy sprites hovering slightly before decding into the battle scene. 
+- Player able to walk on top of trees that were placed in the corners of the map (less of a bug and more of a visual inconcistency)
+
+However, other than these issues, the game functions as intended and didn't have any other glaring issues. 
 
 ## Other Contributions
 
