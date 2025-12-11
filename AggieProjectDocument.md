@@ -264,7 +264,7 @@ Photo of health bar before and after recieving damage:
 
 ![map](aggiemon/Assets/tiles/aggiemonmap_incomplete_latest.png)
 
-- For the character, I desined the walking animation for frnt facing walking, side, adn back. There is also an idle animation for each of these poses. On top of creating the animations for the character, I assembled them into sprite sheets.
+- For the character, I designed the walking animation for front facing walking, side, and back. There is also an idle animation for each of these poses. On top of creating the animations for the character, I assembled them into sprite sheets.
 
 ![idle_sprite](aggiemon/Assets/sprites/idle_spritesheet.png) 
 
@@ -272,7 +272,7 @@ Photo of health bar before and after recieving damage:
 
 ![forward](aggiemon/Assets/sprites/Forward_spritesheet.png)
 
-- For the enemies, I created a the two turkey bosses (both designed to look like 80s bikers), and a mini squirrel boss. I was also responsible for animating them. 
+- For the enemies, I created the two turkey bosses (both designed to look like 80s bikers), and a mini squirrel boss. I was also responsible for animating them. 
 ![greasers](aggiemon/Assets/sprites/greasers_spritesheet.png) 
 
 ![squirrel](aggiemon/Assets/sprites/Squirrelframe0001.png)
