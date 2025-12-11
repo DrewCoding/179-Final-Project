@@ -183,13 +183,27 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 ## Game Logic
 
-I created the Gamemanager which essentially handles the transition between the over world and the battle screen. I also designed the encounter mechanism and the BattleSetup scene which allows for random enemy encounters. The BattleSetUp node guarantees the collided enemy is always created first. It will then choose to randomly generate 1 to 2 enemies for combat with up to 3 possible enemies. The logic for the buttons in the battle screen were also handled by me, including the system which maps the enemies in combat with the buttons in the combat command menu. 
+- I created the Gamemanager which essentially handles the transition between the over world and the battle screen. I also designed the encounter mechanism and the BattleSetup scene which allows for random enemy encounters. The BattleSetUp node guarantees the collided enemy is always created first. It will then choose to randomly generate 1 to 2 enemies for combat with up to 3 possible enemies. In combat the enemy ai is simple. The default turkey is designed to use turkey slap when the player's defense is over 75%, otherwise it choses either turkey slap or punch at random. The boss functions similarly but instead has the added move greaser punch. Generally the Tukey enemies will have a higher defense and hp but less speed and attack. The "Cooler Turkey" generally has a higher speed but less defenses.
 
-I was also responsible for creating the base enemy and player classes. Each enemy and player build off of the same character class but have different stats and skills. PlayerInfo is an auto load I added to help with player referencing and the level up mechanics.
+- The logic for the buttons in the battle screen were also handled by me, including the system which maps the enemies in combat with the buttons in the combat command menu. At battle set up each enemy is mapped to a button that gets updated every time an enemy dies. If there are duplicate enemies the name on the button will reflect that. For example if there are two turkeys their buttons will be named Turkey and Turkey 2 respectively.
 
-I created the base skill template and created the default punch (combo) skill and the "Turkey Slap" and "Greaser Punch" skills.
+- Added a tether to overworld enemy movements so they stay within an area. Lerp calculations are used to keep the enemy tethered to a 100 x 100 pixel area.
 
-The level up system was also created by me. The player is assigned a random growth rate type at the start of each game that effects the probability that a specific stat levels up. This system was inspired by Fire Emblem but stat increases are generally higher. There is also a scaling mechanic where Enemies will increase in difficulty and xp gain based on the players current level.
+- Enemy shake and combat effect were added by me. When an enemy attacks their sprite will move forward a few pixels and the universal attack sound effect will play before moving back. Upon taking damage the player will play their attack effect and the enemy that they hit will shake back and forth to simulate impact.
+
+- I was also responsible for creating the base enemy and player classes. Each enemy and player build off of the same character class but have different stats and skills. PlayerInfo is an auto load I added to help with player referencing and the level up mechanics. 
+
+- The level up system was also created by me. The player is assigned a random growth rate type at the start of each game that effects the probability that a specific stat levels up. The default growth rate sees that each stat has a 50% chance of increasing on level up. The aggressive and defensive rates have a higher probability of rising either attack or defense related stats at the cost of stats not related to them. This system was inspired by Fire Emblem but stat increases are generally higher. There is also a scaling mechanic where Enemies will increase in difficulty and xp gain based on the players current level.
+
+- I also created the base skill template and created the default punch (combo) skill and the "Turkey Slap" and "Greaser Punch" skills. Turkey slap lowers the player's defense by 25% but in general doesn't do much damage. Greaser Punch is the bosses move and does a high amount of damage. 
+
+
+scripts:
+- [BattleManager](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/battle_manager.gd#L1-L2) (Aziz contributed to the damage calculation and beta version of the turn order)
+- [Attack Effect](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/attack_effect.gd#L1)
+- [Character](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/character.gd#L1)
+- Contributions were also made to the player, turkey, enemy, and greaserturkey scripts
+- Enemy Skills folder (turkey slap and greaser punch)
 
 ## Audio
 
