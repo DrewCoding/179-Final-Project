@@ -137,17 +137,25 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 # Owen Ball
 
 ## User Interface and Input
+EXAMPLES:
+<img width="410" height="178" alt="image" src="https://github.com/user-attachments/assets/b130db00-5fc0-4c45-a780-611c4321ddc7" />
+<img width="274" height="339" alt="image" src="https://github.com/user-attachments/assets/56529b3b-6f06-4207-83a2-df1258b93a4a" />
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+During development, I was responsible for the entire UI layer of the game. I began by creating the overworld pause menu, which required implementing pause logic, focus-based navigation, input accessibility, and a modular menu system capable of opening submenus without allowing background input. I then designed a visual UI theme using pixel-art borders, custom styleboxes, and Godot's theme resources to give the menus a cohesive aesthetic. The pixel-art designs were acquired from free asset packs found on itch.io, and required creating atlas textures to extract the precise assets I wanted to use. 
 
-**Add an entry for each platform or input style your project supports.**
+
+For functionality, I built the Stats Menu and Skills Menu from scratch. These read data from the player character at runtime, update dynamically, and include selection-based detail panels. The map menu required careful handling of image scaling and letterboxing. I also created the Options Menu, which includes working volume sliders wired into the game's audio buses. I also ensured consistent process modes so menus work while paused, and my constributions provided the game's entire interface layer, structured cleanly as reusable scenes and integrated smoothly with gameplay. I organized all UI scenes, scripts, and assets into its own UI folder within the game files. 
+
+Input for the game is extremely simple and is simply mapped to wasd and arrow key movement, moving in the 4 cardinal directions and the ability to move in 8 directions when combining inputs. 
 
 ## Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.**
+For the Narrative Design, I largely came up with the main premise of the story. I tied the story into the setting, being a parody of UC Davis, playing as a student, using different aspects of the City of Davis including restaurants and lectures as skills, with a backstory involving a haywire experiment in a on-campus lab, affecting the nearby local wildlife such as turkeys and squirrels. This is where the inspiration for the assets of the professor and enemies comes from. I also was responsible for adapting the story to meet any gameplay cuts we had to make, ensuring that whatever direction we went that the story would still have coherent structure, such as repurposing assets as boss battles, and changing lecture halls to simply be the farmers market stall to acquire skills. 
 
 ## Other Contributions
+Throughout the project I added numerous polish features such as sound effects when navigating UI and integration with the dialogue textbox system so NPC speech automatically plays text audio. I also set up the animation player editor for the main character sprite when new assets were created, using region rects to manually edit the animation through the sprite sheet.  
+# Abdulaziz Alhumaidy
+
 
 # Abdulaziz Alhumaidy
 
