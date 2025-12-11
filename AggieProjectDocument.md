@@ -154,8 +154,6 @@ For the Narrative Design, I largely came up with the main premise of the story. 
 
 ## Other Contributions
 Throughout the project I added numerous polish features such as sound effects when navigating UI and integration with the dialogue textbox system so NPC speech automatically plays text audio. I also set up the animation player editor for the main character sprite when new assets were created, using region rects to manually edit the animation through the sprite sheet.  
-# Abdulaziz Alhumaidy
-
 
 # Abdulaziz Alhumaidy
 
@@ -163,13 +161,12 @@ Throughout the project I added numerous polish features such as sound effects wh
 
 ### Turn-Based Battle System Architecture
 
-* Designed and implemented the core turn-based combat system that manages battle flow, turn order, and state transitions.
+* Implemented the core turn-based combat system that manages battle flow, turn order, and state transitions. (Pius wrote the inital code structure which my implementation followed)
 * Turn order is calculated based on character speed stats - faster characters act first and can attack multiple times if they significantly outspeed opponents.
 * The battle manager uses a [current turn index](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L18) to cycle through combatants, with proper filtering to remove defeated characters from the turn queue.
 * Implemented state transitions between player turns, enemy turns, and battle conclusion states using the [_next_turn() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L82-L99).
 * The system [sorts turn order](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L49-L55) to ensure the player always acts first, then orders remaining characters by speed.
 * Battle system emits a [`battle_ended` signal](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L20) when combat concludes, allowing the game manager to handle scene transitions back to the overworld.
-
 
 ### Attack and Damage Calculation System
 
@@ -310,15 +307,9 @@ Photo of health bar before and after recieving damage:
 
 ## Gameplay Testing
 
-Link to the results of the gameplay test: [Link to Gameplay Test Document](https://docs.google.com/document/d/11KGVy2KtiswyZcIPhHo343gZ_qPnjs1r_493kMJ2Gv0/edit?usp=sharing)
+**Add a link to the full results of your gameplay tests.**
 
-The main findings are that the game functions fairly well, with all the basic funcionalities working as intended. However, a few bugs were discovered during my play of the game, and they included: 
-- The game freezing when the audio settings were toggled. 
-- The music in the main world randomly stopping (however, this could also be a result of the software as I struggled to recreate this bug).
-- The enemy sprites hovering slightly before decding into the battle scene. 
-- Player able to walk on top of trees that were placed in the corners of the map (less of a bug and more of a visual inconcistency)
-
-However, other than these issues, the game functions as intended and didn't have any other glaring issues. 
+**Summarize the key findings from your gameplay tests.**
 
 ## Other Contributions
 
