@@ -134,6 +134,8 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
+# Owen Ball
+
 ## User Interface and Input
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
@@ -141,9 +143,27 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 **Add an entry for each platform or input style your project supports.**
 
+## Narrative Design
+
+**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.**
+
+## Other Contributions
+
+# Abdulaziz Alhumaidy
+
 ## Movement/Physics
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+
+## Gameplay Testing
+
+**Add a link to the full results of your gameplay tests.**
+
+**Summarize the key findings from your gameplay tests.**
+
+## Other Contributions
+
+# Liz Voloshin
 
 ## Animation and Visuals
 
@@ -151,9 +171,17 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Game Logic
+## Gameplay Testing
 
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
+**Add a link to the full results of your gameplay tests.**
+
+**Summarize the key findings from your gameplay tests.**
+
+## Other Contributions
+
+# Pius Omolewa
+
+## Game Logic
 
 I designed the most of the battle system expect for the AttackSystem which was the damage calculation. I created the Gamemanager which essentially handles the transition between the over world and the battle screen. I also designed the encounter mechanism and the BattleSetup scene which allows for random enemy encounters. The BattleSetUp node guarantees the collided enemy is always created first. It will then choose to randomly generate 1 to 2 enemies for combat with up to 3 enemies. I also handled the logic for the buttons in the battle screen, including the system which maps the enemies in combat with the buttons in the combat command menu. 
 
@@ -163,12 +191,7 @@ I created the base skill template and created the default punch (combo) skill an
 
 The level up system was also created by me. The player is assigned a random growth rate type at the start of each game that effects the probability that a specific stat levels up. This system was inspired by Fire Emblem but stat increases are generally higher. There is also a scaling mechanic where Enemies will increase in difficulty based on the players current level.
 
-# Sub-Roles
-
 ## Audio
-
-Audio was not created by me instead I used the free assests listed below:
-
 
 Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">Pixabay</a>
 
@@ -179,23 +202,22 @@ Artist:HeatleyBros
 Writer:Brett Heatley, ASCAP
 Publisher:Heatley Music Publishing, ASCAP
 Label:Kyzen Music
-<a href= "https://www.youtube.com/watch?v=hgzlmu0K3YI&themeRefresh=1"> Link </a>
 
-"Dragon Castle" by @Makai-symphony <a href= "https://www.youtube.com/watch?v=9gBTKiVqprE"> Link </a>
+"Dragon Castle" by @Makai-symphony
 
-Jorge Hernandez - Chopsticks <a href= "https://www.youtube.com/watch?v=G-FGiICah8Q&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=10"> Link </a>
+**Document the sound style.**
 
-**Document the sound style.** 
+**List your assets, including their sources and licenses.**
 
-## Gameplay Testing
+**Describe the implementation of your audio system.**
 
-**Add a link to the full results of your gameplay tests.**
+## Other Contributions
 
-**Summarize the key findings from your gameplay tests.**
+# Nathan C
 
-## Narrative Design
+## Game Logic
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+**Document the game states and game data you managed and the design patterns you used to complete your task.**
 
 ## Press Kit and Trailer
 
@@ -203,6 +225,6 @@ Jorge Hernandez - Chopsticks <a href= "https://www.youtube.com/watch?v=G-FGiICah
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
-## Game Feel and Polish
+## Other Contributions
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+
