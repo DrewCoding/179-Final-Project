@@ -246,10 +246,19 @@ I was hoping that my implementation of dialogue would add to games theming and n
 
 ## User Interface
 
+My contributions as User Interface are as follows. I created the scene and scripts for [Start Menu](aggiemon/Scripts/startmenu.gd) and [Game Over](aggiemon/Scripts/gameover_menu.gd) Menu, and added battle_UI elements. For Start menu, I used a youtube video(linked above) to help get me started, and served as the foundation for how I implemented the everything else. 
+![startmeu](DocumentAssets/startmenu.png)
 
-My contributions as User Interface are as follows. I created the scene and scripts for [Start Menu](aggiemon/Scripts/startmenu.gd) and [Game Over](aggiemon/Scripts/gameover_menu.gd) Menu, and added battle_UI elements. For Start menu, I used a youtube video(linked above) to help get me started, and served as the foundation for how I implemented the everything else. The reason why I wanted to make the start screen a transparent background is because I am personally not very good at art design, and the art work made by our sole art_director did an amazing job at developing the maps and sprites for the game. So I thought a transparent background for the start menu would be an excellent choice. For whatever reason our tres files wouldn't work as a texture on the buttons so for implementing that I made child nodes underneath the buttons as reactextures and added them there then made the necessary changes to make them visible and interactable. For the logo, I used a generic font generator from [here](https://pokemon-fonts-generator.netlify.app). For the game over menu it's a similar scenario to the start over except with the instance of the player so that it can track whenever the player's health is at zero so that it can show and turn off the player's movement. [Here](https://github.com/DrewCoding/179-Final-Project/blob/55d2fef156517a58321ce8900f454fd6c0d87d9a/aggiemon/Scripts/gameover_menu.gd#L13). Lastly, for the battle UI I didn't want to re-use the limited textures we had and I didn't want to ask our sole art lead to do even more drawing than she was already doing so I drew the art myself on a website called pixilart.com. It's completely free and I think it turned out ok. 
+The reason why I wanted to make the start screen a transparent background is because I am personally not very good at art design, and the art work made by our sole art_director did an amazing job at developing the maps and sprites for the game. So I thought a transparent background for the start menu would be an excellent choice. For whatever reason our tres files wouldn't work as a texture on the buttons so for implementing that I made child nodes underneath the buttons as reactextures and added them there then made the necessary changes to make them visible and interactable. For the logo, I used a generic font generator from [here](https://pokemon-fonts-generator.netlify.app). 
+![gameover](DocumentAssets/gameover.png)
+For the game over menu it's a similar scenario to the start over except with the instance of the player so that it can track whenever the player's health is at zero so that it can show and turn off the player's movement. [Here](https://github.com/DrewCoding/179-Final-Project/blob/55d2fef156517a58321ce8900f454fd6c0d87d9a/aggiemon/Scripts/gameover_menu.gd#L13). 
+![credits](DocumentAssets/credits.png)
+I also added a credits page which might be a little outdated since some of us decided to change our roles to better suit the work we did on the project.
+
+Lastly, for the battle UI I didn't want to re-use the limited textures we had and I didn't want to ask our sole art lead to do even more drawing than she was already doing so I drew the art myself on a website called pixilart.com. It's completely free and I think it turned out ok. 
 
 ![battlemenu](DocumentAssets/battleUI.png)
+
 
 ## Other Contributions
 
