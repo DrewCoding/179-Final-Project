@@ -216,8 +216,11 @@ Artist:HeatleyBros
 Writer:Brett Heatley, ASCAP
 Publisher:Heatley Music Publishing, ASCAP
 Label:Kyzen Music
+<a href="https://www.youtube.com/watch?v=hgzlmu0K3YI">link</a>
 
-"Dragon Castle" by @Makai-symphony
+"Dragon Castle" by @Makai-symphony <a href = "https://www.youtube.com/watch?v=9gBTKiVqprE">link</a>
+
+Jorge Hernandez - "Chopsticks" <a href = "https://www.youtube.com/watch?v=G-FGiICah8Q&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=9">link</a>
 
 **Document the sound style.**
 
