@@ -311,11 +311,14 @@ However, other than these issues, the game functions as intended and didn't have
 
 - The logic for the buttons in the battle screen were also handled by me, including the system which maps the enemies in combat with the buttons in the combat command menu. At battle set up each enemy is mapped to a button that gets updated every time an enemy dies. If there are duplicate enemies the name on the button will reflect that. For example if there are two turkeys their buttons will be named Turkey and Turkey 2 respectively.
 
+- I was also responsible for creating the base enemy and player classes. Each enemy and player build off of the same character class but have different stats and skills. PlayerInfo is an auto load I added to help with player referencing and the level up mechanics. 
+
+
 - Added a tether to overworld enemy movements so they stay within an area. Lerp calculations are used to keep the enemy tethered to a 100 x 100 pixel area.
 
 - Enemy shake and combat effect were added by me. When an enemy attacks their sprite will move forward a few pixels and the universal attack sound effect will play before moving back. Upon taking damage the player will play their attack effect and the enemy that they hit will shake back and forth to simulate impact.
 
-- I was also responsible for creating the base enemy and player classes. Each enemy and player build off of the same character class but have different stats and skills. PlayerInfo is an auto load I added to help with player referencing and the level up mechanics. 
+- Added a respawn system that respawns enemies after 30 seconds. During the start of each battle the enemy that iniciated the combat shares it's spawner id with the BattleSetup node. At the end of combat the spawner at that particular id is told to create a new instance of that enemy and add it to the world
 
 - The level up system was also created by me. The player is assigned a random growth rate type at the start of each game that effects the probability that a specific stat levels up. The default growth rate sees that each stat has a 50% chance of increasing on level up. The aggressive and defensive rates have a higher probability of rising either attack or defense related stats at the cost of stats not related to them. This system was inspired by Fire Emblem but stat increases are generally higher. There is also a scaling mechanic where Enemies will increase in difficulty and xp gain based on the players current level.
 
@@ -323,13 +326,18 @@ However, other than these issues, the game functions as intended and didn't have
 
 
 scripts:
+- [BattleSetUp](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/battle_set_up.gd#L1)
 - [BattleManager](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/battle_manager.gd#L1-L2) (Aziz contributed to the damage calculation and beta version of the turn order)
-- [Attack Effect](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/attack_effect.gd#L1)
+- [attack_effect](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/attack_effect.gd#L1)
 - [Character](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/character.gd#L1)
+- [enemy_creator](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/enemy_creator.gd#L1)
+- [enemy_spawner](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/enemy_spawner.gd#L1)
+- [skill_button](https://vscode.dev/github/DrewCoding/179-Final-Project/blob/main/aggiemon/Scripts/skill_button.gd#L1)
 - Contributions were also made to the player, turkey, enemy, and greaserturkey scripts
 - Enemy Skills folder (turkey slap and greaser punch)
 
 ## Audio
+Audio was not made by me.
 
 Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">Pixabay</a>
 
