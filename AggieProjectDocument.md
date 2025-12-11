@@ -254,9 +254,6 @@ Mainly assisted the team with various tasks such as:
 * Updated the collision boundries around new structures added in the new map [new_map_test.tscn](https://github.com/DrewCoding/179-Final-Project/blob/2003d836b1fa1e1cae65eb06b6c0c28ed5e2f9d6/aggiemon/Scenes/new_map_test.tscn).
 * Assisted with NPC development by updating the NPC animations(professor, merchant, turkeys) ann positioning NPCs throughout the game world. Also created the scenes for the professor and merchant and added the relevant narrative texts made by the narrator to the characters.
 
-
-### Health Bar UI Integration
-
 * Modified the health bar system to [subscribe to health_changed signals](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/health_bar.gd#L9-L11).
 * The [_on_health_changed() callback](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/health_bar.gd#L13-L17) automatically updates the progress bar and label text.
 * Creates real-time visual feedback during combat without manual update calls.
