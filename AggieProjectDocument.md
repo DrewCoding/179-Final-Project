@@ -151,9 +151,9 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 # Abdulaziz Alhumaidy
 
-## Movement/Physics
+## Game Logic
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+**Document what game states and game data you managed and what design patterns you used to complete your task.**
 
 ## Gameplay Testing
 
