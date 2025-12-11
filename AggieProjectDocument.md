@@ -38,7 +38,7 @@ After you have pressed the start button, you are able to move around using WASD 
 
 If your project contains code that: 1) your team did not write, and 2) does not fit cleanly into a role, please document it in this section. Please include the author of the code, where to find the code, and note which scripts, folders, or other files that comprise the external contribution. Additionally, include the license for the external code that permits you to use it. You do not need to include the license for code provided by the instruction team.
 
-The battle background was generated using Stable Diffusion.
+The battle background and "Turkey" enemy sprite were generated using Stable Diffusion.
 
 Tutorials
 
@@ -119,7 +119,7 @@ I mapped out what the overall map should look like. In the game, we call this th
 
 I am responsible for the logic of the player controls in the game overworld. I used input mapping for the controls of the game, as well as the logic of how the player will move.
 
-In the [player.gd](https://github.com/DrewCoding/179-Final-Project/blob/f9ecb4d94fabb1ab4b8353660adc9b45d61479e2/aggiemon/Scripts/player.gd#L32-L76), I made a character controller that was consistent with its speed in all 8 directions, so there is no chances of the player gaining unintended amounts of speed.
+I wanted the movement to be simple, but make it feel fun to move. I made sure to use the built in velocity system as well as the inputs as that the player has more than 4 directions to go in. It gives the player more freedom and lesss jankiness in how they stride. In the [player.gd](https://github.com/DrewCoding/179-Final-Project/blob/f9ecb4d94fabb1ab4b8353660adc9b45d61479e2/aggiemon/Scripts/player.gd#L32-L76), I made a character controller that was consistent with its speed in all 8 directions, so there is no chances of the player gaining unintended amounts of speed. 
 
 Alongside the movement of the player, we also have the camera logic on the player. This is very straight forward, utilizing the built-in lerping when the camera follows the player in order to prevent possible motion sickness.
 
@@ -159,13 +159,20 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
+I designed the most of the battle system expect for the AttackSystem which was the damage calculation. I created the Gamemanager which essentially handles the transition between the over world and the battle screen. I also designed the encounter mechanism and the BattleSetup scene which allows for random enemy encounters. The BattleSetUp node guarantees the collided enemy is always created first. It will then choose to randomly generate 1 to 2 enemies for combat with up to 3 enemies. I also handled the logic for the buttons in the battle screen, including the system which maps the enemies in combat with the buttons in the combat command menu. 
+
+I was also responsible for creating the base enemy and player classes. Each enemy and player build off of the same character class but have different stats and skills. PlayerInfo is an auto load I added to help with player referencing and level up mechanics.
+
+I created the base skill template and created the default punch (combo) skill and the "Turkey Slap" and "Greaser Punch" skills.
+
+The level up system was also created by me. The player is assigned a random growth rate type at the start of each game that effects the probability that a specific stat levels up. This system was inspired by Fire Emblem but stat increases are generally higher. There is also a scaling mechanic where Enemies will increase in difficulty based on the players current level.
+
 # Sub-Roles
 
 ## Audio
 
-**List your assets, including their sources and licenses.**
+Audio was not created by me instead I used the free assests listed below:
 
-**Describe the implementation of your audio system.**
 
 Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87839">Pixabay</a>
 
@@ -176,9 +183,11 @@ Artist:HeatleyBros
 Writer:Brett Heatley, ASCAP
 Publisher:Heatley Music Publishing, ASCAP
 Label:Kyzen Music
+<a href= "https://www.youtube.com/watch?v=hgzlmu0K3YI&themeRefresh=1"> Link </a>
 
-"Dragon Castle" by @Makai-symphony
- 
+"Dragon Castle" by @Makai-symphony <a href= "https://www.youtube.com/watch?v=9gBTKiVqprE"> Link </a>
+
+Jorge Hernandez - Chopsticks <a href= "https://www.youtube.com/watch?v=G-FGiICah8Q&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=10"> Link </a>
 
 **Document the sound style.** 
 
