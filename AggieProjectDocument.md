@@ -63,7 +63,7 @@ Sub Role: Audio
 
 Abdulaziz Alhumaidy
 
-Main Role: Movement and Physics
+Main Role: Game Logic
 
 Sub Role: Gameplay Testing
 
@@ -153,15 +153,118 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 ## Game Logic
 
-**Document what game states and game data you managed and what design patterns you used to complete your task.**
+### Turn-Based Battle System Architecture
+
+* Designed and implemented the core turn-based combat system that manages battle flow, turn order, and state transitions.
+* Turn order is calculated based on character speed stats - faster characters act first and can attack multiple times if they significantly outspeed opponents.
+* The battle manager uses a [current turn index](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L18) to cycle through combatants, with proper filtering to remove defeated characters from the turn queue.
+* Implemented state transitions between player turns, enemy turns, and battle conclusion states using the [_next_turn() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L82-L99).
+* The system [sorts turn order](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L49-L55) to ensure the player always acts first, then orders remaining characters by speed.
+* Battle system emits a [`battle_ended` signal](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L20) when combat concludes, allowing the game manager to handle scene transitions back to the overworld.
+
+
+### Attack and Damage Calculation System
+
+* Created the [AttackSystem class](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/attack_system.gd) using static methods for easy access throughout the battle system.
+* The [calculate_damage() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/attack_system.gd#L5-L17) implements the damage formula: `damage = base_attack - (defense * 0.5)`, with random variance between 85-100%. It still ensures minimum damage of 1 to prevent zero-damage hits.
+
+### Character Health Management with Signal System
+
+* Implemented a signal-based health system in the [Character base class](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/character.gd) that both Player and Enemy inherit from.
+* The [take_damage() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/character.gd#L30-L35) emits a [`health_changed` signal](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/character.gd#L15) that UI components can subscribe to for automatic updates.
+* When health reaches zero, a [`died` signal](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/character.gd#L16) is emitted to trigger death handling logic.
+* The [is_alive() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/character.gd#L37-L38) is used by the battle manager to filter defeated characters from turn order.
+* For example, [health_bar.gd subscribes to health_changed](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/health_bar.gd#L9-L11) to automatically update health bar displays during combat.
+
+
+### Battle Victory and Defeat Conditions
+
+* Implemented the [_check_battle_end() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L100-L118) that evaluates win/loss conditions after each turn.
+* The system iterates through all combatants, validates they're still alive using `is_instance_valid()`, and categorizes them as player or enemies.
+* If no enemies remain alive, [_on_battle_won()](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L162-L165) is triggered.
+* If the player is defeated, [_on_battle_lost()](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L167-L170) is triggered.
+* Both callbacks include delays for dramatic effect before emitting the `battle_ended` signal.
+
+
+### Simple Enemy AI and Targeting System
+
+* Created the [choose_attack() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/enemy.gd#L25-L29) in the Enemy class for automatic target selection.
+* The AI searches for player characters using `get_tree().get_nodes_in_group("player")` and returns the first valid target.
+* During [enemy turns](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/battle_manager.gd#L149-L160), the battle manager calls this targeting method and executes attacks with appropriate delays between action and resolution.
+* Delays of 1 second are used before and after enemy attacks to create readable, dramatic combat flow.
+
+
+### Battle Mode State Management
+
+* Implemented the battle mode flag system that prevents player movement during combat.
+* The player script tracks an [`in_battle` boolean](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/player.gd#L9) that [blocks input processing](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/player.gd#L16-L17) when true.
+* The [set_battle_mode() method](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/player.gd#L13-L14) allows the game manager to toggle this state.
+* The game manager [sets this flag when battles start](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/game_manager.gd#L39) and [clears it when battles end](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/game_manager.gd#L54).
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+### Full Results
+[Link to full gameplay test results](https://docs.google.com/document/d/1Gd3-SF3Oj1tHF9o9kuKQIqrCpmDOJJtyu9twnDr5Txg/edit?tab=t.0)
 
-**Summarize the key findings from your gameplay tests.**
+### Key Findings
+
+**User Interface and Combat Flow:**
+- The fight UI was well-received overall, but one player noted that "selecting the enemy target is a bit clunky and detached from the enemy sprite. Some visual connection would add to the UI feel."
+- Players suggested adding flavor text or different sound effects based on attack effectiveness, noting that "some flavor text/different sounds depending on if the attack was super effective/not very effective would be nice."
+- **Post-demo improvements:** Enhanced battle UI with improved visual elements, added button click sound effects during combat, and created proper Start/Game Over screens with animations.
+
+**World Building and Immersion:**
+- The UC Davis theming was highly praised, with one tester commenting: "I loved the UC Davis theming-- I thought it was really clever and added a fun twist to the game."
+- Players felt the game world needed more content, with suggestions to "add more interactive characters to make the game world feel richer and more engaging."
+- **Post-demo improvements:** Integrated complete final map with proper boundaries, added NPC dialogue system with Professor and Merchant characters, and positioned multiple turkey enemies throughout the world.
+
+**Game Feel and Polish:**
+- The turn-based combat was praised as "really cool" with "animations and visual indicators throughout, as well as a soundtrack, making the game a pretty immersive experience."
+- Players noted some technical issues: "The trees have no collision and the scene changes lack transitions."
+- **Post-demo improvements:** Fixed tree collision issues, added multiple music tracks for different game states, implemented audio options menu with volume controls, and added dialogue/UI sound effects.
+
+**Gameplay Mechanics:**
+- One player suggested making combat more dynamic: "Adding like a real time event during battle to dodge or counter would be really cool and make the game very attention grabbing."
+- The suggestion to "give the player a companion would make the game more interactive" was offered to combat the "static combat" feel.
+- **Post-demo improvements:** Added shop system for purchasing skills with skill points, implemented complete level-up system with growth rates, created additional skills (Calculus, Egg Slam, iTea), and added Greaser Turkey boss as final challenge.
+
+**Overall Reception:**
+- Players were enthusiastic about the concept, with one commenting: "Lovely concept and implementation... I think you'll end up with a great game if you sell the story (fighting professors) and make a way to win the game."
+- Testers were "looking forward to seeing what gets added" to the game world and excited about the final product with story completion and boss encounters.
+
+**Bug Fixes:**
+- Resolved tree collision issues
+- Fixed player movement direction bugs
+- Corrected NPC interaction problems
+
+While some suggestions (real-time dodge/counter mechanics, companion system, additional random items) were not implemented due to time constraints and scope considerations, the core feedback about polish, world building, and gameplay clarity was addressed in the final version.
 
 ## Other Contributions
+
+Mainly assisted the team with various tasks such as:
+
+* Helped integrate the directional animation sprites made for the turkey enemies in [turkey.gd](https://github.com/DrewCoding/179-Final-Project/blob/2003d836b1fa1e1cae65eb06b6c0c28ed5e2f9d6/aggiemon/Scripts/turkey.gd).
+
+* Updated the collision boundries around new structures added in the new map [new_map_test.tscn](https://github.com/DrewCoding/179-Final-Project/blob/2003d836b1fa1e1cae65eb06b6c0c28ed5e2f9d6/aggiemon/Scenes/new_map_test.tscn).
+* Assisted with NPC development by updating the NPC animations(professor, merchant, turkeys) ann positioning NPCs throughout the game world. Also created the scenes for the professor and merchant and added the relevant narrative texts made by the narrator to the characters.
+
+
+### Health Bar UI Integration
+
+* Modified the health bar system to [subscribe to health_changed signals](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/health_bar.gd#L9-L11).
+* The [_on_health_changed() callback](https://github.com/DrewCoding/179-Final-Project/blob/be959fde89f056280333db749cc1c9079bd3076b/aggiemon/Scripts/health_bar.gd#L13-L17) automatically updates the progress bar and label text.
+* Creates real-time visual feedback during combat without manual update calls.
+
+Photo of health bar before and after recieving damage:
+![Photo of health bar before getting damage: Green](image.png)
+
+![Photo of health bar after getting damage: Red](image-1.png)
+
+### Bug Fixes and Polish
+
+* Fixed player movement direction issues in [commit 237080e](https://github.com/DrewCoding/179-Final-Project/commit/237080e).
+* Resolved NPC interaction bugs in [commit 98f5c5d](https://github.com/DrewCoding/179-Final-Project/commit/98f5c5d).
+* Improved overall game stability and user experience.
 
 # Liz Voloshin
 
@@ -173,9 +276,6 @@ Here in the [shop_menu.gd]() script, each item is placed into a skills Array, an
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
-
-**Summarize the key findings from your gameplay tests.**
 
 ## Other Contributions
 
