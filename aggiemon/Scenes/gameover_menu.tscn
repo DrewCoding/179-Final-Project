@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d34x2wbxlugvc"]
+[gd_scene load_steps=5 format=3 uid="uid://d34x2wbxlugvc"]
 
 [ext_resource type="Script" uid="uid://ccy7yu8kxv6e3" path="res://Scripts/gameover_menu.gd" id="1_jmoai"]
-[ext_resource type="Texture2D" uid="uid://u3tr247j3ljd" path="res://Assets/game_over.jpg" id="2_bi5jf"]
 [ext_resource type="FontFile" uid="uid://ci7nxp58uafet" path="res://UI/PressStart2P.ttf" id="3_4j3xw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phitp"]
-texture = ExtResource("2_bi5jf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw18a"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arl3u"]
 bg_color = Color(0, 0, 0, 1)
@@ -36,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_phitp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qw18a")
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 1
@@ -58,5 +57,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_arl3u")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_arl3u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_arl3u")
 text = "RETRY?"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_4j3xw")
+theme_override_font_sizes/font_size = 102
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_retry_pressed"]
