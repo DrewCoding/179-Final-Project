@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqj1qchdh7vx"]
+[gd_scene load_steps=3 format=3 uid="uid://s1k78iveay4v"]
 
 [ext_resource type="Theme" uid="uid://djkietrpesysc" path="res://UI/overworld_menu_theme.tres" id="1_rqwkp"]
-[ext_resource type="Script" uid="uid://b0wrffkrqetet" path="res://shop_menu.gd" id="1_tyiqa"]
+[ext_resource type="Script" uid="uid://b0wrffkrqetet" path="res://UI/shop_menu.gd" id="1_tyiqa"]
 
 [node name="ShopMenu" type="Control" node_paths=PackedStringArray("shop_list", "info_label", "skill_point_label")]
 layout_mode = 3

@@ -10,7 +10,7 @@ func _init() -> void:
 
 func effect(character : Character):
 	var string: String = ""
-	var init_defense = character.speed
+	var init_speed = character.speed
 	character.speed /= 1.35
-	string = "That was one hell of a hit. (%s speed %d -> %d)" %[character.name, init_defense, character.defence]
+	string = "That was one hell of a hit. (%s speed %d -> %d)" %[character.name, init_speed, character.speed]
 	return string
